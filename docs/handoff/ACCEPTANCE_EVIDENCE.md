@@ -8,14 +8,16 @@
 - `npm run course:validate -- --article seed-rain` 通过。
 - 自动测试、lint、Next 生产构建和阅读器/后台 E2E 在实现过程中均已通过；最终统一审查需重新运行并记录最终输出。
 
-## 五篇审核课程
+## 课程与人工审核状态
 
-| ID | 状态 | 人工审核要求 |
-| --- | --- | --- |
-| seed-rain | 本地真实音频完成 | 试听、事实、英文、教学、移动端审阅 |
-| review-tides | ARTICLE_DRAFT | 需替换为已核验的潮汐内容后再生成音频 |
-| review-ink | ARTICLE_DRAFT | 需替换为已核验的墨水内容后再生成音频 |
-| review-maps | ARTICLE_DRAFT | 需替换为已核验的地图内容后再生成音频 |
-| review-shade | ARTICLE_DRAFT | 需替换为已核验的阴影内容后再生成音频 |
+| Course | Source traceability | Fact review | English review | Teaching review | Audio audition |
+| --- | --- | --- | --- | --- | --- |
+| seed-rain | 既有本地生产证据 | pending | pending | pending | 本地真实 Fish Audio 完成 |
+| review-waiting | 2 条 ArticleSource：PMC 等待研究、时间感综述 | pending | pending | pending | not generated |
+| review-memory | 3 条 ArticleSource：APA reconstructive memory、misinformation effect、false memory | pending | pending | pending | not generated |
+| review-quiet | 2 条 ArticleSource：APA fundamental attribution error、SEP Other Minds | pending | pending | pending | not generated |
+| review-solitude | 2 条 ArticleSource：PMC solitude reappraisal、SEP Thoreau | pending | pending | pending | not generated |
 
-不得仅凭自动 QA 或结构校验将任一审核课程发布。`npm run course:validate -- --all` 还会拒绝正文重复的课程；当前四篇草稿预期会被该规则阻止，直到各自替换为独立内容。
+四篇人文课程均为 450–600 词、六段二十四句、八个教学段的 `ARTICLE_DRAFT`。导入命令会清理旧的克隆草稿 `review-tides`、`review-ink`、`review-maps`、`review-shade`，并只写入这四篇独立课程；不会创建音频或通过 QA。
+
+验证命令：`npm run courses:seed-humanities`，随后运行 `npm run course:validate -- --all`。不得仅凭自动 QA 或结构校验将任一审核课程发布；事实、英文、教学与试听均需人工完成。

@@ -13,7 +13,8 @@
     "course:validate": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/validate-course.ts --",
     "audio:generate": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/generate-audio.ts --",
     "audio:audition": "tsx scripts/audition-voices.ts --",
-    "courses:create-review-set": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/create-review-courses.ts"
+    "courses:create-review-set": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/create-review-courses.ts",
+    "courses:seed-humanities": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/humanities-review-courses.ts"
   },
   "dependencies": {
     "next": "16.2.12",
