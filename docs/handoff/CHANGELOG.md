@@ -12,3 +12,5 @@
 - 实现本地 Next.js/Prisma 应用、公共阅读器、后台编辑、QA/发布门槛和 Fish Audio 版本化音频流程。
 - 完成教师与朗读者真实 Fish Audio 短试听：均为 `pcm_s16le`、44.1kHz、单声道，manifest/timeline hash 与时长一致。
 - 生成 `seed-rain` 全部 8 个真实 LessonSegment 音频；本地课程血缘校验通过。
+- 以四篇独立的人文心理课程替换重复草稿：等待的主观时间、重建性记忆、理解沉默与独处。每篇均有 24 个稳定句子、八个教学段、2–3 条 ArticleSource，保持 `ARTICLE_DRAFT` 且不生成音频。
+- 最终统一审查通过：全量课程校验、21 个单测、4 个 Playwright E2E、ESLint 与 Next 生产构建均通过。发布仍等待四篇课程的人工事实、英文、教学与试听审核。
