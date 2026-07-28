@@ -22,7 +22,6 @@ export function ArticleReader({ article, initialMode = "GUIDED" }: { article: Pu
   const initialFollowRef = useRef(true);
   const sentences = useMemo(() => article.paragraphs.flatMap((paragraph) => paragraph.sentences), [article]);
   const queue = useMemo(() => state.mode === "GUIDED" ? buildGuidedQueue(article.lessonSegments) : buildReadingQueue(article.lessonSegments), [article.lessonSegments, state.mode]);
-  const active = sentences.find((sentence) => sentence.id === state.activeItemId);
   const activeQueueIndex = queue.findIndex((item) => item.sentenceIds.includes(state.activeItemId || ""));
   useEffect(() => {
     const audio = audioRef.current;
@@ -98,6 +97,6 @@ export function ArticleReader({ article, initialMode = "GUIDED" }: { article: Pu
     </article>
     <CurrentLessonPanel segments={article.lessonSegments} activeSentenceId={state.activeItemId} />
     <audio ref={audioRef} preload="metadata" />
-    <PlayerBar playing={state.playing} rate={state.rate} subtitle={active?.text} completed={state.completed} position={activeQueueIndex >= 0 ? `${activeQueueIndex + 1} / ${queue.length}` : undefined} onPlayPause={togglePlayback} onPrevious={navigatePrevious} onNext={navigateNext} onRate={(rate) => dispatch({ type: "SET_RATE", rate })} />
+    <PlayerBar playing={state.playing} rate={state.rate} completed={state.completed} position={activeQueueIndex >= 0 ? `${activeQueueIndex + 1} / ${queue.length}` : undefined} onPlayPause={togglePlayback} onPrevious={navigatePrevious} onNext={navigateNext} onRate={(rate) => dispatch({ type: "SET_RATE", rate })} />
   </div>;
 }
