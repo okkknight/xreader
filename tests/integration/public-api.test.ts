@@ -16,10 +16,16 @@ describe("public article boundaries", () => {
       { id: draftId, slug: `draft-${draftId}`, titleEn: "Draft", titleZh: "草稿", topic: "test", difficulty: "B1", bodyText: "Draft", wordCount: 1, status: "ARTICLE_DRAFT" },
       { id: publishedId, slug: `published-${publishedId}`, titleEn: "Published", titleZh: "发布", topic: "test", difficulty: "B1", bodyText: "Published", wordCount: 1, status: "PUBLISHED", publishedAt: new Date("2026-07-28T12:00:00Z") },
     ] });
+    const sourceId = randomUUID();
+    await prisma.source.create({ data: { id: sourceId, title: "Private source", url: "https://example.com/private" } });
+    await prisma.articleSource.create({ data: { articleId: publishedId, sourceId, role: "FACT_CHECK", factNotes: { keyFacts: ["Private fact"] } } });
 
     expect(await getPublicArticle(prisma, `draft-${draftId}`, new Date("2026-07-29T00:00:00Z"))).toBeNull();
     expect(await getTodayArticle(prisma, new Date("2026-07-29T00:00:00Z"))).toMatchObject({ slug: `published-${publishedId}` });
-    expect(JSON.stringify(await getPublicArticle(prisma, `published-${publishedId}`, new Date()))).not.toContain("promptVer");
+    const publicBody = JSON.stringify(await getPublicArticle(prisma, `published-${publishedId}`, new Date()));
+    expect(publicBody).not.toContain("promptVer");
+    expect(publicBody).not.toContain("Private source");
+    expect(publicBody).not.toContain("Private fact");
   });
 
   it("serves a valid byte-range response for a ready approved asset", async () => {

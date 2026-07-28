@@ -10,4 +10,9 @@ test("anonymous visitors are shown login and an authorized editor can edit a cou
   await expect(page.getByRole("heading", { name: "Why Does Rain Have a Smell?" })).toBeVisible();
   await page.getByRole("button", { name: "句子" }).click();
   await expect(page.getByText("seed-rain-p01-s01")).toBeVisible();
+  await page.getByRole("button", { name: "来源" }).click();
+  await page.getByLabel("来源标题").fill("Memory source");
+  await page.getByLabel("来源 URL").fill("https://example.com/memory");
+  await page.getByRole("button", { name: "保存来源" }).click();
+  await expect(page.getByText("Memory source")).toBeVisible();
 });

@@ -53,5 +53,9 @@ export async function verifyAdminPassword(password: string, env: SessionEnv = pr
 export function assertSameOrigin(request: Request) {
   const origin = request.headers.get("origin");
   if (!origin) return;
-  if (origin !== new URL(request.url).origin) throw new Error("Invalid request origin");
+  const requestUrl = new URL(request.url); const originUrl = new URL(origin);
+  if (originUrl.origin === requestUrl.origin) return;
+  const loopbackHosts = new Set(["localhost", "127.0.0.1", "::1"]);
+  if (process.env.NODE_ENV !== "production" && loopbackHosts.has(originUrl.hostname) && loopbackHosts.has(requestUrl.hostname) && originUrl.port === requestUrl.port) return;
+  throw new Error("Invalid request origin");
 }
