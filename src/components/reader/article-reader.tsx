@@ -1,23 +1,25 @@
 "use client";
 
-import { useEffect, useMemo, useReducer, useRef } from "react";
+import { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { playbackReducer, initialPlaybackState } from "@/features/reader/playback-reducer";
 import { AudioController } from "@/features/reader/audio-controller";
 import { buildGuidedQueue, buildReadingQueue } from "@/features/reader/queue";
 import { createProgressStore } from "@/features/reader/progress";
 import type { PublicArticle } from "@/types/public-article";
-import { ArticleBody } from "./article-body";
-import { ModeSwitch } from "./mode-switch";
+import { ArticleCanvas } from "./article-canvas";
+import { ReaderHeader } from "./reader-header";
+import { LessonOutline } from "./lesson-outline";
 import { PlayerBar } from "@/components/player/player-bar";
-import { GuidedSubtitle } from "@/components/player/guided-subtitle";
 
-export function ArticleReader({ article }: { article: PublicArticle }) {
-  const [state, dispatch] = useReducer(playbackReducer, initialPlaybackState);
+export function ArticleReader({ article, initialMode = "GUIDED" }: { article: PublicArticle; initialMode?: "GUIDED" | "READING" }) {
+  const [state, dispatch] = useReducer(playbackReducer, { ...initialPlaybackState, mode: initialMode });
+  const [translations, setTranslations] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const controllerRef = useRef<AudioController | null>(null);
   const modeRef = useRef(state.mode);
   const pendingGuidedPlayRef = useRef<string | undefined>(undefined);
   const autoScrollingRef = useRef(false);
+  const initialFollowRef = useRef(true);
   const sentences = useMemo(() => article.paragraphs.flatMap((paragraph) => paragraph.sentences), [article]);
   const queue = useMemo(() => state.mode === "GUIDED" ? buildGuidedQueue(article.lessonSegments) : buildReadingQueue(article.lessonSegments), [article.lessonSegments, state.mode]);
   const active = sentences.find((sentence) => sentence.id === state.activeItemId);
@@ -50,6 +52,7 @@ export function ArticleReader({ article }: { article: PublicArticle }) {
   useEffect(() => { if (audioRef.current) audioRef.current.playbackRate = state.rate; }, [state.rate]);
   useEffect(() => {
     if (!state.autoFollow || !state.activeItemId) return;
+    if (initialFollowRef.current) { initialFollowRef.current = false; return; }
     const sentence = document.querySelector<HTMLElement>(`[data-sentence-id="${state.activeItemId}"]`);
     if (!sentence) return;
     autoScrollingRef.current = true;
@@ -64,6 +67,7 @@ export function ArticleReader({ article }: { article: PublicArticle }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [state.playing]);
   const chooseSentence = (id: string) => {
+    initialFollowRef.current = false;
     dispatch({ type: "SET_ACTIVE", itemId: id });
     const item = queue.find((candidate) => candidate.sentenceIds.includes(id));
     if (!item) { dispatch({ type: "SET_PLAYING", playing: false }); return; }
@@ -79,20 +83,20 @@ export function ArticleReader({ article }: { article: PublicArticle }) {
   };
   const changeMode = (mode: "GUIDED" | "READING") => {
     if (mode === "GUIDED" && state.mode === "GUIDED") { if (sentences[0]) chooseSentence(state.activeItemId || sentences[0].id); return; }
+    initialFollowRef.current = false;
     controllerRef.current?.pause();
     if (mode === "GUIDED") pendingGuidedPlayRef.current = state.activeItemId || sentences[0]?.id;
     dispatch({ type: "SET_MODE", mode });
   };
   const navigatePrevious = () => { controllerRef.current?.previous(); };
   const navigateNext = () => { controllerRef.current?.next(); };
-  return <div className="reader-layout">
-    <article className="article-column">
-      <header className="article-heading"><p>{article.topic} · {article.difficulty}</p><h1>{article.titleEn}</h1><h2>{article.titleZh}</h2>{article.dekZh ? <p className="dek">{article.dekZh}</p> : null}<ModeSwitch mode={state.mode} onChange={changeMode} /></header>
-      <ArticleBody paragraphs={article.paragraphs} activeSentenceId={state.activeItemId} onSentenceSelect={chooseSentence} />
-      {state.mode === "GUIDED" && !state.autoFollow ? <button type="button" onClick={() => dispatch({ type: "RESTORE_AUTO_FOLLOW" })}>回到当前讲解</button> : null}
+  return <div className="reader-page">
+    <article className="reader-main">
+      <ReaderHeader article={article} mode={state.mode} onModeChange={changeMode} translations={translations} onToggleTranslations={() => setTranslations((value) => !value)} />
+      <ArticleCanvas paragraphs={article.paragraphs} activeSentenceId={state.activeItemId} translations={translations} onSentenceSelect={chooseSentence} />
+      {state.mode === "GUIDED" && !state.autoFollow ? <button className="resume-follow" type="button" onClick={() => dispatch({ type: "RESTORE_AUTO_FOLLOW" })}>回到当前讲解</button> : null}
     </article>
-    <aside className="lesson-rail" aria-label="讲解目录"><h2>这一课</h2>{article.lessonSegments.map((segment) => <button key={segment.id} type="button" className={state.activeItemId && segment.sentenceIds.includes(state.activeItemId) ? "is-current" : ""} onClick={() => segment.sentenceIds[0] && chooseSentence(segment.sentenceIds[0])}><span>{String(segment.order).padStart(2, "0")}</span><strong>{segment.type.replaceAll("_", " ")}</strong>{segment.script ? <small>{segment.script}</small> : null}</button>)}</aside>
-    <GuidedSubtitle text={active?.text} />
+    <LessonOutline segments={article.lessonSegments} activeSentenceId={state.activeItemId} onSelect={chooseSentence} />
     <audio ref={audioRef} preload="metadata" />
     <PlayerBar playing={state.playing} rate={state.rate} subtitle={active?.text} completed={state.completed} position={activeQueueIndex >= 0 ? `${activeQueueIndex + 1} / ${queue.length}` : undefined} onPlayPause={togglePlayback} onPrevious={navigatePrevious} onNext={navigateNext} onRate={(rate) => dispatch({ type: "SET_RATE", rate })} />
   </div>;

@@ -7,7 +7,7 @@ describe("validateCourse", () => {
   it("rejects ARTICLE_READ segments without sentence IDs", () => {
     expect(() => validateCourse({
       ...seedCourse,
-      lessonSegments: [{ ...seedCourse.lessonSegments[1], sentenceIds: [] }],
+      lessonSegments: [{ ...seedCourse.lessonSegments[2], order: 1, sentenceIds: [] }],
     })).toThrow("ARTICLE_READ");
   });
 

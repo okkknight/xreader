@@ -23,10 +23,10 @@ describe("ArticleRepository", () => {
     expect(loaded?.paragraphs).toHaveLength(6);
     expect(loaded?.paragraphs.flatMap((paragraph) => paragraph.sentences)).toHaveLength(24);
     expect(loaded?.paragraphs[0].sentences[1].annotations).toEqual([
-      expect.objectContaining({ text: "petrichor", meaningZh: "雨后泥土与植物混合的气味" }),
+      expect.objectContaining({ text: "petrichor", meaningZh: "雨后或初雨时常见的一类气味名称" }),
     ]);
     expect(loaded?.lessonSegments.map((segment) => segment.order)).toEqual([
-      1, 2, 3, 4, 5, 6, 7, 8,
+      ...Array.from({ length: 21 }, (_, index) => index + 1),
     ]);
   });
 });

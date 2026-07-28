@@ -17,7 +17,7 @@ test("a guest can navigate a lesson and resume its completed state", async ({ pa
   await page.goto("/articles/why-rain-has-a-smell");
   await page.getByRole("button", { name: "开始讲解" }).click();
   await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem("xreader:progress:seed-rain") || "{}").guidedSegmentId)).toBe("seed-rain-seg-01");
-  for (let index = 0; index < 8; index += 1) await page.getByRole("button", { name: "下一段" }).click();
+  for (let index = 0; index < 21; index += 1) await page.getByRole("button", { name: "下一段" }).click();
   await expect(page.getByText("这一课已经听完了")).toBeVisible();
   await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem("xreader:progress:seed-rain") || "{}").completed)).toBe(true);
   await page.reload();

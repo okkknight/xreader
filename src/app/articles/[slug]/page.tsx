@@ -7,9 +7,11 @@ import { getPublicArticle } from "@/server/articles/public-query";
 
 export const dynamic = "force-dynamic";
 
-export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }): Promise<JSX.Element> {
+export default async function ArticlePage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams?: Promise<{ mode?: string }> }): Promise<JSX.Element> {
   const { slug } = await params;
+  const query = searchParams ? await searchParams : undefined;
   const article = await getPublicArticle(prisma, slug);
   if (!article) notFound();
-  return <AppShell><ArticleReader article={article} /></AppShell>;
+  const initialMode = query?.mode === "reading" ? "READING" : "GUIDED";
+  return <AppShell><ArticleReader article={article} initialMode={initialMode} /></AppShell>;
 }
