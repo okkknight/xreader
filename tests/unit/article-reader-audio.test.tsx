@@ -38,4 +38,18 @@ describe("ArticleReader audio playback", () => {
     expect(screen.getByText("本节讲解完成")).toBeVisible();
     expect(JSON.parse(stored.get("xreader:progress:article-1") || "{}")).toMatchObject({ completed: true });
   });
+
+  it("follows the active sentence until the listener scrolls away", async () => {
+    vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue(undefined);
+    vi.spyOn(HTMLMediaElement.prototype, "pause").mockImplementation(() => undefined);
+    const scrollIntoView = vi.fn();
+    Object.defineProperty(HTMLElement.prototype, "scrollIntoView", { configurable: true, value: scrollIntoView });
+    render(<ArticleReader article={article} />);
+
+    await act(async () => { fireEvent.click(screen.getByRole("button", { name: "开始讲解" })); });
+    expect(scrollIntoView).toHaveBeenCalled();
+    await act(async () => { await new Promise((resolve) => setTimeout(resolve, 410)); });
+    await act(async () => { window.dispatchEvent(new Event("scroll")); });
+    expect(screen.getByRole("button", { name: "回到当前讲解" })).toBeVisible();
+  });
 });

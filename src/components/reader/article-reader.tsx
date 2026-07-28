@@ -17,6 +17,7 @@ export function ArticleReader({ article }: { article: PublicArticle }) {
   const controllerRef = useRef<AudioController | null>(null);
   const modeRef = useRef(state.mode);
   const pendingGuidedPlayRef = useRef<string | undefined>(undefined);
+  const autoScrollingRef = useRef(false);
   const sentences = useMemo(() => article.paragraphs.flatMap((paragraph) => paragraph.sentences), [article]);
   const queue = useMemo(() => state.mode === "GUIDED" ? buildGuidedQueue(article.lessonSegments) : buildReadingQueue(article.lessonSegments), [article.lessonSegments, state.mode]);
   const active = sentences.find((sentence) => sentence.id === state.activeItemId);
@@ -47,6 +48,21 @@ export function ArticleReader({ article }: { article: PublicArticle }) {
     if (item?.sentenceIds[0]) dispatch({ type: "SET_ACTIVE", itemId: item.sentenceIds[0] });
   }, [article.id, queue, state.mode]);
   useEffect(() => { if (audioRef.current) audioRef.current.playbackRate = state.rate; }, [state.rate]);
+  useEffect(() => {
+    if (!state.autoFollow || !state.activeItemId) return;
+    const sentence = document.querySelector<HTMLElement>(`[data-sentence-id="${state.activeItemId}"]`);
+    if (!sentence) return;
+    autoScrollingRef.current = true;
+    const reducedMotion = typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    sentence.scrollIntoView?.({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
+    const timeout = window.setTimeout(() => { autoScrollingRef.current = false; }, 400);
+    return () => window.clearTimeout(timeout);
+  }, [state.activeItemId, state.autoFollow]);
+  useEffect(() => {
+    const handleScroll = () => { if (state.playing && !autoScrollingRef.current) dispatch({ type: "USER_SCROLLED_AWAY" }); };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [state.playing]);
   const chooseSentence = (id: string) => {
     dispatch({ type: "SET_ACTIVE", itemId: id });
     const item = queue.find((candidate) => candidate.sentenceIds.includes(id));
