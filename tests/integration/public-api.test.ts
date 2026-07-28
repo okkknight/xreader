@@ -32,4 +32,14 @@ describe("public article boundaries", () => {
     expect(response.headers.get("Content-Range")).toBe("bytes 1-2/4");
     expect(new Uint8Array(await response.arrayBuffer())).toEqual(new Uint8Array([1, 2]));
   });
+
+  it("exposes ready segment audio through the media endpoint instead of a storage path", async () => {
+    const articleId = randomUUID(); const segmentId = randomUUID(); const assetId = randomUUID(); const slug = `audio-${articleId}`;
+    await prisma.article.create({ data: { id: articleId, slug, titleEn: "Audio", titleZh: "音频", topic: "test", difficulty: "B1", bodyText: "Audio", wordCount: 1, status: "PUBLISHED", publishedAt: new Date("2026-07-28T12:00:00Z"), lessonSegments: { create: { id: segmentId, order: 1, type: "OPENING", voiceRole: "TEACHER", script: "Hello", sentenceIds: [], audioStatus: "READY", audioPath: "private/audio.wav" } } } });
+    await prisma.audioAsset.create({ data: { id: assetId, ownerType: "LESSON_SEGMENT", ownerId: segmentId, provider: "fish-audio", voiceId: "voice", path: "private/audio.wav", format: "wav", durationMs: 1, textHash: "hash", status: "READY" } });
+
+    const article = await getPublicArticle(prisma, slug, new Date("2026-07-29T00:00:00Z"));
+
+    expect(article?.lessonSegments[0].audioPath).toBe(`/api/media/${assetId}`);
+  });
 });
