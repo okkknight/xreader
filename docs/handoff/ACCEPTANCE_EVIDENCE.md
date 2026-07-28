@@ -18,4 +18,4 @@
 | review-maps | ARTICLE_DRAFT | 需替换为已核验的地图内容后再生成音频 |
 | review-shade | ARTICLE_DRAFT | 需替换为已核验的阴影内容后再生成音频 |
 
-不得仅凭自动 QA 或结构校验将任一审核课程发布。
+不得仅凭自动 QA 或结构校验将任一审核课程发布。`npm run course:validate -- --all` 还会拒绝正文重复的课程；当前四篇草稿预期会被该规则阻止，直到各自替换为独立内容。

@@ -30,3 +30,14 @@ export function evaluateQa({ course, audioStatuses }: { course: CourseImport; au
 
   return { blockingIssues, warnings };
 }
+
+export function findDuplicateCourseBodies(courses: Array<{ id: string; bodyText: string }>) {
+  const seen = new Map<string, string>();
+  const duplicates: Array<{ id: string; matches: string }> = [];
+  for (const course of courses) {
+    const normalized = course.bodyText.replace(/\s+/g, " ").trim().toLowerCase();
+    const matches = seen.get(normalized);
+    if (matches) duplicates.push({ id: course.id, matches }); else seen.set(normalized, course.id);
+  }
+  return duplicates;
+}

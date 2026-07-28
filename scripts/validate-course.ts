@@ -4,6 +4,7 @@ import path from "node:path";
 import { prisma } from "@/lib/db/client";
 import { validateAudioLineage } from "@/lib/audio/lineage";
 import { validateCourse } from "@/lib/validation/course-schema";
+import { findDuplicateCourseBodies } from "@/lib/validation/qa";
 import { ArticleRepository } from "@/lib/db/article-repository";
 
 async function main() {
@@ -19,6 +20,11 @@ async function main() {
     const assets = await prisma.audioAsset.findMany({ where: { ownerType: "LESSON_SEGMENT", ownerId: { in: article.lessonSegments.map((segment) => segment.id) }, status: "READY" } });
     for (const asset of assets) { const segment = article.lessonSegments.find((item) => item.id === asset.ownerId)!; const text = segment.script || (Array.isArray(segment.sentenceIds) ? segment.sentenceIds.map((id) => sentences.get(String(id))).filter(Boolean).join(" ") : ""); await validateAudioLineage({ directory: path.join(root, path.dirname(asset.path)), textHash: createHash("sha256").update(text).digest("hex") }); }
     console.log(`${entry.slug}: valid`);
+  }
+  if (all) {
+    const bodies = await prisma.article.findMany({ select: { id: true, bodyText: true } });
+    const duplicates = findDuplicateCourseBodies(bodies);
+    if (duplicates.length) throw new Error(`review courses must have independent bodies: ${duplicates.map((item) => `${item.id}=${item.matches}`).join(", ")}`);
   }
 }
 main().finally(() => prisma.$disconnect()).catch((error) => { console.error(error); process.exitCode = 1; });
