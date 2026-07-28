@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} next dev",
     "build": "next build",
     "lint": "eslint .",
     "test": "DATABASE_URL=${DATABASE_URL:-file:../data/test.db} vitest run",

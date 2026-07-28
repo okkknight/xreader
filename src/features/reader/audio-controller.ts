@@ -5,8 +5,9 @@ export class AudioController {
   private index = -1;
   private playRequest = 0;
 
-  constructor(private readonly audio: HTMLAudioElement, private readonly onAdvance?: (item?: PlaybackItem) => void) {
+  constructor(private readonly audio: HTMLAudioElement, private readonly onAdvance?: (item?: PlaybackItem) => void, private readonly onTime?: (item: PlaybackItem, currentTimeMs: number) => void) {
     audio.addEventListener("ended", () => this.next());
+    audio.addEventListener("timeupdate", () => { const item = this.queue[this.index]; if (item) this.onTime?.(item, this.audio.currentTime * 1000); });
   }
 
   setQueue(queue: PlaybackItem[]) { this.queue = queue; this.index = -1; }

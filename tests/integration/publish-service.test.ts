@@ -9,7 +9,8 @@ async function createArticle(audioStatus: "READY" | "MISSING") {
   return prisma.article.create({ data: {
     id, slug: `publish-${id}`, titleEn: "Title", titleZh: "标题", topic: "test", difficulty: "B1-B2",
     bodyText: "A body.", wordCount: 2, status: "QA_PASSED",
-    lessonSegments: { create: { id: `segment-${id}`, order: 1, type: "OPENING", voiceRole: "TEACHER", script: "Hello", sentenceIds: [], audioStatus, audioPath: audioStatus === "READY" ? "article/segment/audio.wav" : null } },
+    paragraphs: { create: { id: `paragraph-${id}`, order: 1, text: "A body.", sentences: { create: { id: `sentence-${id}`, order: 1, text: "A body." } } } },
+    paragraphGuides: { create: { id: `guide-${id}`, paragraphId: `paragraph-${id}`, order: 1, paragraphGoal: "Read", scriptText: "Hello", audioStatus, audioPath: audioStatus === "READY" ? "article/guide/audio.wav" : null, sentenceGuides: { create: { id: `sentence-guide-${id}`, paragraphId: `paragraph-${id}`, sentenceId: `sentence-${id}`, order: 1, depth: "QUICK", originalReadText: "A body.", meaningZh: "一段正文", sentenceFunction: "开始", primaryTeachingGoal: "理解" } } } },
   } });
 }
 

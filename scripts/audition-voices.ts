@@ -15,7 +15,7 @@ async function main() {
   for (const [role, referenceId] of [["teacher", config.teacherReferenceId], ["reader", config.readerReferenceId]] as const) {
     if (!referenceId) throw new Error(`Missing ${role} reference ID`);
     const result = await provider.synthesize({ text, referenceId, idempotencyKey: createHash("sha256").update(`${role}:${text}`).digest("hex") });
-    const stored = await storage.writeVersion({ articleId: "audition", ownerId: role, ownerType: "LESSON_SEGMENT" }, result.bytes, { textHash: createHash("sha256").update(text).digest("hex"), referenceId, model: config.model, durationMs: 0, providerRequestId: result.providerRequestId }, processor);
+    const stored = await storage.writeVersion({ articleId: "audition", ownerId: role, ownerType: "PARAGRAPH_GUIDE" }, result.bytes, { textHash: createHash("sha256").update(text).digest("hex"), referenceId, model: config.model, durationMs: 0, providerRequestId: result.providerRequestId }, processor);
     await writeFile(path.join(root, `${role}-latest.txt`), stored.audioPath);
     console.log(`${role}: ${stored.audioPath}`);
   }

@@ -1,4 +1,4 @@
-export type PlaybackItem = { id: string; sentenceIds: string[]; audioPath: string };
+export type PlaybackItem = { id: string; sentenceIds: string[]; audioPath: string; sentenceRanges?: Array<{ sentenceId: string; startMs: number; endMs: number }> };
 
 export type PlaybackState = {
   mode: "GUIDED" | "READING";

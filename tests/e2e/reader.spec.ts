@@ -16,8 +16,8 @@ test("guided reading highlights the current sentence and supports reading mode",
 test("a guest can navigate a lesson and resume its completed state", async ({ page }) => {
   await page.goto("/articles/why-rain-has-a-smell");
   await page.getByRole("button", { name: "开始讲解" }).click();
-  await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem("xreader:progress:seed-rain") || "{}").guidedSegmentId)).toBe("seed-rain-seg-01");
-  for (let index = 0; index < 21; index += 1) await page.getByRole("button", { name: "下一段" }).click();
+  await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem("xreader:progress:seed-rain") || "{}").guidedParagraphId)).toBe("seed-rain-p01-guide");
+  for (let index = 0; index < 6; index += 1) await page.getByRole("button", { name: "下一段" }).click();
   await expect(page.getByText("完成", { exact: true })).toBeVisible();
   await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem("xreader:progress:seed-rain") || "{}").completed)).toBe(true);
   await page.reload();

@@ -8,8 +8,10 @@ describe("evaluateQa", () => {
     expect(evaluateQa({ course: seedCourse, audioStatuses: ["STALE"] }).blockingIssues).toContain("STALE_AUDIO");
   });
 
-  it("warns when guided teaching density is outside the target range", () => {
-    const result = evaluateQa({ course: seedCourse, audioStatuses: [] });
-    expect(result.warnings).toContain("PAUSE_COUNT_OUT_OF_RANGE");
+  it("warns when deep sentence count is outside the target range", () => {
+    const course = structuredClone(seedCourse);
+    course.paragraphGuides.forEach((guide) => guide.sentenceGuides.forEach((sentence) => { sentence.depth = "QUICK"; }));
+    const result = evaluateQa({ course, audioStatuses: [] });
+    expect(result.warnings).toContain("DEEP_SENTENCE_COUNT_OUT_OF_RANGE");
   });
 });

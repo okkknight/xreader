@@ -22,23 +22,10 @@ enum ArticleStatus {
   ARCHIVED
 }
 
-enum SegmentType {
-  OPENING
-  ORIENTATION
-  ARTICLE_READ
-  QUICK_EXPLANATION
-  NORMAL_EXPLANATION
-  DEEP_EXPLANATION
-  EXPRESSION_NOTE
-  CONTEXT_CONNECTION
-  REPLAY
-  SECTION_SUMMARY
-  FINAL_WRAP
-}
-
-enum VoiceRole {
-  TEACHER
-  READER
+enum GuideDepth {
+  QUICK
+  NORMAL
+  DEEP
 }
 
 enum AudioStatus {
@@ -50,12 +37,12 @@ enum AudioStatus {
   FAILED
 }
 
-enum JobStatus {
-  QUEUED
+enum CourseScriptGenerationStatus {
   RUNNING
   SUCCEEDED
   FAILED
-  CANCELLED
+  NEEDS_REVIEW
+  APPROVED
 }
 
 model Article {
@@ -77,11 +64,9 @@ model Article {
 
   paragraphs      Paragraph[]
   sources         ArticleSource[]
-  analysis        ArticleAnalysis?
-  lessonPlan      LessonPlan?
-  lessonSegments  LessonSegment[]
+  paragraphGuides ParagraphGuide[]
   feedback        ArticleFeedback[]
-  generationJobs  GenerationJob[]
+  scriptGenerations CourseScriptGeneration[]
   qa              ArticleQa?
 }
 
@@ -93,6 +78,8 @@ model Paragraph {
 
   article   Article    @relation(fields: [articleId], references: [id], onDelete: Cascade)
   sentences Sentence[]
+  guides    ParagraphGuide[] @relation("ParagraphToGuides")
+  sentenceGuides SentenceGuide[] @relation("ParagraphToSentenceGuides")
 
   @@unique([articleId, order])
 }
@@ -108,6 +95,7 @@ model Sentence {
 
   paragraph     Paragraph    @relation(fields: [paragraphId], references: [id], onDelete: Cascade)
   annotations   Annotation[]
+  guides        SentenceGuide[]
 
   @@unique([paragraphId, order])
 }
@@ -136,56 +124,56 @@ model ArticleSource {
   @@id([articleId, sourceId])
 }
 
-model ArticleAnalysis {
-  id        String   @id @default(cuid())
-  articleId String   @unique
-  version   Int      @default(1)
-  promptVer String
-  model     String?
-  data      Json
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model ParagraphGuide {
+  id                 String      @id
+  articleId          String
+  paragraphId        String
+  order              Int
+  paragraphGoal      String
+  openingBridge      String?
+  paragraphWrap      String?
+  nextParagraphBridge String?
+  scriptText         String
+  audioPath          String?
+  audioDurationMs    Int?
+  audioStatus        AudioStatus @default(MISSING)
+  textHash           String?
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
 
-  article   Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
-}
-
-model LessonPlan {
-  id        String   @id @default(cuid())
-  articleId String   @unique
-  version   Int      @default(1)
-  promptVer String
-  model     String?
-  data      Json
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  article   Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
-}
-
-model LessonSegment {
-  id                    String      @id
-  articleId             String
-  order                 Int
-  type                  SegmentType
-  primaryGoal           String?
-  script                String?
-  voiceRole             VoiceRole
-  sentenceIds           Json
-  highlightMode         String?
-  autoScrollTarget      String?
-  pauseBeforeMs         Int         @default(0)
-  pauseAfterMs          Int         @default(400)
-  replaySourceSegmentId String?
-  audioPath             String?
-  audioDurationMs       Int?
-  audioStatus           AudioStatus @default(MISSING)
-  textHash              String?
-  createdAt             DateTime    @default(now())
-  updatedAt             DateTime    @updatedAt
-
-  article               Article     @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  article            Article     @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  paragraph          Paragraph   @relation("ParagraphToGuides", fields: [paragraphId], references: [id], onDelete: Cascade)
+  sentenceGuides     SentenceGuide[]
 
   @@unique([articleId, order])
+  @@unique([articleId, paragraphId])
+}
+
+model SentenceGuide {
+  id                    String      @id
+  paragraphGuideId      String
+  paragraphId           String
+  sentenceId            String
+  order                 Int
+  depth                 GuideDepth
+  originalReadText      String
+  meaningZh             String
+  sentenceFunction      String
+  primaryTeachingGoal   String
+  focusScript           String?
+  bridgeScript          String?
+  likelyMisunderstanding String?
+  expressionTarget      String?
+  replayAfterExplanation Boolean    @default(false)
+  estimatedStartMs      Int?
+  estimatedEndMs        Int?
+
+  paragraphGuide        ParagraphGuide @relation(fields: [paragraphGuideId], references: [id], onDelete: Cascade)
+  paragraph             Paragraph      @relation("ParagraphToSentenceGuides", fields: [paragraphId], references: [id], onDelete: Cascade)
+  sentence              Sentence      @relation(fields: [sentenceId], references: [id], onDelete: Cascade)
+
+  @@unique([paragraphGuideId, sentenceId])
+  @@unique([paragraphGuideId, order])
 }
 
 model Annotation {
@@ -220,24 +208,46 @@ model AudioAsset {
   @@index([ownerType, ownerId])
 }
 
-model GenerationJob {
-  id         String    @id @default(cuid())
-  articleId  String?
-  type       String
-  status     JobStatus
-  inputHash  String
-  promptVer  String?
-  model      String?
-  input      Json
-  output     Json?
-  error      String?
-  attempts   Int       @default(0)
-  startedAt  DateTime?
-  finishedAt DateTime?
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
+model CourseScriptGeneration {
+  id                    String                       @id @default(cuid())
+  articleId             String
+  version               Int
+  status                CourseScriptGenerationStatus @default(RUNNING)
+  currentStage          String?
+  promptVersion         String
+  model                 String?
+  inputHash             String
+  promptVersions        Json
+  temperature           Float?
+  articleUnderstanding  Json?
+  narrativePlan         Json?
+  sentenceAnalysis      Json?
+  languageLearningMap   Json?
+  lessonDesignRationale Json?
+  teachingBeatPlan      Json?
+  teacherPerformancePlan Json?
+  fullScriptDraft       Json?
+  editedScript          Json?
+  englishTeachingEdit   Json?
+  humanVoiceEdit        Json?
+  qualityReview         Json?
+  finalQualityReview    Json?
+  instructionalQualityReview Json?
+  qualityEvidence       Json?
+  calibrationNotes      Json?
+  repairHistory         Json?
+  finalScript           Json?
+  manuallyEdited        Boolean                      @default(false)
+  parentVersionId       String?
+  error                 String?
+  createdAt             DateTime                     @default(now())
+  updatedAt             DateTime                     @updatedAt
+  completedAt           DateTime?
 
-  article    Article?  @relation(fields: [articleId], references: [id], onDelete: SetNull)
+  article               Article                      @relation(fields: [articleId], references: [id], onDelete: Cascade)
+
+  @@unique([articleId, version])
+  @@index([articleId, createdAt])
 }
 
 model ArticleFeedback {

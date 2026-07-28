@@ -1,4 +1,4 @@
-export type ReaderProgress = { guidedSegmentId?: string; readingSentenceId?: string; completed?: boolean; updatedAt: number };
+export type ReaderProgress = { guidedParagraphId?: string; readingSentenceId?: string; completed?: boolean; updatedAt: number };
 type StorageLike = Pick<Storage, "getItem" | "setItem">;
 
 export function createProgressStore(storage: StorageLike) {

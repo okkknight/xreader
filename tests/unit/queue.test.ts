@@ -1,17 +1,17 @@
 import { describe, expect, it } from "vitest";
 
-import { buildGuidedQueue, buildReadingQueue, mapSentenceToGuidedSegment } from "@/features/reader/queue";
+import { buildGuidedQueue, buildReadingQueue, mapSentenceToGuidedParagraph } from "@/features/reader/queue";
 
-const segments = [
-  { id: "seg-1", order: 1, type: "OPENING", sentenceIds: ["s1"], audioStatus: "READY", audioPath: "a.wav" },
-  { id: "seg-2", order: 2, type: "ARTICLE_READ", sentenceIds: ["s2"], audioStatus: "READY", audioPath: "b.wav" },
-  { id: "seg-3", order: 3, type: "ARTICLE_READ", sentenceIds: ["s3"], audioStatus: "MISSING", audioPath: null },
+const guides = [
+  { id: "guide-1", order: 1, sentenceGuides: [{ sentenceId: "s1", estimatedStartMs: 0, estimatedEndMs: 500 }, { sentenceId: "s2", estimatedStartMs: 500, estimatedEndMs: 1000 }], audioStatus: "READY", audioPath: "a.wav" },
+  { id: "guide-2", order: 2, sentenceGuides: [{ sentenceId: "s3", estimatedStartMs: 0, estimatedEndMs: 500 }], audioStatus: "MISSING", audioPath: null },
 ];
+const sentences = [{ id: "s1", audioStatus: "MISSING", audioPath: null }, { id: "s2", audioStatus: "READY", audioPath: "b.wav" }];
 
 describe("reader queue", () => {
   it("uses ready lesson segments for guided mode and reading segments for reading mode", () => {
-    expect(buildGuidedQueue(segments).map((item) => item.id)).toEqual(["seg-1", "seg-2"]);
-    expect(buildReadingQueue(segments).map((item) => item.id)).toEqual(["seg-2"]);
-    expect(mapSentenceToGuidedSegment("s2", segments)).toBe("seg-2");
+    expect(buildGuidedQueue(guides).map((item) => item.id)).toEqual(["guide-1"]);
+    expect(buildReadingQueue(sentences).map((item) => item.id)).toEqual(["s2"]);
+    expect(mapSentenceToGuidedParagraph("s2", guides)).toBe("guide-1");
   });
 });

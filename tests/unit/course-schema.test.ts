@@ -4,11 +4,11 @@ import { validateCourse } from "@/lib/validation/course-schema";
 import { seedCourse } from "../../scripts/seed-course";
 
 describe("validateCourse", () => {
-  it("rejects ARTICLE_READ segments without sentence IDs", () => {
+  it("rejects a guide that omits a sentence", () => {
     expect(() => validateCourse({
       ...seedCourse,
-      lessonSegments: [{ ...seedCourse.lessonSegments[2], order: 1, sentenceIds: [] }],
-    })).toThrow("ARTICLE_READ");
+      paragraphGuides: [{ ...seedCourse.paragraphGuides[0], sentenceGuides: seedCourse.paragraphGuides[0].sentenceGuides.slice(0, 3) }],
+    })).toThrow("does not cover every sentence");
   });
 
   it("rejects duplicate stable sentence IDs", () => {

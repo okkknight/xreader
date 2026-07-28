@@ -19,7 +19,7 @@ describe("review course independence", () => {
       expect(course.paragraphs.every((paragraph) => paragraph.sentences.length === 4)).toBe(true);
       expect(wordCount).toBeGreaterThanOrEqual(450);
       expect(wordCount).toBeLessThanOrEqual(600);
-      expect(course.lessonSegments).toHaveLength(8);
+      expect(course.paragraphGuides).toHaveLength(6);
       expect(() => validateCourse(course)).not.toThrow();
     }
   });

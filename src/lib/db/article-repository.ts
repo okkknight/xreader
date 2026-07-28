@@ -7,7 +7,7 @@ const articleInclude = {
     orderBy: { order: "asc" },
     include: { sentences: { orderBy: { order: "asc" }, include: { annotations: true } } },
   },
-  lessonSegments: { orderBy: { order: "asc" } },
+  paragraphGuides: { orderBy: { order: "asc" }, include: { sentenceGuides: { orderBy: { order: "asc" } } } },
 } satisfies Prisma.ArticleInclude;
 
 export type ArticleRecord = Prisma.ArticleGetPayload<{
@@ -42,17 +42,23 @@ export class ArticleRepository {
             },
           })),
         },
-        lessonSegments: {
-          create: input.lessonSegments.map((segment) => ({
-            id: segment.id,
-            order: segment.order,
-            type: segment.type,
-            voiceRole: segment.voiceRole,
-            sentenceIds: segment.sentenceIds,
-            script: segment.script,
-            primaryGoal: segment.primaryGoal,
-          })),
-        },
+          paragraphGuides: {
+            create: input.paragraphGuides.map((guide) => ({
+              id: guide.id,
+              paragraphId: guide.paragraphId,
+              order: guide.order,
+              paragraphGoal: guide.paragraphGoal,
+              openingBridge: guide.openingBridge,
+              paragraphWrap: guide.paragraphWrap,
+              nextParagraphBridge: guide.nextParagraphBridge,
+              scriptText: guide.scriptText,
+              audioPath: guide.audioPath,
+              audioDurationMs: guide.audioDurationMs,
+              audioStatus: guide.audioStatus,
+              textHash: guide.textHash,
+              sentenceGuides: { create: guide.sentenceGuides.map((sentence) => ({ ...sentence })) },
+            })),
+          },
         },
       });
 

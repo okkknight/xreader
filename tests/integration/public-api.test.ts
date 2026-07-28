@@ -1,5 +1,5 @@
 import { mkdtemp, writeFile } from "node:fs/promises";
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import os from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
@@ -32,20 +32,20 @@ describe("public article boundaries", () => {
     const root = await mkdtemp(path.join(os.tmpdir(), "xreader-media-"));
     const file = path.join(root, "clip.wav");
     await writeFile(file, new Uint8Array([0, 1, 2, 3]));
-    const asset = await prisma.audioAsset.create({ data: { ownerType: "LESSON_SEGMENT", ownerId: randomUUID(), provider: "fish-audio", voiceId: "voice", path: "clip.wav", format: "wav", durationMs: 1, textHash: "hash", status: "READY" } });
+    const asset = await prisma.audioAsset.create({ data: { ownerType: "SENTENCE", ownerId: randomUUID(), provider: "fish-audio", voiceId: "voice", path: "clip.wav", format: "wav", durationMs: 1, textHash: "hash", status: "READY" } });
     const response = await createMediaResponse(prisma, asset.id, "bytes=1-2", root);
     expect(response.status).toBe(206);
     expect(response.headers.get("Content-Range")).toBe("bytes 1-2/4");
     expect(new Uint8Array(await response.arrayBuffer())).toEqual(new Uint8Array([1, 2]));
   });
 
-  it("exposes ready segment audio through the media endpoint instead of a storage path", async () => {
-    const articleId = randomUUID(); const segmentId = randomUUID(); const assetId = randomUUID(); const slug = `audio-${articleId}`;
-    await prisma.article.create({ data: { id: articleId, slug, titleEn: "Audio", titleZh: "音频", topic: "test", difficulty: "B1", bodyText: "Audio", wordCount: 1, status: "PUBLISHED", publishedAt: new Date("2026-07-28T12:00:00Z"), lessonSegments: { create: { id: segmentId, order: 1, type: "OPENING", voiceRole: "TEACHER", script: "Hello", sentenceIds: [], audioStatus: "READY", audioPath: "private/audio.wav" } } } });
-    await prisma.audioAsset.create({ data: { id: assetId, ownerType: "LESSON_SEGMENT", ownerId: segmentId, provider: "fish-audio", voiceId: "voice", path: "private/audio.wav", format: "wav", durationMs: 1, textHash: "hash", status: "READY" } });
+  it("exposes ready paragraph-guide audio through the media endpoint instead of a storage path", async () => {
+    const articleId = randomUUID(); const paragraphId = randomUUID(); const sentenceId = randomUUID(); const guideId = randomUUID(); const assetId = randomUUID(); const slug = `audio-${articleId}`;
+    await prisma.article.create({ data: { id: articleId, slug, titleEn: "Audio", titleZh: "音频", topic: "test", difficulty: "B1", bodyText: "Audio.", wordCount: 1, status: "PUBLISHED", publishedAt: new Date("2026-07-28T12:00:00Z"), paragraphs: { create: { id: paragraphId, order: 1, text: "Audio.", sentences: { create: { id: sentenceId, order: 1, text: "Audio." } } } }, paragraphGuides: { create: { id: guideId, paragraphId, order: 1, paragraphGoal: "Read", scriptText: "Audio.", audioStatus: "READY", audioPath: "private/audio.wav", sentenceGuides: { create: { id: randomUUID(), paragraphId, sentenceId, order: 1, depth: "QUICK", originalReadText: "Audio.", meaningZh: "音频", sentenceFunction: "开始", primaryTeachingGoal: "理解" } } } } } });
+    await prisma.audioAsset.create({ data: { id: assetId, ownerType: "PARAGRAPH_GUIDE", ownerId: guideId, provider: "fish-audio", voiceId: "voice", path: "private/audio.wav", format: "wav", durationMs: 1, textHash: createHash("sha256").update("Audio.").digest("hex"), status: "READY" } });
 
     const article = await getPublicArticle(prisma, slug, new Date("2026-07-29T00:00:00Z"));
 
-    expect(article?.lessonSegments[0].audioPath).toBe(`/api/media/${assetId}`);
+    expect(article?.paragraphGuides[0].audioPath).toBe(`/api/media/${assetId}`);
   });
 });

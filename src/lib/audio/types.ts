@@ -17,5 +17,5 @@ export interface TTSProvider {
 export type AudioOwner = {
   articleId: string;
   ownerId: string;
-  ownerType: "SENTENCE" | "LESSON_SEGMENT";
+  ownerType: "SENTENCE" | "PARAGRAPH_GUIDE";
 };

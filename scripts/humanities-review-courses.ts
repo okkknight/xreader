@@ -91,16 +91,11 @@ function makeCourse(definition: Definition): CourseImport {
   return {
     article: { ...article, id, slug: id, status: "ARTICLE_DRAFT" },
     paragraphs: paragraphs.map((sentences, paragraphIndex) => ({ id: `${id}-p${String(paragraphIndex + 1).padStart(2, "0")}`, order: paragraphIndex + 1, text: sentences.join(" "), sentences: sentences.map((text, sentenceIndex) => ({ id: sentenceId(id, paragraphIndex + 1, sentenceIndex + 1), order: sentenceIndex + 1, text })) })),
-    lessonSegments: [
-      { id: `${id}-seg-01`, order: 1, type: "OPENING", voiceRole: "TEACHER", sentenceIds: [ids(id, 1, 1)[0]], script: scripts[0] },
-      { id: `${id}-seg-02`, order: 2, type: "ARTICLE_READ", voiceRole: "READER", sentenceIds: ids(id, 1, 8) },
-      { id: `${id}-seg-03`, order: 3, type: "QUICK_EXPLANATION", voiceRole: "TEACHER", sentenceIds: ids(id, 1, 8), script: scripts[1] },
-      { id: `${id}-seg-04`, order: 4, type: "ARTICLE_READ", voiceRole: "READER", sentenceIds: ids(id, 9, 16) },
-      { id: `${id}-seg-05`, order: 5, type: "DEEP_EXPLANATION", voiceRole: "TEACHER", sentenceIds: ids(id, 9, 16), script: scripts[2] },
-      { id: `${id}-seg-06`, order: 6, type: "ARTICLE_READ", voiceRole: "READER", sentenceIds: ids(id, 17, 24) },
-      { id: `${id}-seg-07`, order: 7, type: "CONTEXT_CONNECTION", voiceRole: "TEACHER", sentenceIds: ids(id, 17, 24), script: scripts[3] },
-      { id: `${id}-seg-08`, order: 8, type: "FINAL_WRAP", voiceRole: "TEACHER", sentenceIds: ids(id, 21, 24), script: scripts[4] },
-    ],
+    paragraphGuides: paragraphs.map((sentences, paragraphIndex) => {
+      const paragraphId = `${id}-p${String(paragraphIndex + 1).padStart(2, "0")}`;
+      const sentenceGuides = sentences.map((text, sentenceIndex) => ({ id: `${sentenceId(id, paragraphIndex + 1, sentenceIndex + 1)}-guide`, paragraphId, sentenceId: sentenceId(id, paragraphIndex + 1, sentenceIndex + 1), order: sentenceIndex + 1, depth: (sentenceIndex === 2 ? "DEEP" : sentenceIndex === 1 ? "NORMAL" : "QUICK") as "QUICK" | "NORMAL" | "DEEP", originalReadText: text, meaningZh: `这一句说明：${scripts[Math.min(paragraphIndex, scripts.length - 1)]}`, sentenceFunction: sentenceIndex === 0 ? "开启本段话题" : "推进本段解释", primaryTeachingGoal: "理解句子含义并放回段落逻辑", focusScript: sentenceIndex === 2 ? scripts[Math.min(paragraphIndex, scripts.length - 1)] : undefined, bridgeScript: sentenceIndex < sentences.length - 1 ? "我们接着看下一句。" : undefined, replayAfterExplanation: sentenceIndex === 2 }));
+      return { id: `${paragraphId}-guide`, paragraphId, order: paragraphIndex + 1, paragraphGoal: "连续读完本段并理解其在全文中的作用", openingBridge: paragraphIndex === 0 ? scripts[0] : "我们继续顺着上一段的思路往下读。", paragraphWrap: scripts[Math.min(paragraphIndex + 1, scripts.length - 1)], nextParagraphBridge: paragraphIndex < paragraphs.length - 1 ? "下一段会继续推进这个问题。" : undefined, scriptText: sentenceGuides.flatMap((guide) => [guide.originalReadText, guide.meaningZh, guide.focusScript, guide.bridgeScript].filter((value): value is string => Boolean(value))).join(" "), sentenceGuides };
+    }),
     annotations: annotations.map(([paragraph, sentence, text, meaningZh, noteZh], index) => {
       const sentenceText = paragraphs[paragraph - 1][sentence - 1]; const startOffset = sentenceText.indexOf(text);
       if (startOffset < 0) throw new Error(`${id}: annotation text not found: ${text}`);

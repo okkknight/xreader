@@ -4,13 +4,13 @@
 
 **Goal:** 重构 XReader 用户端首页、归档页和文章阅读页，使其成为安静、清晰、可连续听读的编辑阅读空间。
 
-**Architecture:** 保留现有 Next.js App Router、Prisma public query、playback reducer、AudioController、播放队列和 localStorage 进度协议。把 `ArticleReader` 拆成页面编排、文章画布、课程路线和播放器 dock；把全局样式拆成 tokens、shell、home、archive、reader、player 五组，后台组件不迁移。
+**Architecture:** 保留现有 Next.js App Router、Prisma public query、playback reducer、AudioController、播放队列和 localStorage 进度协议。把 `ArticleReader` 拆成页面编排、文章画布、课程路线和播放器 dock；把全局样式拆成 tokens、shell、home、archive、reader、player 五组。
 
 **Tech Stack:** Next.js 16 App Router、React 19、TypeScript、Prisma SQLite、Vitest、Playwright / Codex in-app Browser。
 
 ## Global Constraints
 
-- 只修改用户端 `/`、`/archive`、`/articles/[slug]`；后台管理不在范围内。
+- 只修改用户端 `/`、`/archive`、`/articles/[slug]`。
 - 不修改 Fish Audio 接入、reference_id、课程内容、讲解脚本或音频资产。
 - 保留 `playbackReducer`、`AudioController`、`buildGuidedQueue`、`buildReadingQueue` 和现有进度存储。
 - 正文是文章页视觉中心；不使用播放栏上方的悬浮字幕框。
@@ -38,8 +38,8 @@ Create:
 
 Modify:
 
-- `src/app/globals.css` — 改为仅导入拆分后的公共样式，保留 admin 样式兼容入口。
-- `src/components/ui/app-shell.tsx` — 使用新的 `SiteHeader`，保持 public/admin 的 route 入口兼容。
+- `src/app/globals.css` — 改为仅导入拆分后的公共样式。
+- `src/components/ui/app-shell.tsx` — 使用新的 `SiteHeader`。
 - `src/app/page.tsx` — 使用新的首页 feature 组件和真实进度视图模型。
 - `src/app/archive/page.tsx` — 使用新的 archive list。
 - `src/components/reader/article-reader.tsx` — 只保留播放状态编排和区域组件组装。
@@ -71,12 +71,12 @@ Delete only when no imports remain:
 
 **Interfaces:**
 - `SiteHeader` 接收 `{ active?: "today" | "archive" }`，输出品牌链接和两个公开导航链接。
-- `AppShell` 保持现有 children 接口，admin route 不改变现有布局类名。
+- `AppShell` 保持现有 children 接口。
 
 - [ ] 在 `app-shell.test.tsx` 增加 `/` 与 `/archive` 下品牌、Today、Archive 链接存在且唯一的断言。
 - [ ] 运行 `npm test -- tests/unit/app-shell.test.tsx`，确认新断言先因结构未实现而失败或暴露当前选择器差异。
 - [ ] 将 header markup 从 `AppShell` 拆入 `SiteHeader`，保留可访问 nav 和 active 状态。
-- [ ] 把 `globals.css` 的 tokens、shell、nav 基础规则拆入对应 CSS 文件，并通过 `@import` 进入 `globals.css`；不移动 admin 样式。
+- [ ] 把 `globals.css` 的 tokens、shell、nav 基础规则拆入对应 CSS 文件，并通过 `@import` 进入 `globals.css`。
 - [ ] 设定 `--ink`、`--green`、`--muted`、`--line`、`--paper` 和 4/8/12/20/32/48/72 间距变量，保持白色/极浅纸张背景和深墨绿色播放器边界。
 - [ ] 运行 `npm test -- tests/unit/app-shell.test.tsx` 与 `npm run lint -- --no-cache`，确认 Shell 通过。
 
@@ -94,7 +94,7 @@ Delete only when no imports remain:
 - 首页仍由 server component 调用 `getTodayArticle(prisma)`；进度展示使用 client-side `ProgressLabel` 或现有 progress helper，不把数据库访问放入组件。
 
 - [ ] 写首页断言：文章标题、中文标题、主入口“开始讲解”、次入口“先读文章”都来自真实 article 数据。
-- [ ] 写空状态断言：无 article 时不出现“后台准备”等内部措辞。
+- [ ] 写空状态断言：无 article 时不出现内容生产工作流措辞。
 - [ ] 实现开放式两列 desktop 结构，移动端变为单列；不使用旧 `TodayCard` 的重复卡片样式。
 - [ ] 为主按钮生成 `/articles/${article.slug}?mode=guided`，为次按钮生成 `/articles/${article.slug}?mode=reading`；如果当前路由没有 query 支持，则在 `ArticleReader` 读取并应用该初始模式。
 - [ ] 在 `home.css` 设置标题最大宽度、文章区细线、按钮层级和移动端断点。
@@ -219,7 +219,7 @@ Delete only when no imports remain:
 - [ ] 检查 mobile viewport：header、标题、正文、课程路线展开和底部播放器均可见且可操作。
 - [ ] 检查文章播放时当前句子、路线 current 状态和 dock 状态同步；确认无悬浮重复字幕。
 - [ ] 通过 Browser 读取页面 title、DOM snapshot、console warn/error 和截图；截图只保存到临时目录，不写入仓库。
-- [ ] 删除残余 `guided-subtitle`、旧卡片和未使用样式引用；保留 admin 样式与组件。
+- [ ] 删除残余 `guided-subtitle`、旧卡片和未使用样式引用。
 - [ ] 运行 `npm run lint -- --no-cache`、`npm test`、`DATABASE_URL=file:../data/xreader.db npm run course:validate -- --article seed-rain`。
 - [ ] 使用 `git diff --check` 检查空白错误，确认只包含本次用户端重构和必要测试更新。
 

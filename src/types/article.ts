@@ -1,8 +1,6 @@
-import type {
-  ArticleStatus,
-  SegmentType,
-  VoiceRole,
-} from "@prisma/client";
+import type { ArticleStatus, GuideDepth } from "@prisma/client";
+
+export type GuideDepthInput = GuideDepth;
 
 export type SentenceInput = {
   id: string;
@@ -18,14 +16,39 @@ export type ParagraphInput = {
   sentences: SentenceInput[];
 };
 
-export type LessonSegmentInput = {
+export type SentenceGuideInput = {
   id: string;
+  paragraphId: string;
+  sentenceId: string;
   order: number;
-  type: SegmentType;
-  voiceRole: VoiceRole;
-  sentenceIds: string[];
-  script?: string;
-  primaryGoal?: string;
+  depth: GuideDepthInput;
+  originalReadText: string;
+  meaningZh: string;
+  sentenceFunction: string;
+  primaryTeachingGoal: string;
+  focusScript?: string;
+  bridgeScript?: string;
+  likelyMisunderstanding?: string;
+  expressionTarget?: string;
+  replayAfterExplanation?: boolean;
+  estimatedStartMs?: number;
+  estimatedEndMs?: number;
+};
+
+export type ParagraphGuideInput = {
+  id: string;
+  paragraphId: string;
+  order: number;
+  paragraphGoal: string;
+  openingBridge?: string;
+  paragraphWrap?: string;
+  nextParagraphBridge?: string;
+  scriptText: string;
+  sentenceGuides: SentenceGuideInput[];
+  audioPath?: string;
+  audioDurationMs?: number;
+  audioStatus?: "MISSING" | "QUEUED" | "GENERATING" | "READY" | "STALE" | "FAILED";
+  textHash?: string;
 };
 
 export type AnnotationInput = {
@@ -53,6 +76,6 @@ export type CourseImport = {
     scheduledAt?: Date;
   };
   paragraphs: ParagraphInput[];
-  lessonSegments: LessonSegmentInput[];
+  paragraphGuides: ParagraphGuideInput[];
   annotations: AnnotationInput[];
 };

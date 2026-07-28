@@ -16,36 +16,42 @@ export function ArticleReader({ article, initialMode = "GUIDED" }: { article: Pu
   const audioRef = useRef<HTMLAudioElement>(null);
   const controllerRef = useRef<AudioController | null>(null);
   const modeRef = useRef(state.mode);
-  const pendingGuidedPlayRef = useRef<string | undefined>(undefined);
+  const activeItemRef = useRef(state.activeItemId);
+  const pendingPlayRef = useRef<string | undefined>(undefined);
   const autoScrollingRef = useRef(false);
   const initialFollowRef = useRef(true);
   const sentences = useMemo(() => article.paragraphs.flatMap((paragraph) => paragraph.sentences), [article]);
-  const queue = useMemo(() => state.mode === "GUIDED" ? buildGuidedQueue(article.lessonSegments) : buildReadingQueue(article.lessonSegments), [article.lessonSegments, state.mode]);
-  const activeQueueIndex = queue.findIndex((item) => item.sentenceIds.includes(state.activeItemId || ""));
+  const readingQueue = useMemo(() => buildReadingQueue(sentences), [sentences]);
+  const guidedQueue = useMemo(() => buildGuidedQueue(article.paragraphGuides), [article.paragraphGuides]);
+  const queue = state.mode === "GUIDED" ? guidedQueue : readingQueue;
+  const activeQueueIndex = queue.findIndex((item) => item.id === state.activeItemId || item.sentenceIds.includes(state.activeItemId || ""));
+
+  useEffect(() => { modeRef.current = state.mode; activeItemRef.current = state.activeItemId; }, [state.mode, state.activeItemId]);
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
     const controller = new AudioController(audio, (item) => {
       if (!item) { createProgressStore(window.localStorage).save(article.id, { completed: true }); dispatch({ type: "SET_COMPLETED", completed: true }); return; }
-      if (item.sentenceIds[0]) dispatch({ type: "SET_ACTIVE", itemId: item.sentenceIds[0] });
-      createProgressStore(window.localStorage).save(article.id, modeRef.current === "GUIDED" ? { guidedSegmentId: item.id, completed: false } : { readingSentenceId: item.sentenceIds[0], completed: false });
+      const activeSentence = item.sentenceIds[0];
+      if (activeSentence) dispatch({ type: "SET_ACTIVE", itemId: activeSentence });
+      createProgressStore(window.localStorage).save(article.id, modeRef.current === "GUIDED" ? { guidedParagraphId: item.id, completed: false } : { readingSentenceId: activeSentence, completed: false });
       dispatch({ type: "SET_PLAYING", playing: true });
+    }, (item, currentTimeMs) => {
+      const range = item.sentenceRanges?.find((candidate) => currentTimeMs >= candidate.startMs && currentTimeMs < candidate.endMs);
+      if (range && range.sentenceId !== activeItemRef.current) dispatch({ type: "SET_ACTIVE", itemId: range.sentenceId });
     });
     controller.setQueue(queue); controllerRef.current = controller;
-    if (pendingGuidedPlayRef.current) {
-      const item = queue.find((candidate) => candidate.sentenceIds.includes(pendingGuidedPlayRef.current!));
-      pendingGuidedPlayRef.current = undefined;
+    if (pendingPlayRef.current) {
+      const item = queue.find((candidate) => candidate.id === pendingPlayRef.current || candidate.sentenceIds.includes(pendingPlayRef.current!));
+      pendingPlayRef.current = undefined;
       if (item) void controller.play(item.id).catch(() => dispatch({ type: "SET_PLAYING", playing: false }));
     }
     return () => { controller.pause(); controllerRef.current = null; };
   }, [article.id, queue]);
-  useEffect(() => { modeRef.current = state.mode; }, [state.mode]);
   useEffect(() => {
     const progress = createProgressStore(window.localStorage).load(article.id);
-    const item = state.mode === "GUIDED"
-      ? queue.find((candidate) => candidate.id === progress?.guidedSegmentId)
-      : queue.find((candidate) => candidate.sentenceIds.includes(progress?.readingSentenceId || ""));
-    dispatch({ type: "RESTORE_PROGRESS", itemId: item?.sentenceIds[0], completed: Boolean(progress?.completed) });
+    const item = state.mode === "GUIDED" ? queue.find((candidate) => candidate.id === progress?.guidedParagraphId) : queue.find((candidate) => candidate.id === progress?.readingSentenceId);
+    dispatch({ type: "RESTORE_PROGRESS", itemId: item?.sentenceIds[0] || item?.id, completed: Boolean(progress?.completed) });
   }, [article.id, queue, state.mode]);
   useEffect(() => { if (audioRef.current) audioRef.current.playbackRate = state.rate; }, [state.rate]);
   useEffect(() => {
@@ -53,10 +59,14 @@ export function ArticleReader({ article, initialMode = "GUIDED" }: { article: Pu
     if (initialFollowRef.current) { initialFollowRef.current = false; return; }
     const sentence = document.querySelector<HTMLElement>(`[data-sentence-id="${state.activeItemId}"]`);
     if (!sentence) return;
+    const rect = sentence.getBoundingClientRect();
+    const viewportMargin = Math.min(160, window.innerHeight * 0.2);
+    const isComfortablyVisible = rect.top >= viewportMargin && rect.bottom <= window.innerHeight - viewportMargin;
+    if (isComfortablyVisible) return;
     autoScrollingRef.current = true;
     const reducedMotion = typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     sentence.scrollIntoView?.({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
-    const timeout = window.setTimeout(() => { autoScrollingRef.current = false; }, 400);
+    const timeout = window.setTimeout(() => { autoScrollingRef.current = false; }, reducedMotion ? 100 : 900);
     return () => window.clearTimeout(timeout);
   }, [state.activeItemId, state.autoFollow]);
   useEffect(() => {
@@ -64,38 +74,37 @@ export function ArticleReader({ article, initialMode = "GUIDED" }: { article: Pu
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [state.playing]);
+
   const chooseSentence = (id: string) => {
     initialFollowRef.current = false;
     dispatch({ type: "SET_ACTIVE", itemId: id });
-    const item = queue.find((candidate) => candidate.sentenceIds.includes(id));
+    const item = queue.find((candidate) => candidate.id === id || candidate.sentenceIds.includes(id));
     if (!item) { dispatch({ type: "SET_PLAYING", playing: false }); return; }
     dispatch({ type: "SET_PLAYING", playing: true });
     void controllerRef.current?.play(item.id).catch(() => dispatch({ type: "SET_PLAYING", playing: false }));
   };
   const togglePlayback = () => {
     if (state.playing) { controllerRef.current?.pause(); dispatch({ type: "SET_PLAYING", playing: false }); return; }
-    const item = queue.find((candidate) => candidate.sentenceIds.includes(state.activeItemId || "")) || queue[0];
+    const item = queue.find((candidate) => candidate.id === state.activeItemId || candidate.sentenceIds.includes(state.activeItemId || "")) || queue[0];
     if (!item) return;
     dispatch({ type: "SET_PLAYING", playing: true });
     void controllerRef.current?.play(item.id).catch(() => dispatch({ type: "SET_PLAYING", playing: false }));
   };
   const changeMode = (mode: "GUIDED" | "READING") => {
-    if (mode === "GUIDED" && state.mode === "GUIDED") { if (sentences[0]) chooseSentence(state.activeItemId || sentences[0].id); return; }
     initialFollowRef.current = false;
+    if (mode === state.mode) { const current = queue.find((candidate) => candidate.id === state.activeItemId || candidate.sentenceIds.includes(state.activeItemId || "")) || queue[0]; if (current) chooseSentence(current.sentenceIds[0] || current.id); return; }
     controllerRef.current?.pause();
-    if (mode === "GUIDED") pendingGuidedPlayRef.current = state.activeItemId || sentences[0]?.id;
+    if (mode !== state.mode) pendingPlayRef.current = state.activeItemId;
     dispatch({ type: "SET_MODE", mode });
   };
-  const navigatePrevious = () => { controllerRef.current?.previous(); };
-  const navigateNext = () => { controllerRef.current?.next(); };
   return <div className="reader-page">
     <article className="reader-main">
       <ReaderHeader article={article} mode={state.mode} onModeChange={changeMode} />
       <ArticleCanvas paragraphs={article.paragraphs} activeSentenceId={state.activeItemId} translations={false} onSentenceSelect={chooseSentence} />
       {state.mode === "GUIDED" && !state.autoFollow ? <button className="resume-follow" type="button" onClick={() => dispatch({ type: "RESTORE_AUTO_FOLLOW" })}>回到当前讲解</button> : null}
     </article>
-    <CurrentLessonPanel segments={article.lessonSegments} activeSentenceId={state.activeItemId} />
+    <CurrentLessonPanel guides={article.paragraphGuides} activeSentenceId={state.activeItemId} />
     <audio ref={audioRef} preload="metadata" />
-    <PlayerBar playing={state.playing} rate={state.rate} completed={state.completed} position={activeQueueIndex >= 0 ? `${activeQueueIndex + 1} / ${queue.length}` : undefined} onPlayPause={togglePlayback} onPrevious={navigatePrevious} onNext={navigateNext} onRate={(rate) => dispatch({ type: "SET_RATE", rate })} />
+    <PlayerBar playing={state.playing} rate={state.rate} completed={state.completed} position={activeQueueIndex >= 0 ? `${activeQueueIndex + 1} / ${queue.length}` : undefined} onPlayPause={togglePlayback} onPrevious={() => controllerRef.current?.previous()} onNext={() => controllerRef.current?.next()} onRate={(rate) => dispatch({ type: "SET_RATE", rate })} />
   </div>;
 }

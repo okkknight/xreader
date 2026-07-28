@@ -4,7 +4,7 @@ import { getFishAudioConfig } from "@/lib/audio/config";
 
 describe("getFishAudioConfig", () => {
   it("requires a server-side API key and preserves model configuration", () => {
-    expect(() => getFishAudioConfig({})).toThrow("FISH_AUDIO_API_KEY");
+    expect(() => getFishAudioConfig({ FISH_AUDIO_API_KEY: "" })).toThrow("FISH_AUDIO_API_KEY");
     expect(getFishAudioConfig({
       FISH_AUDIO_API_KEY: "key",
       FISH_AUDIO_MODEL: "model",

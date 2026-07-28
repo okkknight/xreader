@@ -5,7 +5,8 @@ const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
 const configuredUrl = process.env.DATABASE_URL;
 const databaseUrl = configuredUrl?.startsWith("file:../data/")
   ? `file:${path.resolve(process.cwd(), "data", configuredUrl.slice("file:../data/".length))}`
-  : configuredUrl;
+  : configuredUrl || `file:${path.resolve(process.cwd(), "data", "xreader.db")}`;
+process.env.DATABASE_URL ??= databaseUrl;
 
 export const prisma = globalForPrisma.prisma ?? new PrismaClient(databaseUrl ? { datasources: { db: { url: databaseUrl } } } : undefined);
 

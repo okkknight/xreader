@@ -8,7 +8,7 @@ import { createProgressStore } from "@/features/reader/progress";
 function ArticleListItem({ article }: { article: PublicArticle }) {
   const status = useSyncExternalStore(() => () => undefined, () => {
     const progress = createProgressStore(window.localStorage).load(article.id);
-    return progress?.completed ? "已完成" : progress?.guidedSegmentId || progress?.readingSentenceId ? "继续阅读" : "未开始";
+    return progress?.completed ? "已完成" : progress?.guidedParagraphId || progress?.readingSentenceId ? "继续阅读" : "未开始";
   }, () => "未开始");
   return <Link className="archive-item" href={`/articles/${article.slug}`}>
     <div className="archive-item-meta"><span>{article.topic}</span><span>{article.difficulty}</span><span>{status}</span></div>

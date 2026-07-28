@@ -21,8 +21,8 @@ describe("generateAudioAsset", () => {
       provider,
       storage,
       articleId: "article",
-      ownerType: "LESSON_SEGMENT",
-      ownerId: "segment",
+      ownerType: "PARAGRAPH_GUIDE",
+      ownerId: "guide",
       text: "A short lesson.",
       textHash: "new-hash",
       referenceId: "voice",
@@ -30,8 +30,8 @@ describe("generateAudioAsset", () => {
     });
 
     expect(asset.status).toBe("READY");
-    expect(asset.path).toContain("article/segment/");
-    await expect(invalidateAssetsForText(prisma, "segment", "new-hash", "next-hash")).resolves.toBe(1);
+    expect(asset.path).toContain("article/guide/");
+    await expect(invalidateAssetsForText(prisma, "guide", "new-hash", "next-hash")).resolves.toBe(1);
     expect((await prisma.audioAsset.findUniqueOrThrow({ where: { id: asset.id } })).status).toBe("STALE");
   });
 });

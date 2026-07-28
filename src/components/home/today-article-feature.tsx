@@ -8,10 +8,10 @@ import { createProgressStore } from "@/features/reader/progress";
 export function TodayArticleFeature({ article }: { article: PublicArticle }) {
   const status = useSyncExternalStore(() => () => undefined, () => {
     const progress = createProgressStore(window.localStorage).load(article.id);
-    return progress?.completed ? "已完成" : progress?.guidedSegmentId || progress?.readingSentenceId ? "继续上次进度" : "未开始";
+    return progress?.completed ? "已完成" : progress?.guidedParagraphId || progress?.readingSentenceId ? "继续上次进度" : "未开始";
   }, () => "未开始");
   return <article className="today-feature">
-    <div className="today-feature-meta"><span>{article.topic}</span><span>{article.difficulty}</span><span>{article.lessonSegments.length} 个学习段</span></div>
+    <div className="today-feature-meta"><span>{article.topic}</span><span>{article.difficulty}</span><span>{article.paragraphGuides.length} 段连续带读</span></div>
     <h2>{article.titleEn}</h2>
     <p className="today-feature-title-zh">{article.titleZh}</p>
     {article.dekZh ? <p className="today-feature-dek">{article.dekZh}</p> : null}
