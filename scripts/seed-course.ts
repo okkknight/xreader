@@ -46,4 +46,16 @@ export const seedCourse: CourseImport = {
     { id: "seed-rain-seg-07", order: 7, type: "CONTEXT_CONNECTION", voiceRole: "TEACHER", sentenceIds: sentenceIds.slice(6, 10), script: "前面是气味的来源，现在看为什么每场雨闻起来不同。" },
     { id: "seed-rain-seg-08", order: 8, type: "FINAL_WRAP", voiceRole: "TEACHER", sentenceIds: sentenceIds.slice(10), script: "雨的气味，是土地和水重新相遇的证据。" },
   ],
+  annotations: [
+    {
+      id: "seed-rain-annotation-petrichor",
+      sentenceId: "seed-rain-p01-s02",
+      startOffset: 31,
+      endOffset: 40,
+      text: "petrichor",
+      meaningZh: "雨后泥土与植物混合的气味",
+      noteZh: "这里是给这种熟悉气味命名，而不是指某一种香味。",
+      exampleEn: "Petrichor is strongest after a long dry spell.",
+    },
+  ],
 };

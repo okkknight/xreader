@@ -28,6 +28,17 @@ export type LessonSegmentInput = {
   primaryGoal?: string;
 };
 
+export type AnnotationInput = {
+  id: string;
+  sentenceId: string;
+  startOffset: number;
+  endOffset: number;
+  text: string;
+  meaningZh: string;
+  noteZh?: string;
+  exampleEn?: string;
+};
+
 export type CourseImport = {
   article: {
     id: string;
@@ -43,4 +54,5 @@ export type CourseImport = {
   };
   paragraphs: ParagraphInput[];
   lessonSegments: LessonSegmentInput[];
+  annotations: AnnotationInput[];
 };

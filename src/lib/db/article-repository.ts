@@ -5,7 +5,7 @@ import type { CourseImport } from "@/types/article";
 const articleInclude = {
   paragraphs: {
     orderBy: { order: "asc" },
-    include: { sentences: { orderBy: { order: "asc" } } },
+    include: { sentences: { orderBy: { order: "asc" }, include: { annotations: true } } },
   },
   lessonSegments: { orderBy: { order: "asc" } },
 } satisfies Prisma.ArticleInclude;
@@ -21,8 +21,9 @@ export class ArticleRepository {
     const bodyText = input.paragraphs.map((paragraph) => paragraph.text).join("\n\n");
     const wordCount = bodyText.trim().split(/\s+/).filter(Boolean).length;
 
-    return this.db.article.create({
-      data: {
+    return this.db.$transaction(async (transaction) => {
+      await transaction.article.create({
+        data: {
         ...input.article,
         bodyText,
         wordCount,
@@ -52,8 +53,17 @@ export class ArticleRepository {
             primaryGoal: segment.primaryGoal,
           })),
         },
-      },
-      include: articleInclude,
+        },
+      });
+
+      if (input.annotations.length > 0) {
+        await transaction.annotation.createMany({ data: input.annotations });
+      }
+
+      return transaction.article.findUniqueOrThrow({
+        where: { id: input.article.id },
+        include: articleInclude,
+      });
     });
   }
 

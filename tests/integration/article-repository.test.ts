@@ -22,6 +22,9 @@ describe("ArticleRepository", () => {
     expect(loaded?.paragraphs[0].sentences[0].id).toBe("seed-rain-p01-s01");
     expect(loaded?.paragraphs).toHaveLength(6);
     expect(loaded?.paragraphs.flatMap((paragraph) => paragraph.sentences)).toHaveLength(24);
+    expect(loaded?.paragraphs[0].sentences[1].annotations).toEqual([
+      expect.objectContaining({ text: "petrichor", meaningZh: "雨后泥土与植物混合的气味" }),
+    ]);
     expect(loaded?.lessonSegments.map((segment) => segment.order)).toEqual([
       1, 2, 3, 4, 5, 6, 7, 8,
     ]);
