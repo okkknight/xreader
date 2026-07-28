@@ -12,6 +12,7 @@ export default defineConfig({
       "tests/integration/**/*.test.ts",
     ],
     globalSetup: ["./tests/integration/setup.ts"],
+    fileParallelism: false,
   },
   resolve: {
     alias: {
