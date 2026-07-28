@@ -1,0 +1,17 @@
+.DS_Store
+node_modules/
+.next/
+.next-dev/
+coverage/
+playwright-report/
+test-results/
+.env
+.env.local
+data/*.db
+data/*.db-journal
+data/audio/
+data/audio-cache/
+data/exports/
+data/backups/
+.worktrees/
+.superpowers/
