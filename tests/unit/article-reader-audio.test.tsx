@@ -35,7 +35,7 @@ describe("ArticleReader audio playback", () => {
     await act(async () => { fireEvent.click(screen.getByRole("button", { name: "开始讲解" })); });
     expect(JSON.parse(stored.get("xreader:progress:article-1") || "{}")).toMatchObject({ guidedSegmentId: "seg-1" });
     fireEvent.click(screen.getByRole("button", { name: "下一段" }));
-    expect(screen.getByText("这一课已经听完了")).toBeVisible();
+    expect(screen.getByText("完成", { exact: true })).toBeVisible();
     expect(JSON.parse(stored.get("xreader:progress:article-1") || "{}")).toMatchObject({ completed: true });
   });
 
@@ -57,6 +57,6 @@ describe("ArticleReader audio playback", () => {
     stored.set("xreader:progress:article-1", JSON.stringify({ guidedSegmentId: "seg-1", completed: true, updatedAt: Date.now() }));
     render(<ArticleReader article={article} />);
     await act(async () => undefined);
-    expect(screen.getByText("这一课已经听完了")).toBeVisible();
+    expect(screen.getByText("完成", { exact: true })).toBeVisible();
   });
 });
