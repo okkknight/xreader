@@ -19,6 +19,13 @@ XReader 是一个“每天一篇”的 AI 英语精读产品：用户阅读 450�
 - 已确认第一版直接接入真实 Fish Audio，先本地开发；音频按讲解片段/句子保存，不生成完整原文长音频，VPS 部署后置。
 - 当前交接任务：理解并固化资料包的项目上下文；执行状态：`验收通过`（交接文件已生成；应用本身尚未实现或运行验收）。
 
+## 2026-07-28 实现与音频证据
+
+- 本项目已成为可运行的 Next.js + Prisma 本地应用；公共阅读器、后台编辑、生成作业、版本化音频、QA 与发布门槛均已实现。以代码、测试与本地数据库为准，以上早期“未实现”描述仅保留为历史交接记录。
+- 真实 Fish Audio 试听已完成：教师版本 `data/audio/auditions/audition/teacher/2026-07-28T04-32-54-400Z-5371e460/audio.wav`，朗读版本 `data/audio/auditions/audition/reader/2026-07-28T04-33-03-768Z-9d4b03e6/audio.wav`。
+- 两条试听均经 `ffprobe` 验证为 `pcm_s16le`、`44100 Hz`、单声道；各自 manifest 的 `script_sha256` 与 timeline 时长一致。教师时长 5155ms，朗读时长 4876ms。
+- `seed-rain` 的 8 个 LessonSegment 已使用真实 Fish Audio 生成 WAV，并在本地 SQLite 中标记 `READY`；`npm run course:validate -- --article seed-rain` 已通过。音频目录和数据库为本地运行产物，不提交 Git。
+
 ## 产品与状态流
 
 公共端包含首页今日文章、往期归档、文章详情页和两种模式。讲解模式使用 `LessonSegment` 队列交替播放原文与教师音频；阅读模式使用句子音频队列，允许连续播放或点击句子播放。两种模式共享文章、句子映射和当前位置，但分别保存进度。

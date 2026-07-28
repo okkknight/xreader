@@ -10,8 +10,9 @@
     "test:e2e": "playwright test",
     "db:migrate": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/migrate.ts",
     "db:seed": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/seed.ts",
-    "course:validate": "echo 'Course validation is introduced in Task 3.'",
-    "audio:generate": "echo 'Audio generation is introduced in Task 4.'"
+    "course:validate": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/validate-course.ts --",
+    "audio:generate": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/generate-audio.ts --",
+    "audio:audition": "tsx scripts/audition-voices.ts --"
   },
   "dependencies": {
     "next": "16.2.12",
