@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useReducer, useRef, useState } from "react";
+import { useEffect, useMemo, useReducer, useRef } from "react";
 import { playbackReducer, initialPlaybackState } from "@/features/reader/playback-reducer";
 import { AudioController } from "@/features/reader/audio-controller";
 import { buildGuidedQueue, buildReadingQueue } from "@/features/reader/queue";
@@ -13,7 +13,6 @@ import { PlayerBar } from "@/components/player/player-bar";
 
 export function ArticleReader({ article, initialMode = "GUIDED" }: { article: PublicArticle; initialMode?: "GUIDED" | "READING" }) {
   const [state, dispatch] = useReducer(playbackReducer, { ...initialPlaybackState, mode: initialMode });
-  const [translations, setTranslations] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const controllerRef = useRef<AudioController | null>(null);
   const modeRef = useRef(state.mode);
@@ -91,8 +90,8 @@ export function ArticleReader({ article, initialMode = "GUIDED" }: { article: Pu
   const navigateNext = () => { controllerRef.current?.next(); };
   return <div className="reader-page">
     <article className="reader-main">
-      <ReaderHeader article={article} mode={state.mode} onModeChange={changeMode} translations={translations} onToggleTranslations={() => setTranslations((value) => !value)} />
-      <ArticleCanvas paragraphs={article.paragraphs} activeSentenceId={state.activeItemId} translations={translations} onSentenceSelect={chooseSentence} />
+      <ReaderHeader article={article} mode={state.mode} onModeChange={changeMode} />
+      <ArticleCanvas paragraphs={article.paragraphs} activeSentenceId={state.activeItemId} translations={false} onSentenceSelect={chooseSentence} />
       {state.mode === "GUIDED" && !state.autoFollow ? <button className="resume-follow" type="button" onClick={() => dispatch({ type: "RESTORE_AUTO_FOLLOW" })}>回到当前讲解</button> : null}
     </article>
     <CurrentLessonPanel segments={article.lessonSegments} activeSentenceId={state.activeItemId} />

@@ -10,7 +10,7 @@ test("guided reading highlights the current sentence and supports reading mode",
   await page.getByRole("button", { name: "回到当前讲解" }).click();
   await page.getByRole("button", { name: "阅读模式" }).click();
   await expect(page.getByRole("button", { name: "回到当前讲解" })).toBeHidden();
-  await expect(page.getByRole("button", { name: "显示中文" }).first()).toBeVisible();
+  await expect(page.getByRole("button", { name: "显示中文" })).toHaveCount(0);
 });
 
 test("a guest can navigate a lesson and resume its completed state", async ({ page }) => {

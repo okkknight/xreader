@@ -6,7 +6,6 @@
 .reader-header h2 { margin: 0; color: var(--xr-muted); font-size: 1.1rem; font-weight: 400; }
 .reader-dek { max-width: 38rem; margin: 1.5rem 0 0; color: var(--xr-muted); line-height: 1.8; }
 .reader-header-tools { display: flex; align-items: center; gap: 1rem; margin-top: 2rem; }
-.reader-tool-button { border: 0; border-bottom: 1px solid var(--xr-line); background: transparent; color: var(--xr-muted); font: 700 .75rem Arial, sans-serif; padding: .65rem 0; }
 .mode-switch { display: inline-flex; gap: .35rem; margin: 0; }
 .mode-switch button { min-height: 2.5rem; padding: 0 .9rem; border: 1px solid var(--xr-line); background: white; color: var(--xr-muted); font: 700 .76rem Arial, sans-serif; }
 .mode-switch button.is-selected { border-color: var(--xr-green); background: var(--xr-green); color: white; }
