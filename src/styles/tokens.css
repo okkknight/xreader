@@ -1,0 +1,16 @@
+:root {
+  --xr-ink: #17241e;
+  --xr-green: #176044;
+  --xr-green-soft: #edf5ef;
+  --xr-muted: #6d766f;
+  --xr-line: #dce2dc;
+  --xr-paper: #fbfcfa;
+  --xr-space-1: .25rem;
+  --xr-space-2: .5rem;
+  --xr-space-3: .75rem;
+  --xr-space-4: 1.25rem;
+  --xr-space-5: 2rem;
+  --xr-space-6: 3rem;
+  --xr-space-7: 4.5rem;
+  --xr-radius: .35rem;
+}

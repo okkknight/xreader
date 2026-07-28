@@ -1,0 +1,40 @@
+{
+  "name": "xreader",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "eslint .",
+    "test": "DATABASE_URL=${DATABASE_URL:-file:../data/test.db} vitest run",
+    "test:e2e": "playwright test",
+    "db:migrate": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/migrate.ts",
+    "db:seed": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/seed.ts",
+    "course:validate": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/validate-course.ts --",
+    "audio:generate": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/generate-audio.ts --",
+    "audio:audition": "tsx scripts/audition-voices.ts --",
+    "courses:create-review-set": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/create-review-courses.ts",
+    "courses:seed-humanities": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/humanities-review-courses.ts"
+  },
+  "dependencies": {
+    "next": "16.2.12",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "@prisma/client": "6.19.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.0",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@types/node": "24.10.10",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.1",
+    "eslint-config-next": "16.2.12",
+    "jsdom": "27.4.0",
+    "prisma": "6.19.2",
+    "tsx": "4.21.0",
+    "typescript": "6.0.3",
+    "vitest": "4.1.10"
+  }
+}

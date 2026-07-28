@@ -1,0 +1,13 @@
+.archive-page { padding: clamp(3.5rem, 8vw, 6rem) 0 6rem; }
+.archive-intro { display: flex; align-items: end; justify-content: space-between; gap: 2rem; border-bottom: 1px solid var(--xr-ink); padding-bottom: 2rem; }
+.archive-intro h1 { margin: .7rem 0 0; font-size: clamp(3rem, 6vw, 5.5rem); line-height: .95; letter-spacing: -.07em; }
+.archive-intro > p:last-child { max-width: 18rem; margin: 0; color: var(--xr-muted); line-height: 1.7; }
+.archive-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; }
+.archive-item { display: block; min-width: 0; border-bottom: 1px solid var(--xr-line); padding: 1.5rem 0 2rem; }
+.archive-item:hover h2 { color: var(--xr-green); }
+.archive-item h2 { margin: 1rem 0 .35rem; font-size: clamp(1.45rem, 2.5vw, 2.4rem); line-height: 1.05; letter-spacing: -.045em; transition: color .2s ease; }
+.archive-item-title-zh, .archive-item-dek { color: var(--xr-muted); }
+.archive-item-title-zh { margin: 0; }
+.archive-item-dek { max-width: 32rem; margin: 1rem 0 0; line-height: 1.7; }
+.archive-item-action { display: inline-block; margin-top: 1.5rem; color: var(--xr-green); font: 700 .76rem Arial, sans-serif; }
+@media (max-width: 700px) { .archive-page { padding: 3.5rem 0 5rem; } .archive-intro { display: block; } .archive-intro > p:last-child { margin-top: 1.5rem; } .archive-list { grid-template-columns: 1fr; } }
