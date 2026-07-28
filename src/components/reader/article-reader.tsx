@@ -8,7 +8,7 @@ import { createProgressStore } from "@/features/reader/progress";
 import type { PublicArticle } from "@/types/public-article";
 import { ArticleCanvas } from "./article-canvas";
 import { ReaderHeader } from "./reader-header";
-import { LessonOutline } from "./lesson-outline";
+import { CurrentLessonPanel } from "./current-lesson-panel";
 import { PlayerBar } from "@/components/player/player-bar";
 
 export function ArticleReader({ article, initialMode = "GUIDED" }: { article: PublicArticle; initialMode?: "GUIDED" | "READING" }) {
@@ -96,7 +96,7 @@ export function ArticleReader({ article, initialMode = "GUIDED" }: { article: Pu
       <ArticleCanvas paragraphs={article.paragraphs} activeSentenceId={state.activeItemId} translations={translations} onSentenceSelect={chooseSentence} />
       {state.mode === "GUIDED" && !state.autoFollow ? <button className="resume-follow" type="button" onClick={() => dispatch({ type: "RESTORE_AUTO_FOLLOW" })}>回到当前讲解</button> : null}
     </article>
-    <LessonOutline segments={article.lessonSegments} activeSentenceId={state.activeItemId} onSelect={chooseSentence} />
+    <CurrentLessonPanel segments={article.lessonSegments} activeSentenceId={state.activeItemId} />
     <audio ref={audioRef} preload="metadata" />
     <PlayerBar playing={state.playing} rate={state.rate} subtitle={active?.text} completed={state.completed} position={activeQueueIndex >= 0 ? `${activeQueueIndex + 1} / ${queue.length}` : undefined} onPlayPause={togglePlayback} onPrevious={navigatePrevious} onNext={navigateNext} onRate={(rate) => dispatch({ type: "SET_RATE", rate })} />
   </div>;

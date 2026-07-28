@@ -16,19 +16,8 @@
 .sentence:hover, .sentence[data-active="true"] { background: var(--xr-green-soft); box-shadow: 0 0 0 .12rem var(--xr-green-soft); }
 .translation { display: block; margin: .2rem 0 .45rem; color: var(--xr-muted); font: .9rem/1.5 Arial, sans-serif; }
 .resume-follow { border: 1px solid var(--xr-green); background: white; color: var(--xr-green); padding: .65rem .9rem; font: 700 .76rem Arial, sans-serif; }
-.lesson-outline { align-self: start; position: sticky; top: 1.25rem; min-width: 0; }
-.lesson-outline-heading { display: flex; justify-content: space-between; padding-bottom: .9rem; color: var(--xr-green); font: 700 .7rem Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
-.lesson-outline-list { border-top: 1px solid var(--xr-line); }
-.lesson-outline-item { border-bottom: 1px solid var(--xr-line); }
-.lesson-outline-item button { display: grid; grid-template-columns: 2rem 1fr; gap: .6rem; width: 100%; padding: .8rem 0; border: 0; background: transparent; color: var(--xr-muted); text-align: left; }
-.lesson-outline-item button:hover, .lesson-outline-item.is-current button { color: var(--xr-green); }
-.lesson-outline-order { font: 700 .68rem Arial, sans-serif; }
-.lesson-outline-item strong, .lesson-outline-item small { display: block; }
-.lesson-outline-item strong { font: 700 .8rem Arial, sans-serif; }
-.lesson-outline-item small { margin-top: .25rem; color: var(--xr-muted); font: .62rem Arial, sans-serif; letter-spacing: .06em; }
-.lesson-outline-item.is-current { border-left: 2px solid var(--xr-green); padding-left: .65rem; }
-.lesson-detail { margin-top: 1rem; border-top: 1px solid var(--xr-line); padding-top: 1rem; }
-.lesson-detail > span { color: var(--xr-green); font: 700 .68rem Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
-.lesson-detail p { margin: .6rem 0 0; color: var(--xr-muted); font: .82rem/1.7 Arial, sans-serif; }
-.lesson-outline-toggle, .lesson-outline-mobile { display: none; }
-@media (max-width: 700px) { .reader-page { display: block; padding: 2.5rem 0 10rem; } .reader-header { padding-bottom: 2rem; } .reader-header h1 { max-width: 12ch; font-size: 3rem; } .reader-header-tools { justify-content: space-between; } .article-canvas { padding-top: 2rem; } .article-canvas p { font-size: 1.08rem; line-height: 1.95; } .lesson-outline { position: static; margin-top: 2rem; } .lesson-outline-toggle { display: flex; justify-content: space-between; width: 100%; padding: 1rem 0; border: 0; border-top: 1px solid var(--xr-ink); border-bottom: 1px solid var(--xr-line); background: transparent; color: var(--xr-green); font: 700 .76rem Arial, sans-serif; } .lesson-outline-desktop { display: none; } .lesson-outline-mobile { display: none; } .lesson-outline.is-open .lesson-outline-mobile { display: block; } }
+.current-lesson-panel { align-self: start; position: sticky; top: 1.25rem; min-width: 0; border-top: 1px solid var(--xr-ink); padding-top: 1rem; }
+.current-lesson-meta { display: flex; justify-content: space-between; gap: 1rem; color: var(--xr-green); font: 700 .7rem Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.current-lesson-panel p { margin: 1.25rem 0 0; color: var(--xr-muted); font: .9rem/1.8 Arial, sans-serif; }
+.current-lesson-placeholder { color: var(--xr-muted); }
+@media (max-width: 700px) { .reader-page { display: block; padding: 2.5rem 0 10rem; } .reader-header { padding-bottom: 2rem; } .reader-header h1 { max-width: 12ch; font-size: 3rem; } .reader-header-tools { justify-content: space-between; } .article-canvas { padding-top: 2rem; } .article-canvas p { font-size: 1.08rem; line-height: 1.95; } .current-lesson-panel { position: static; margin-top: 2rem; border-top: 1px solid var(--xr-ink); padding: 1rem 0 0; } }
