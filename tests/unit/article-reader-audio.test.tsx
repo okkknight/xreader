@@ -35,7 +35,7 @@ describe("ArticleReader audio playback", () => {
     await act(async () => { fireEvent.click(screen.getByRole("button", { name: "开始讲解" })); });
     expect(JSON.parse(stored.get("xreader:progress:article-1") || "{}")).toMatchObject({ guidedSegmentId: "seg-1" });
     fireEvent.click(screen.getByRole("button", { name: "下一段" }));
-    expect(screen.getByText("本节讲解完成")).toBeVisible();
+    expect(screen.getByText("这一课已经听完了")).toBeVisible();
     expect(JSON.parse(stored.get("xreader:progress:article-1") || "{}")).toMatchObject({ completed: true });
   });
 
@@ -51,5 +51,12 @@ describe("ArticleReader audio playback", () => {
     await act(async () => { await new Promise((resolve) => setTimeout(resolve, 410)); });
     await act(async () => { window.dispatchEvent(new Event("scroll")); });
     expect(screen.getByRole("button", { name: "回到当前讲解" })).toBeVisible();
+  });
+
+  it("restores a completed guest lesson on mount", async () => {
+    stored.set("xreader:progress:article-1", JSON.stringify({ guidedSegmentId: "seg-1", completed: true, updatedAt: Date.now() }));
+    render(<ArticleReader article={article} />);
+    await act(async () => undefined);
+    expect(screen.getByText("这一课已经听完了")).toBeVisible();
   });
 });

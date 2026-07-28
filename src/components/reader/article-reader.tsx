@@ -21,6 +21,7 @@ export function ArticleReader({ article }: { article: PublicArticle }) {
   const sentences = useMemo(() => article.paragraphs.flatMap((paragraph) => paragraph.sentences), [article]);
   const queue = useMemo(() => state.mode === "GUIDED" ? buildGuidedQueue(article.lessonSegments) : buildReadingQueue(article.lessonSegments), [article.lessonSegments, state.mode]);
   const active = sentences.find((sentence) => sentence.id === state.activeItemId);
+  const activeQueueIndex = queue.findIndex((item) => item.sentenceIds.includes(state.activeItemId || ""));
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -41,11 +42,10 @@ export function ArticleReader({ article }: { article: PublicArticle }) {
   useEffect(() => { modeRef.current = state.mode; }, [state.mode]);
   useEffect(() => {
     const progress = createProgressStore(window.localStorage).load(article.id);
-    if (progress?.completed) dispatch({ type: "SET_COMPLETED", completed: true });
     const item = state.mode === "GUIDED"
       ? queue.find((candidate) => candidate.id === progress?.guidedSegmentId)
       : queue.find((candidate) => candidate.sentenceIds.includes(progress?.readingSentenceId || ""));
-    if (item?.sentenceIds[0]) dispatch({ type: "SET_ACTIVE", itemId: item.sentenceIds[0] });
+    dispatch({ type: "RESTORE_PROGRESS", itemId: item?.sentenceIds[0], completed: Boolean(progress?.completed) });
   }, [article.id, queue, state.mode]);
   useEffect(() => { if (audioRef.current) audioRef.current.playbackRate = state.rate; }, [state.rate]);
   useEffect(() => {
@@ -83,6 +83,8 @@ export function ArticleReader({ article }: { article: PublicArticle }) {
     if (mode === "GUIDED") pendingGuidedPlayRef.current = state.activeItemId || sentences[0]?.id;
     dispatch({ type: "SET_MODE", mode });
   };
+  const navigatePrevious = () => { controllerRef.current?.previous(); };
+  const navigateNext = () => { controllerRef.current?.next(); };
   return <div className="reader-layout">
     <article className="article-column">
       <header className="article-heading"><p>{article.topic} · {article.difficulty}</p><h1>{article.titleEn}</h1><h2>{article.titleZh}</h2>{article.dekZh ? <p className="dek">{article.dekZh}</p> : null}<ModeSwitch mode={state.mode} onChange={changeMode} /></header>
@@ -92,6 +94,6 @@ export function ArticleReader({ article }: { article: PublicArticle }) {
     <aside className="lesson-rail" aria-label="讲解目录"><h2>这一课</h2>{article.lessonSegments.map((segment) => <button key={segment.id} type="button" className={state.activeItemId && segment.sentenceIds.includes(state.activeItemId) ? "is-current" : ""} onClick={() => segment.sentenceIds[0] && chooseSentence(segment.sentenceIds[0])}><span>{String(segment.order).padStart(2, "0")}</span><strong>{segment.type.replaceAll("_", " ")}</strong>{segment.script ? <small>{segment.script}</small> : null}</button>)}</aside>
     <GuidedSubtitle text={active?.text} />
     <audio ref={audioRef} preload="metadata" />
-    <PlayerBar playing={state.playing} rate={state.rate} subtitle={active?.text} completed={state.completed} onPlayPause={togglePlayback} onPrevious={() => controllerRef.current?.previous()} onNext={() => controllerRef.current?.next()} onRate={(rate) => dispatch({ type: "SET_RATE", rate })} />
+    <PlayerBar playing={state.playing} rate={state.rate} subtitle={active?.text} completed={state.completed} position={activeQueueIndex >= 0 ? `${activeQueueIndex + 1} / ${queue.length}` : undefined} onPlayPause={togglePlayback} onPrevious={navigatePrevious} onNext={navigateNext} onRate={(rate) => dispatch({ type: "SET_RATE", rate })} />
   </div>;
 }

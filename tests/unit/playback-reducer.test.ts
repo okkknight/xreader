@@ -8,4 +8,9 @@ describe("playbackReducer", () => {
     expect(away.autoFollow).toBe(false);
     expect(playbackReducer(away, { type: "RESTORE_AUTO_FOLLOW" }).autoFollow).toBe(true);
   });
+
+  it("restores the active item and completion state atomically", () => {
+    const restored = playbackReducer(initialPlaybackState, { type: "RESTORE_PROGRESS", itemId: "seg-8", completed: true });
+    expect(restored).toMatchObject({ activeItemId: "seg-8", completed: true, playing: false });
+  });
 });
