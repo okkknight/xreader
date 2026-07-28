@@ -70,4 +70,8 @@ export class ArticleRepository {
   async getBySlug(slug: string): Promise<ArticleRecord | null> {
     return this.db.article.findUnique({ where: { slug }, include: articleInclude });
   }
+
+  async getById(id: string): Promise<ArticleRecord | null> {
+    return this.db.article.findUnique({ where: { id }, include: articleInclude });
+  }
 }

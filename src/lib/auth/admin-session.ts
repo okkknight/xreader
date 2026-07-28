@@ -49,3 +49,9 @@ export async function verifyAdminPassword(password: string, env: SessionEnv = pr
   const expected = Buffer.from(configured);
   return input.length === expected.length && timingSafeEqual(input, expected);
 }
+
+export function assertSameOrigin(request: Request) {
+  const origin = request.headers.get("origin");
+  if (!origin) return;
+  if (origin !== new URL(request.url).origin) throw new Error("Invalid request origin");
+}
