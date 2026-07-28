@@ -35,3 +35,11 @@
 - 修复后，seed 仅重绑 `READY`、文本 hash 匹配且本地文件存在的资产；公共文章返回 `/api/media/<assetId>`；阅读器以该 URL 播放并在结束后推进队列。
 - 运行时验收：浏览器点击“开始讲解”后，媒体 `readyState=4`、`paused=false`、无媒体错误，且自动推进到后续片段；本地首页为 HTTP 200，公共文章返回 8 条媒体 URL。
 - 回归：`npm test` 为 23 files / 32 tests 通过；`npm run test:e2e` 为 4/4 通过；`npm run course:validate -- --all`、`npm run lint` 与 `npm run build` 均通过。
+
+## 后台来源管理（2026-07-28）
+
+- 管理员可在“来源”面板创建、编辑和解除来源关联，保存标题、URL、来源角色、可信度说明和逐行关键事实。
+- `ArticleSource.factNotes` 保存结构化事实备注；共享来源只在解除最后一篇文章关联后删除。
+- `GET/POST/DELETE /api/admin/articles/[id]/sources` 全部受管理员会话与同源检查保护；非生产环境仅允许同端口 loopback 别名互认，以支持本地 Playwright 验收。
+- 公共文章 API 隐私回归确认不输出来源标题、URL 或关键事实。
+- 回归：`npm test` 为 23 files / 34 tests 通过；`npm run test:e2e` 为 4/4 通过；课程校验、lint 与生产构建通过。
