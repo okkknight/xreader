@@ -27,3 +27,11 @@
 **实现验收：PASS。** 四篇课程均为独立正文、稳定 ID、有效批注偏移、八段教学映射；本地数据库抽查确认它们均为 `ARTICLE_DRAFT`、拥有 2–3 条来源、没有 QA 记录和音频资产。旧的克隆课程不会在新的导入流程中保留。
 
 **发布就绪：BLOCKED。** 这不是代码或自动化失败，而是既定内容门槛：四篇课程的事实、英文、教学和 Fish Audio 试听仍标为人工待审。未完成这些审核前，禁止 QA 通过或发布。
+
+## 讲解音频端到端修复（2026-07-28）
+
+- 根因一：阅读器只改变播放状态，没有挂载媒体元素或调用 `AudioController`。
+- 根因二：`db:seed` 重建 `seed-rain` 后没有恢复之前已生成且仍可用的本地音频绑定；公共查询还曾返回内部存储路径而不是媒体 API URL。
+- 修复后，seed 仅重绑 `READY`、文本 hash 匹配且本地文件存在的资产；公共文章返回 `/api/media/<assetId>`；阅读器以该 URL 播放并在结束后推进队列。
+- 运行时验收：浏览器点击“开始讲解”后，媒体 `readyState=4`、`paused=false`、无媒体错误，且自动推进到后续片段；本地首页为 HTTP 200，公共文章返回 8 条媒体 URL。
+- 回归：`npm test` 为 23 files / 32 tests 通过；`npm run test:e2e` 为 4/4 通过；`npm run course:validate -- --all`、`npm run lint` 与 `npm run build` 均通过。
