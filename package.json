@@ -6,17 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "eslint .",
-    "test": "vitest run",
+    "test": "DATABASE_URL=${DATABASE_URL:-file:../data/test.db} vitest run",
     "test:e2e": "playwright test",
-    "db:migrate": "echo 'Database migrations are introduced in Task 2.'",
-    "db:seed": "echo 'Database seeding is introduced in Task 2.'",
+    "db:migrate": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/migrate.ts",
+    "db:seed": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/seed.ts",
     "course:validate": "echo 'Course validation is introduced in Task 3.'",
     "audio:generate": "echo 'Audio generation is introduced in Task 4.'"
   },
   "dependencies": {
     "next": "16.2.12",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "@prisma/client": "6.19.2"
   },
   "devDependencies": {
     "@playwright/test": "1.62.0",
@@ -28,6 +29,8 @@
     "eslint": "9.39.1",
     "eslint-config-next": "16.2.12",
     "jsdom": "27.4.0",
+    "prisma": "6.19.2",
+    "tsx": "4.21.0",
     "typescript": "6.0.3",
     "vitest": "4.1.10"
   }

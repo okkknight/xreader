@@ -1,0 +1,254 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum ArticleStatus {
+  IDEA
+  SOURCED
+  ARTICLE_DRAFT
+  ARTICLE_EDITED
+  ANALYZED
+  DIRECTED
+  SCRIPTED
+  AUDIO_READY
+  QA_PASSED
+  SCHEDULED
+  PUBLISHED
+  ARCHIVED
+}
+
+enum SegmentType {
+  OPENING
+  ORIENTATION
+  ARTICLE_READ
+  QUICK_EXPLANATION
+  NORMAL_EXPLANATION
+  DEEP_EXPLANATION
+  EXPRESSION_NOTE
+  CONTEXT_CONNECTION
+  REPLAY
+  SECTION_SUMMARY
+  FINAL_WRAP
+}
+
+enum VoiceRole {
+  TEACHER
+  READER
+}
+
+enum AudioStatus {
+  MISSING
+  QUEUED
+  GENERATING
+  READY
+  STALE
+  FAILED
+}
+
+enum JobStatus {
+  QUEUED
+  RUNNING
+  SUCCEEDED
+  FAILED
+  CANCELLED
+}
+
+model Article {
+  id              String        @id
+  slug            String        @unique
+  titleEn         String
+  titleZh         String
+  dekZh           String?
+  topic           String
+  difficulty      String        @default("B1-B2")
+  status          ArticleStatus @default(IDEA)
+  bodyText        String
+  wordCount       Int           @default(0)
+  estimatedReadMs Int?
+  publishedAt     DateTime?
+  scheduledAt     DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  paragraphs      Paragraph[]
+  sources         ArticleSource[]
+  analysis        ArticleAnalysis?
+  lessonPlan      LessonPlan?
+  lessonSegments  LessonSegment[]
+  feedback        ArticleFeedback[]
+  generationJobs  GenerationJob[]
+}
+
+model Paragraph {
+  id        String     @id
+  articleId String
+  order     Int
+  text      String
+
+  article   Article    @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  sentences Sentence[]
+
+  @@unique([articleId, order])
+}
+
+model Sentence {
+  id            String       @id
+  paragraphId   String
+  order         Int
+  text          String
+  translationZh String?
+  startOffset   Int?
+  endOffset     Int?
+
+  paragraph     Paragraph    @relation(fields: [paragraphId], references: [id], onDelete: Cascade)
+  annotations   Annotation[]
+
+  @@unique([paragraphId, order])
+}
+
+model Source {
+  id          String          @id @default(cuid())
+  title       String
+  publisher   String?
+  url         String
+  publishedAt DateTime?
+  accessedAt  DateTime?
+  notes       String?
+
+  articles    ArticleSource[]
+}
+
+model ArticleSource {
+  articleId String
+  sourceId  String
+  role      String
+  factNotes Json?
+
+  article   Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  source    Source  @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+
+  @@id([articleId, sourceId])
+}
+
+model ArticleAnalysis {
+  id        String   @id @default(cuid())
+  articleId String   @unique
+  version   Int      @default(1)
+  promptVer String
+  model     String?
+  data      Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  article   Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
+}
+
+model LessonPlan {
+  id        String   @id @default(cuid())
+  articleId String   @unique
+  version   Int      @default(1)
+  promptVer String
+  model     String?
+  data      Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  article   Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
+}
+
+model LessonSegment {
+  id                    String      @id
+  articleId             String
+  order                 Int
+  type                  SegmentType
+  primaryGoal           String?
+  script                String?
+  voiceRole             VoiceRole
+  sentenceIds           Json
+  highlightMode         String?
+  autoScrollTarget      String?
+  pauseBeforeMs         Int         @default(0)
+  pauseAfterMs          Int         @default(400)
+  replaySourceSegmentId String?
+  audioPath             String?
+  audioDurationMs       Int?
+  audioStatus           AudioStatus @default(MISSING)
+  textHash              String?
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+
+  article               Article     @relation(fields: [articleId], references: [id], onDelete: Cascade)
+
+  @@unique([articleId, order])
+}
+
+model Annotation {
+  id          String   @id @default(cuid())
+  sentenceId  String
+  startOffset Int
+  endOffset   Int
+  text        String
+  meaningZh   String
+  noteZh      String?
+  exampleEn   String?
+  audioPath   String?
+
+  sentence    Sentence @relation(fields: [sentenceId], references: [id], onDelete: Cascade)
+}
+
+model AudioAsset {
+  id                String      @id @default(cuid())
+  ownerType         String
+  ownerId           String
+  provider          String
+  voiceId           String
+  path              String
+  format            String
+  durationMs        Int
+  textHash          String
+  providerRequestId String?
+  status            AudioStatus
+  error             String?
+  createdAt         DateTime    @default(now())
+
+  @@index([ownerType, ownerId])
+}
+
+model GenerationJob {
+  id         String    @id @default(cuid())
+  articleId  String?
+  type       String
+  status     JobStatus
+  inputHash  String
+  promptVer  String?
+  model      String?
+  input      Json
+  output     Json?
+  error      String?
+  attempts   Int       @default(0)
+  startedAt  DateTime?
+  finishedAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  article    Article?  @relation(fields: [articleId], references: [id], onDelete: SetNull)
+}
+
+model ArticleFeedback {
+  id           String   @id @default(cuid())
+  articleId    String
+  sessionId    String
+  difficulty   String?
+  density      String?
+  worthReading Boolean?
+  createdAt    DateTime @default(now())
+
+  article      Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
+
+  @@index([articleId, createdAt])
+}
