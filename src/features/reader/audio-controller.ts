@@ -19,7 +19,8 @@ export class AudioController {
     this.onAdvance?.(item);
   }
   pause() { this.audio.pause(); }
+  previous() { if (this.index > 0) { this.index -= 1; void this.play().catch(() => undefined); } }
+  next() { this.index += 1; if (this.index < this.queue.length) void this.play().catch(() => undefined); else this.onAdvance?.(); }
   seek(seconds: number) { this.audio.currentTime = Math.max(0, seconds); }
   setRate(rate: number) { this.audio.playbackRate = rate; }
-  private next() { this.index += 1; if (this.index < this.queue.length) void this.play(); else this.onAdvance?.(); }
 }

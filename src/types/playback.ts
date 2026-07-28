@@ -6,4 +6,5 @@ export type PlaybackState = {
   playing: boolean;
   autoFollow: boolean;
   rate: number;
+  completed: boolean;
 };

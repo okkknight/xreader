@@ -46,6 +46,7 @@ XReader 是一个“每天一篇”的 AI 英语精读产品：用户阅读 450�
 - 首版声音候选：教师使用 God's Plan 已使用的 `reference_id=76fcd904aa4b4a47af107686abd68248`，原文朗读使用 HolyVoice 英语配置的 `reference_id=7491491700cd43b1a551d5efb4dca9c7`；两者先试听，后续只替换 `reference_id` 即可调模。
 - Fish 先沿用 `s2.1-pro-free`、WAV、44.1kHz 单声道、缓存/重试/manifest/timeline 契约；免费账户首版按单并发运行。
 - MVP 使用 `localStorage` 保存未登录用户的讲解/阅读位置和完成状态；不引入 Redis、微服务或复杂权限系统。
+- 当前 MVP 优先公共端学习闭环；后台管理延后，新增课程由 Codex 导入脚本维护。
 - 公共 API 只返回已发布内容，不暴露来源摘录、Prompt、编辑备注或未发布版本。
 
 ## 重要文件

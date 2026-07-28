@@ -1,5 +1,5 @@
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { ArticleReader } from "@/components/reader/article-reader";
 import type { PublicArticle } from "@/types/public-article";
@@ -11,7 +11,9 @@ const article: PublicArticle = {
 };
 
 describe("ArticleReader audio playback", () => {
-  afterEach(() => { cleanup(); vi.restoreAllMocks(); });
+  const stored = new Map<string, string>();
+  beforeEach(() => { stored.clear(); vi.stubGlobal("localStorage", { getItem: (key: string) => stored.get(key) ?? null, setItem: (key: string, value: string) => stored.set(key, value) }); });
+  afterEach(() => { cleanup(); vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 
   it("plays the active guided segment through a media element", async () => {
     const play = vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue(undefined);
@@ -23,5 +25,17 @@ describe("ArticleReader audio playback", () => {
     const audio = document.querySelector("audio");
     expect(audio?.src).toBe("http://localhost:3000/api/media/asset-1");
     expect(play).toHaveBeenCalledOnce();
+  });
+
+  it("records guest progress and exposes segment navigation", async () => {
+    vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue(undefined);
+    vi.spyOn(HTMLMediaElement.prototype, "pause").mockImplementation(() => undefined);
+    render(<ArticleReader article={article} />);
+
+    await act(async () => { fireEvent.click(screen.getByRole("button", { name: "开始讲解" })); });
+    expect(JSON.parse(stored.get("xreader:progress:article-1") || "{}")).toMatchObject({ guidedSegmentId: "seg-1" });
+    fireEvent.click(screen.getByRole("button", { name: "下一段" }));
+    expect(screen.getByText("本节讲解完成")).toBeVisible();
+    expect(JSON.parse(stored.get("xreader:progress:article-1") || "{}")).toMatchObject({ completed: true });
   });
 });
