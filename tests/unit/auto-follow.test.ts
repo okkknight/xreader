@@ -1,10 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { isOutsideSafeViewportBand } from "@/features/reader/auto-follow";
+import { isSentenceComfortablyVisible } from "@/lib/reader/auto-follow";
 
-describe("auto follow", () => {
-  it("uses the central 30-40 percent safe viewport band", () => {
-    expect(isOutsideSafeViewportBand({ top: 350, bottom: 400 }, 1000)).toBe(false);
-    expect(isOutsideSafeViewportBand({ top: 50, bottom: 100 }, 1000)).toBe(true);
+describe("isSentenceComfortablyVisible", () => {
+  it("keeps auto-follow enabled after a small manual scroll while the current sentence remains readable", () => {
+    expect(isSentenceComfortablyVisible({ top: 170, bottom: 215 }, 900)).toBe(true);
+  });
+
+  it("marks the reader as away only after the current sentence leaves the reading area", () => {
+    expect(isSentenceComfortablyVisible({ top: -20, bottom: 25 }, 900)).toBe(false);
   });
 });

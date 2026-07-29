@@ -11,13 +11,14 @@ export class AudioController {
   }
 
   setQueue(queue: PlaybackItem[]) { this.queue = queue; this.index = -1; }
-  async play(itemId?: string) {
+  async play(itemId?: string, options: { restart?: boolean } = {}) {
     const request = ++this.playRequest;
     if (itemId) this.index = this.queue.findIndex((item) => item.id === itemId);
     if (this.index < 0) this.index = 0;
     const item = this.queue[this.index];
     if (!item) return;
     if (this.audio.src !== new URL(item.audioPath, window.location.href).href) this.audio.src = item.audioPath;
+    if (options.restart) this.audio.currentTime = 0;
     await this.audio.play();
     if (request !== this.playRequest) return;
     this.onAdvance?.(item);

@@ -9,9 +9,9 @@ export default defineConfig({
     include: [
       "tests/unit/**/*.test.ts",
       "tests/unit/**/*.test.tsx",
-      "tests/integration/**/*.test.ts",
+      ...(process.env.VITEST_INTEGRATION === "1" ? ["tests/integration/**/*.test.ts"] : []),
     ],
-    globalSetup: ["./tests/integration/setup.ts"],
+    globalSetup: process.env.VITEST_INTEGRATION === "1" ? ["./tests/integration/setup.ts"] : [],
     fileParallelism: false,
   },
   resolve: {

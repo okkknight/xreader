@@ -12,37 +12,23 @@ enum ArticleStatus {
   SOURCED
   ARTICLE_DRAFT
   ARTICLE_EDITED
-  ANALYZED
-  DIRECTED
-  SCRIPTED
-  AUDIO_READY
+  BUILT
   QA_PASSED
   SCHEDULED
   PUBLISHED
   ARCHIVED
 }
 
-enum GuideDepth {
-  QUICK
-  NORMAL
-  DEEP
-}
-
-enum AudioStatus {
-  MISSING
-  QUEUED
-  GENERATING
-  READY
-  STALE
-  FAILED
-}
-
-enum CourseScriptGenerationStatus {
-  RUNNING
-  SUCCEEDED
-  FAILED
+enum CourseDocumentStatus {
+  BUILT
   NEEDS_REVIEW
-  APPROVED
+  IMPORTED
+}
+
+enum CourseAudioStatus {
+  READY
+  MISSING
+  FAILED
 }
 
 model Article {
@@ -64,10 +50,9 @@ model Article {
 
   paragraphs      Paragraph[]
   sources         ArticleSource[]
-  paragraphGuides ParagraphGuide[]
+  annotations     Annotation[]
+  courseDocument  CourseDocument?
   feedback        ArticleFeedback[]
-  scriptGenerations CourseScriptGeneration[]
-  qa              ArticleQa?
 }
 
 model Paragraph {
@@ -78,8 +63,6 @@ model Paragraph {
 
   article   Article    @relation(fields: [articleId], references: [id], onDelete: Cascade)
   sentences Sentence[]
-  guides    ParagraphGuide[] @relation("ParagraphToGuides")
-  sentenceGuides SentenceGuide[] @relation("ParagraphToSentenceGuides")
 
   @@unique([articleId, order])
 }
@@ -95,7 +78,6 @@ model Sentence {
 
   paragraph     Paragraph    @relation(fields: [paragraphId], references: [id], onDelete: Cascade)
   annotations   Annotation[]
-  guides        SentenceGuide[]
 
   @@unique([paragraphId, order])
 }
@@ -124,60 +106,9 @@ model ArticleSource {
   @@id([articleId, sourceId])
 }
 
-model ParagraphGuide {
-  id                 String      @id
-  articleId          String
-  paragraphId        String
-  order              Int
-  paragraphGoal      String
-  openingBridge      String?
-  paragraphWrap      String?
-  nextParagraphBridge String?
-  scriptText         String
-  audioPath          String?
-  audioDurationMs    Int?
-  audioStatus        AudioStatus @default(MISSING)
-  textHash           String?
-  createdAt          DateTime    @default(now())
-  updatedAt          DateTime    @updatedAt
-
-  article            Article     @relation(fields: [articleId], references: [id], onDelete: Cascade)
-  paragraph          Paragraph   @relation("ParagraphToGuides", fields: [paragraphId], references: [id], onDelete: Cascade)
-  sentenceGuides     SentenceGuide[]
-
-  @@unique([articleId, order])
-  @@unique([articleId, paragraphId])
-}
-
-model SentenceGuide {
-  id                    String      @id
-  paragraphGuideId      String
-  paragraphId           String
-  sentenceId            String
-  order                 Int
-  depth                 GuideDepth
-  originalReadText      String
-  meaningZh             String
-  sentenceFunction      String
-  primaryTeachingGoal   String
-  focusScript           String?
-  bridgeScript          String?
-  likelyMisunderstanding String?
-  expressionTarget      String?
-  replayAfterExplanation Boolean    @default(false)
-  estimatedStartMs      Int?
-  estimatedEndMs        Int?
-
-  paragraphGuide        ParagraphGuide @relation(fields: [paragraphGuideId], references: [id], onDelete: Cascade)
-  paragraph             Paragraph      @relation("ParagraphToSentenceGuides", fields: [paragraphId], references: [id], onDelete: Cascade)
-  sentence              Sentence      @relation(fields: [sentenceId], references: [id], onDelete: Cascade)
-
-  @@unique([paragraphGuideId, sentenceId])
-  @@unique([paragraphGuideId, order])
-}
-
 model Annotation {
   id          String   @id @default(cuid())
+  articleId   String
   sentenceId  String
   startOffset Int
   endOffset   Int
@@ -185,69 +116,45 @@ model Annotation {
   meaningZh   String
   noteZh      String?
   exampleEn   String?
-  audioPath   String?
 
+  article     Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
   sentence    Sentence @relation(fields: [sentenceId], references: [id], onDelete: Cascade)
 }
 
-model AudioAsset {
-  id                String      @id @default(cuid())
-  ownerType         String
-  ownerId           String
-  provider          String
-  voiceId           String
-  path              String
-  format            String
-  durationMs        Int
-  textHash          String
-  providerRequestId String?
-  status            AudioStatus
-  error             String?
-  createdAt         DateTime    @default(now())
+model CourseDocument {
+  id                String               @id @default(cuid())
+  articleId         String               @unique
+  schemaVersion     Int                  @default(1)
+  sourceMarkdown    String
+  finalLectureMarkdown String
+  sourceHash        String
+  finalLectureHash  String
+  courseJson        Json
+  parseReport       Json?
+  status            CourseDocumentStatus @default(BUILT)
+  createdAt         DateTime             @default(now())
+  updatedAt         DateTime             @updatedAt
 
-  @@index([ownerType, ownerId])
+  article           Article              @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  audio             CourseBlockAudio[]
 }
 
-model CourseScriptGeneration {
-  id                    String                       @id @default(cuid())
-  articleId             String
-  version               Int
-  status                CourseScriptGenerationStatus @default(RUNNING)
-  currentStage          String?
-  promptVersion         String
-  model                 String?
-  inputHash             String
-  promptVersions        Json
-  temperature           Float?
-  articleUnderstanding  Json?
-  narrativePlan         Json?
-  sentenceAnalysis      Json?
-  languageLearningMap   Json?
-  lessonDesignRationale Json?
-  teachingBeatPlan      Json?
-  teacherPerformancePlan Json?
-  fullScriptDraft       Json?
-  editedScript          Json?
-  englishTeachingEdit   Json?
-  humanVoiceEdit        Json?
-  qualityReview         Json?
-  finalQualityReview    Json?
-  instructionalQualityReview Json?
-  qualityEvidence       Json?
-  calibrationNotes      Json?
-  repairHistory         Json?
-  finalScript           Json?
-  manuallyEdited        Boolean                      @default(false)
-  parentVersionId       String?
-  error                 String?
-  createdAt             DateTime                     @default(now())
-  updatedAt             DateTime                     @updatedAt
-  completedAt           DateTime?
+model CourseBlockAudio {
+  id               String            @id @default(cuid())
+  courseDocumentId String
+  audioId          String            @unique
+  blockIds         Json
+  path             String
+  durationMs       Int
+  status           CourseAudioStatus @default(MISSING)
+  scriptHash       String
+  provider         String?
+  referenceId      String?
+  createdAt        DateTime          @default(now())
 
-  article               Article                      @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  courseDocument   CourseDocument    @relation(fields: [courseDocumentId], references: [id], onDelete: Cascade)
 
-  @@unique([articleId, version])
-  @@index([articleId, createdAt])
+  @@index([courseDocumentId])
 }
 
 model ArticleFeedback {
@@ -262,16 +169,4 @@ model ArticleFeedback {
   article      Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
 
   @@index([articleId, createdAt])
-}
-
-model ArticleQa {
-  id          String   @id @default(cuid())
-  articleId   String   @unique
-  automated   Json
-  humanChecks Json
-  passedAt    DateTime?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  article     Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
 }

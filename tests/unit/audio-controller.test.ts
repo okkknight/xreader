@@ -19,4 +19,16 @@ describe("AudioController", () => {
     await Promise.resolve();
     expect(advanced).toEqual(["two"]);
   });
+
+  it("restarts the current item from the beginning when explicitly replayed", async () => {
+    const audio = { src: "", currentTime: 8, play: vi.fn(async () => undefined), pause: vi.fn(), addEventListener: vi.fn() } as unknown as HTMLAudioElement;
+    const controller = new AudioController(audio);
+    controller.setQueue([{ id: "one", sentenceIds: ["s1"], audioPath: "/one.wav" }]);
+
+    await controller.play("one");
+    audio.currentTime = 5;
+    await controller.play("one", { restart: true });
+
+    expect(audio.currentTime).toBe(0);
+  });
 });

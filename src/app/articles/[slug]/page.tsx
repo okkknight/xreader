@@ -12,6 +12,6 @@ export default async function ArticlePage({ params, searchParams }: { params: Pr
   const query = searchParams ? await searchParams : undefined;
   const article = await getPublicArticle(prisma, slug);
   if (!article) notFound();
-  const initialMode = query?.mode === "reading" ? "READING" : "GUIDED";
+  const initialMode = query?.mode === "reading" ? "READING" : query?.mode === "guided" ? "GUIDED" : undefined;
   return <AppShell><ArticleReader article={article} initialMode={initialMode} /></AppShell>;
 }

@@ -13,4 +13,11 @@ describe("getFishAudioConfig", () => {
       AUDIO_STORAGE_DIR: "data/audio",
     })).toMatchObject({ apiKey: "key", model: "model", teacherReferenceId: "teacher", readerReferenceId: "reader" });
   });
+
+  it("uses the selected teacher voice by default", () => {
+    expect(getFishAudioConfig({ FISH_AUDIO_API_KEY: "key" })).toMatchObject({
+      teacherReferenceId: "a19fd22b105a423a8c5ae5294b0353df",
+      readerReferenceId: "76fcd904aa4b4a47af107686abd68248",
+    });
+  });
 });

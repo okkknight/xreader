@@ -1,21 +1,21 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useSyncExternalStore } from "react";
 import type { PublicArticle } from "@/types/public-article";
-import { createProgressStore } from "@/features/reader/progress";
+
+const ARCHIVE_COVER_IMAGES: Record<string, string> = {
+  "why-rain-has-a-smell": "/images/why-rain-has-a-smell-cover.png",
+};
 
 function ArticleListItem({ article }: { article: PublicArticle }) {
-  const status = useSyncExternalStore(() => () => undefined, () => {
-    const progress = createProgressStore(window.localStorage).load(article.id);
-    return progress?.completed ? "已完成" : progress?.guidedParagraphId || progress?.readingSentenceId ? "继续阅读" : "未开始";
-  }, () => "未开始");
   return <Link className="archive-item" href={`/articles/${article.slug}`}>
-    <div className="archive-item-meta"><span>{article.topic}</span><span>{article.difficulty}</span><span>{status}</span></div>
-    <h2>{article.titleEn}</h2>
-    <p className="archive-item-title-zh">{article.titleZh}</p>
-    {article.dekZh ? <p className="archive-item-dek">{article.dekZh}</p> : null}
-    <span className="archive-item-action">进入阅读 <span aria-hidden="true">→</span></span>
+    <div className="archive-item-media"><Image src={ARCHIVE_COVER_IMAGES[article.slug] ?? "/images/why-rain-has-a-smell-cover.png"} alt={`${article.titleEn} 课程封面`} fill sizes="(max-width: 700px) calc(100vw - 2rem), 23rem" /></div>
+    <div className="archive-item-content">
+      <h2>{article.titleEn}</h2>
+      <p className="archive-item-title-zh">{article.titleZh}</p>
+      <span className="archive-item-action">进入阅读 <span aria-hidden="true">→</span></span>
+    </div>
   </Link>;
 }
 

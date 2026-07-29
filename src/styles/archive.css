@@ -1,13 +1,18 @@
-.archive-page { padding: clamp(3.5rem, 8vw, 6rem) 0 6rem; }
-.archive-intro { display: flex; align-items: end; justify-content: space-between; gap: 2rem; border-bottom: 1px solid var(--xr-ink); padding-bottom: 2rem; }
-.archive-intro h1 { margin: .7rem 0 0; font-size: clamp(3rem, 6vw, 5.5rem); line-height: .95; letter-spacing: -.07em; }
-.archive-intro > p:last-child { max-width: 18rem; margin: 0; color: var(--xr-muted); line-height: 1.7; }
-.archive-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; }
-.archive-item { display: block; min-width: 0; border-bottom: 1px solid var(--xr-line); padding: 1.5rem 0 2rem; }
+.archive-page { width: min(100%, 68rem); margin: 0 auto; padding: clamp(2.5rem, 6vw, 5rem) 0 6rem; }
+.archive-intro { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+.archive-intro h1 { margin: 0; font-size: clamp(2.8rem, 5vw, 4.8rem); line-height: .96; letter-spacing: -.07em; }
+.archive-intro > p { max-width: 19rem; margin: 0; color: var(--xr-muted); line-height: 1.7; }
+.archive-list { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+.archive-item { display: grid; grid-template-columns: minmax(16rem, 34%) minmax(0, 1fr); min-width: 0; overflow: hidden; border: 1px solid var(--xr-line); border-radius: 1.2rem; background: #fff; box-shadow: 0 .7rem 1.8rem rgba(18, 38, 28, .06); transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.archive-item:hover { transform: translateY(-.15rem); border-color: rgba(23, 96, 68, .34); box-shadow: 0 1rem 2.3rem rgba(18, 38, 28, .12); }
+.archive-item:focus-visible { outline: 2px solid var(--xr-green); outline-offset: .2rem; }
+.archive-item-media { position: relative; min-height: 14.5rem; overflow: hidden; background: #173126; }
+.archive-item-media img { object-fit: cover; object-position: 61% center; transition: transform .45s ease; }
+.archive-item:hover .archive-item-media img { transform: scale(1.04); }
+.archive-item-content { display: flex; flex-direction: column; align-items: flex-start; padding: clamp(1.4rem, 3vw, 2.25rem); }
+.archive-item h2 { max-width: 23ch; margin: 0; color: var(--xr-ink); font-family: Iowan Old Style, Palatino Linotype, Book Antiqua, Georgia, serif; font-size: clamp(1.75rem, 3vw, 2.7rem); font-weight: 600; line-height: 1; letter-spacing: -.055em; transition: color .2s ease; }
 .archive-item:hover h2 { color: var(--xr-green); }
-.archive-item h2 { margin: 1rem 0 .35rem; font-size: clamp(1.45rem, 2.5vw, 2.4rem); line-height: 1.05; letter-spacing: -.045em; transition: color .2s ease; }
-.archive-item-title-zh, .archive-item-dek { color: var(--xr-muted); }
-.archive-item-title-zh { margin: 0; }
-.archive-item-dek { max-width: 32rem; margin: 1rem 0 0; line-height: 1.7; }
-.archive-item-action { display: inline-block; margin-top: 1.5rem; color: var(--xr-green); font: 700 .76rem Arial, sans-serif; }
-@media (max-width: 700px) { .archive-page { padding: 3.5rem 0 5rem; } .archive-intro { display: block; } .archive-intro > p:last-child { margin-top: 1.5rem; } .archive-list { grid-template-columns: 1fr; } }
+.archive-item-title-zh { margin: .75rem 0 0; color: var(--xr-muted); font-family: "PingFang SC", "Noto Sans SC", sans-serif; font-size: 1.03rem; }
+.archive-item-action { margin-top: 1.65rem; color: var(--xr-green); font-family: Arial, "PingFang SC", sans-serif; font-size: .75rem; font-weight: 700; }
+@media (max-width: 700px) { .archive-page { padding: 2rem 0 5rem; } .archive-intro { display: block; margin-bottom: 2rem; } .archive-intro h1 { font-size: 3.25rem; } .archive-intro > p { margin-top: 1rem; } .archive-list { gap: 1rem; } .archive-item { grid-template-columns: 1fr; border-radius: 1rem; } .archive-item-media { min-height: 13rem; aspect-ratio: 16 / 9; } .archive-item-content { padding: 1.35rem; } .archive-item h2 { font-size: clamp(1.8rem, 8vw, 2.45rem); } .archive-item-action { margin-top: 1.35rem; } }
+@media (prefers-reduced-motion: reduce) { .archive-item, .archive-item-media img { transition: none; } }

@@ -1,0 +1,19 @@
+[Unit]
+Description=XReader guided reading app
+After=network.target
+
+[Service]
+Type=simple
+User=shipnow
+Group=shipnow
+WorkingDirectory=/opt/boringmax/xreader
+Environment=NODE_ENV=production
+Environment=NEXT_PUBLIC_BASE_PATH=/xreader
+Environment=DATABASE_URL=file:../data/xreader.db
+Environment=AUDIO_STORAGE_DIR=/opt/boringmax/xreader/data/audio
+ExecStart=/usr/bin/node /opt/boringmax/xreader/node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3014
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

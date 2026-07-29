@@ -13,4 +13,10 @@ describe("playbackReducer", () => {
     const restored = playbackReducer(initialPlaybackState, { type: "RESTORE_PROGRESS", itemId: "seg-8", completed: true });
     expect(restored).toMatchObject({ activeItemId: "seg-8", completed: true, playing: false });
   });
+
+  it("clears the selected sentence when a queue finishes", () => {
+    const active = playbackReducer(initialPlaybackState, { type: "SET_ACTIVE", itemId: "seg-8", sentenceId: "s8" });
+
+    expect(playbackReducer(active, { type: "CLEAR_ACTIVE" } as never)).toMatchObject({ activeItemId: undefined, activeSentenceId: undefined, playing: false });
+  });
 });

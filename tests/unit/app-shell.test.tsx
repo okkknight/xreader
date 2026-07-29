@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { expect, it } from "vitest";
 import { AppShell } from "@/components/ui/app-shell";
 
 it("renders product identity and supplied children", () => {

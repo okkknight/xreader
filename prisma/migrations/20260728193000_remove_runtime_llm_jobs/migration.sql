@@ -1,3 +1,0 @@
-DROP TABLE IF EXISTS "GenerationJob";
-DROP TABLE IF EXISTS "ArticleAnalysis";
-DROP TABLE IF EXISTS "LessonPlan";

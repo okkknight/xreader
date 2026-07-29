@@ -1,17 +1,14 @@
 import { describe, expect, it } from "vitest";
 
-import { buildGuidedQueue, buildReadingQueue, mapSentenceToGuidedParagraph } from "@/features/reader/queue";
+import { buildGuidedQueue } from "@/features/reader/queue";
 
-const guides = [
-  { id: "guide-1", order: 1, sentenceGuides: [{ sentenceId: "s1", estimatedStartMs: 0, estimatedEndMs: 500 }, { sentenceId: "s2", estimatedStartMs: 500, estimatedEndMs: 1000 }], audioStatus: "READY", audioPath: "a.wav" },
-  { id: "guide-2", order: 2, sentenceGuides: [{ sentenceId: "s3", estimatedStartMs: 0, estimatedEndMs: 500 }], audioStatus: "MISSING", audioPath: null },
-];
-const sentences = [{ id: "s1", audioStatus: "MISSING", audioPath: null }, { id: "s2", audioStatus: "READY", audioPath: "b.wav" }];
+describe("guided playback queue", () => {
+  it("carries timed source highlight cues with the matching audio block", () => {
+    const queue = buildGuidedQueue([{
+      id: "block-1", type: "sentence", sentenceId: "p01-s01", segments: [], audioPath: "/api/media/1", audioStatus: "READY", audioDurationMs: 1200,
+      highlightCues: [{ id: "cue-1", sourceText: "dry soil", sourceStart: 16, sourceEnd: 24, spokenText: "dry soil", startMs: 520, endMs: 1040 }],
+    }]);
 
-describe("reader queue", () => {
-  it("uses ready lesson segments for guided mode and reading segments for reading mode", () => {
-    expect(buildGuidedQueue(guides).map((item) => item.id)).toEqual(["guide-1"]);
-    expect(buildReadingQueue(sentences).map((item) => item.id)).toEqual(["s2"]);
-    expect(mapSentenceToGuidedParagraph("s2", guides)).toBe("guide-1");
+    expect(queue[0]?.highlightCues).toEqual([{ id: "cue-1", sourceText: "dry soil", sourceStart: 16, sourceEnd: 24, spokenText: "dry soil", startMs: 520, endMs: 1040 }]);
   });
 });

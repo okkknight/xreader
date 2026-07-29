@@ -1,3 +1,4 @@
+.app-shell { min-height: 100svh; overflow-x: clip; }
 .site-header { width: min(100% - 3rem, 76rem); height: 5rem; margin: auto; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--xr-line); font-family: Arial, sans-serif; }
 .site-wordmark { color: var(--xr-green); font-size: 1.4rem; font-weight: 800; letter-spacing: -.07em; }
 .site-nav { display: flex; gap: 1.5rem; font-size: .8rem; }

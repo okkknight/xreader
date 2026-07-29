@@ -1,16 +1,24 @@
-.home-page { display: grid; grid-template-columns: minmax(0, 1fr) minmax(20rem, 1fr); gap: clamp(3rem, 10vw, 9rem); padding: clamp(4rem, 10vw, 8rem) 0 6rem; }
-.home-intro { align-self: start; }
-.home-intro .section-label, .archive-intro .section-label { margin: 0; font: 700 .7rem/1.4 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--xr-green); }
-.home-intro h1 { max-width: 8ch; margin: 1rem 0 1.5rem; font-size: clamp(3rem, 6vw, 6.5rem); line-height: .98; letter-spacing: -.075em; }
-.home-intro > p:last-child { max-width: 24rem; margin: 0; color: var(--xr-muted); line-height: 1.8; }
-.today-feature { align-self: end; border-top: 1px solid var(--xr-ink); padding-top: 1.5rem; }
-.today-feature-meta, .archive-item-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; color: var(--xr-green); font: 700 .68rem/1.4 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
-.today-feature h2 { margin: 1.25rem 0 .35rem; font-size: clamp(1.8rem, 3.5vw, 3.3rem); line-height: 1.05; letter-spacing: -.055em; }
-.today-feature-title-zh { margin: 0; color: var(--xr-muted); font-size: 1.05rem; }
-.today-feature-dek { max-width: 32rem; margin: 1.5rem 0 0; color: var(--xr-muted); line-height: 1.8; }
-.today-progress { margin: 2rem 0 0; color: var(--xr-green); font: 700 .76rem Arial, sans-serif; }
-.today-actions { display: flex; align-items: center; gap: 1.25rem; margin-top: 1.25rem; }
-.button-primary, .button-secondary { display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0 1rem; font: 700 .78rem Arial, sans-serif; }
-.button-primary { border-radius: var(--xr-radius); background: var(--xr-green); color: white; }
-.button-secondary { border-bottom: 1px solid var(--xr-green); color: var(--xr-green); }
-@media (max-width: 700px) { .home-page { display: block; padding: 3.5rem 0 5rem; } .home-intro h1 { max-width: 10ch; font-size: 3.5rem; } .today-feature { margin-top: 4rem; } }
+.home-page { position: relative; isolation: isolate; display: grid; place-items: center; box-sizing: border-box; min-height: calc(100svh - 5rem); padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(3.5rem, 6vw, 6rem); }
+html:has(.home-page), body:has(.home-page), body:has(.home-page) .app-shell { background: #0b291d; }
+body:has(.home-page) { padding-bottom: 0; }
+body:has(.home-page) .app-shell { position: relative; isolation: isolate; }
+body:has(.home-page) .app-shell::before { position: absolute; z-index: 0; inset: 0; content: ""; background: radial-gradient(circle at 78% 27%, rgba(203, 225, 210, .18), transparent 34%), linear-gradient(135deg, rgba(7, 30, 22, .56), rgba(20, 60, 45, .32)), url("/images/why-rain-has-a-smell-cover.png") center / cover; filter: blur(.42rem) saturate(.96); transform: scale(1.025); pointer-events: none; }
+body:has(.home-page) .app-shell > .site-header, body:has(.home-page) .app-shell > main { position: relative; z-index: 1; }
+.today-feature { position: relative; isolation: isolate; display: flex; align-items: end; width: min(100%, 64rem); min-height: clamp(25rem, 42vw, 33rem); overflow: hidden; border: 1px solid rgba(236, 247, 238, .22); border-radius: 1.5rem; background: #173126; box-shadow: 0 1.6rem 4rem rgba(2, 12, 8, .32); }
+.today-feature-image { z-index: -2; object-fit: cover; object-position: center; }
+.today-feature::after { position: absolute; z-index: -1; inset: 0; content: ""; background: linear-gradient(90deg, rgba(9, 27, 21, .84) 0%, rgba(9, 27, 21, .58) 37%, rgba(9, 27, 21, .12) 69%, rgba(9, 27, 21, .05) 100%), linear-gradient(0deg, rgba(7, 22, 17, .5) 0%, transparent 54%); }
+.today-feature-content { width: min(100%, 42rem); padding: clamp(2rem, 5vw, 4.5rem); color: #fff; }
+.today-feature h1 { max-width: 12ch; margin: 0; font-family: Iowan Old Style, Palatino Linotype, Book Antiqua, Georgia, serif; font-size: clamp(2.65rem, 5.8vw, 5.8rem); font-weight: 600; line-height: .96; letter-spacing: -.065em; text-wrap: balance; }
+.today-feature-title-zh { margin: 1.15rem 0 0; color: rgba(255, 255, 255, .82); font-family: "PingFang SC", "Noto Sans SC", sans-serif; font-size: clamp(1rem, 1.8vw, 1.25rem); letter-spacing: .025em; }
+.today-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: 2.15rem; font-family: Arial, "PingFang SC", sans-serif; }
+.today-action-primary, .today-action-secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 2.85rem; padding: 0 1.12rem; border-radius: 999px; font-size: .8rem; font-weight: 700; letter-spacing: .015em; transition: transform .18s ease, background-color .18s ease, border-color .18s ease; }
+.today-action-primary { background: #eef7ef; color: #18583f; box-shadow: 0 .35rem .8rem rgba(0, 0, 0, .12); }
+.today-action-secondary { border: 1px solid rgba(255, 255, 255, .55); background: rgba(255, 255, 255, .08); color: #fff; backdrop-filter: blur(.25rem); }
+.today-action-primary:hover, .today-action-secondary:hover { transform: translateY(-.1rem); }
+.today-action-primary:focus-visible, .today-action-secondary:focus-visible { outline: 2px solid #fff; outline-offset: .2rem; }
+body:has(.home-page) .site-header { position: relative; z-index: 1; border-color: rgba(238, 247, 239, .3); }
+body:has(.home-page) .site-wordmark { color: #eff8f1; }
+body:has(.home-page) .site-nav a { color: rgba(239, 248, 241, .78); }
+body:has(.home-page) .site-nav a:hover, body:has(.home-page) .site-nav a.is-active { color: #fff; }
+@media (max-width: 700px) { .home-page { display: block; min-height: calc(100svh - 4.25rem); padding: 2rem 0 4rem; } body:has(.home-page) .app-shell::before { filter: blur(.35rem) saturate(.9); } .today-feature { min-height: min(39rem, calc(100svh - 9.5rem)); aspect-ratio: 4 / 5; border-radius: 1.15rem; } .today-feature-image { object-position: 61% center; } .today-feature::after { background: linear-gradient(0deg, rgba(7, 22, 17, .88) 0%, rgba(7, 22, 17, .55) 45%, rgba(7, 22, 17, .06) 79%); } .today-feature-content { padding: 1.75rem; } .today-feature h1 { max-width: 11ch; font-size: clamp(2.5rem, 12.6vw, 3.8rem); } .today-feature-title-zh { margin-top: .85rem; } .today-actions { margin-top: 1.65rem; } .today-action-primary, .today-action-secondary { min-height: 2.7rem; padding: 0 1rem; } }
+@media (prefers-reduced-motion: reduce) { .today-action-primary, .today-action-secondary { transition: none; } }

@@ -6,21 +6,23 @@
     "dev": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} next dev",
     "build": "next build",
     "lint": "eslint .",
-    "test": "DATABASE_URL=${DATABASE_URL:-file:../data/test.db} vitest run",
+    "test": "vitest run",
+    "test:integration": "VITEST_INTEGRATION=1 DATABASE_URL=${DATABASE_URL:-file:../data/test.db} vitest run tests/integration",
     "test:e2e": "playwright test",
     "db:migrate": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/migrate.ts",
-    "db:seed": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/seed.ts",
-    "course:validate": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/validate-course.ts --",
-    "audio:generate": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/generate-audio.ts --",
-    "audio:audition": "tsx scripts/audition-voices.ts --",
-    "courses:create-review-set": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/create-review-courses.ts",
-    "courses:seed-humanities": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/humanities-review-courses.ts"
+    "course:import": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/import-course.ts --",
+    "course:build": "tsx scripts/build-course.ts --",
+    "course:audio": "tsx scripts/generate-course-audio.ts --",
+    "course:reading-audio": "tsx scripts/generate-reading-audio.ts --",
+    "course:check": "tsx scripts/check-course.ts --",
+    "audio:audition": "tsx scripts/audition-voices.ts --"
   },
   "dependencies": {
+    "@prisma/client": "6.19.2",
     "next": "16.2.12",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "@prisma/client": "6.19.2"
+    "wink-lemmatizer": "^3.0.4"
   },
   "devDependencies": {
     "@playwright/test": "1.62.0",

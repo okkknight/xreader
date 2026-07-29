@@ -1,6 +1,5 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-
 import type { PrismaClient } from "@prisma/client";
 
 function parseRange(range: string | null, size: number) {
@@ -14,7 +13,7 @@ function parseRange(range: string | null, size: number) {
 }
 
 export async function createMediaResponse(db: PrismaClient, assetId: string, range: string | null, storageRoot: string) {
-  const asset = await db.audioAsset.findFirst({ where: { id: assetId, status: "READY" } });
+  const asset = await db.courseBlockAudio.findFirst({ where: { id: assetId, status: "READY" } });
   if (!asset) return new Response("Not found", { status: 404 });
   const root = path.resolve(storageRoot);
   const resolved = path.resolve(root, asset.path);
@@ -24,9 +23,5 @@ export async function createMediaResponse(db: PrismaClient, assetId: string, ran
   const parsed = parseRange(range, bytes.byteLength);
   if (!parsed) return new Response(null, { status: 416, headers: { "Content-Range": `bytes */${bytes.byteLength}` } });
   const body = bytes.slice(parsed.start, parsed.end + 1);
-  return new Response(body, { status: parsed.partial ? 206 : 200, headers: {
-    "Content-Type": asset.format === "wav" ? "audio/wav" : "application/octet-stream",
-    "Accept-Ranges": "bytes", "Content-Length": String(body.byteLength),
-    ...(parsed.partial ? { "Content-Range": `bytes ${parsed.start}-${parsed.end}/${bytes.byteLength}` } : {}),
-  } });
+  return new Response(body, { status: parsed.partial ? 206 : 200, headers: { "Content-Type": "audio/wav", "Accept-Ranges": "bytes", "Content-Length": String(body.byteLength), ...(parsed.partial ? { "Content-Range": `bytes ${parsed.start}-${parsed.end}/${bytes.byteLength}` } : {}) } });
 }

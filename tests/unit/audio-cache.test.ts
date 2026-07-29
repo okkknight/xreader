@@ -10,7 +10,7 @@ describe("AudioStorage", () => {
   it("writes a new version without replacing the previous manifest", async () => {
     const root = await mkdtemp(path.join(os.tmpdir(), "xreader-audio-"));
     const storage = new AudioStorage(root);
-    const owner = { articleId: "article", ownerId: "guide", ownerType: "PARAGRAPH_GUIDE" as const };
+  const owner = { articleId: "article", ownerId: "block", ownerType: "COURSE_BLOCK" as const };
     const first = await storage.writeVersion(owner, new Uint8Array([1, 2]), { textHash: "hash", referenceId: "voice", model: "model", durationMs: 10 });
     const second = await storage.writeVersion(owner, new Uint8Array([1, 2]), { textHash: "hash", referenceId: "voice", model: "model", durationMs: 10 });
 
@@ -26,7 +26,7 @@ describe("AudioStorage", () => {
       return 321;
     } };
     const result = await storage.writeVersion(
-      { articleId: "article", ownerId: "guide", ownerType: "PARAGRAPH_GUIDE" },
+      { articleId: "article", ownerId: "block", ownerType: "COURSE_BLOCK" },
       new Uint8Array([1, 2]),
       { textHash: "hash", referenceId: "voice", model: "model", durationMs: 0 },
       processor,

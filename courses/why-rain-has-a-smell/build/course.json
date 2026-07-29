@@ -1,0 +1,4569 @@
+{
+  "schemaVersion": 1,
+  "slug": "why-rain-has-a-smell",
+  "title": "Why Does Rain Have a Smell?",
+  "sourceHash": "c8c9d9ae19e3dce45e5eaa1da2267956115088cde9df1edebac7d7616ec8111f",
+  "finalLectureHash": "486c32fdc11e31928f3613a312072e1808183eb6d426ee2b739f5c57340c1af8",
+  "blocks": [
+    {
+      "id": "label-001",
+      "type": "intro",
+      "segments": [
+        {
+          "language": "zh",
+          "role": "warmth",
+          "text": "下雨前，空气里有时会先浮起一股熟悉的泥土气。雨滴还没真正落下，鼻子为什么已经知道雨要来了？\n"
+        }
+      ],
+      "highlightCues": [],
+      "subtitleCues": [
+        {
+          "id": "label-001-subtitle-1",
+          "text": "下雨前，空气里有时会先浮起一股熟悉的泥土气。",
+          "language": "zh",
+          "startMs": 240,
+          "endMs": 4400
+        },
+        {
+          "id": "label-001-subtitle-2",
+          "text": "雨滴还没真正落下，鼻子为什么已经知道雨要来了？",
+          "language": "zh",
+          "startMs": 4960,
+          "endMs": 8800
+        }
+      ]
+    },
+    {
+      "id": "label-002",
+      "type": "title",
+      "segments": [
+        {
+          "language": "zh",
+          "role": "transition",
+          "text": "Why Does Rain Have a Smell?\n\n从标题开始：Why Does Rain Have a Smell? 雨为什么会有气味？\n\nhave a smell 不是说雨“拥有”一种气味，而是在问：雨为什么闻起来有味道？真正有意思的是，那股味道有时比雨滴更早抵达。文章就从这个熟悉的反差开始。\n\n"
+        }
+      ],
+      "highlightCues": [
+        {
+          "id": "label-002-original-read",
+          "sourceText": "Why Does Rain Have a Smell?",
+          "sourceStart": 0,
+          "sourceEnd": 27,
+          "spokenText": "Why Does Rain Have a Smell?",
+          "spokenOccurrence": 0,
+          "startMs": 400,
+          "endMs": 2560
+        },
+        {
+          "id": "label-002-teaching-1",
+          "sourceText": "Why Does Rain Have a Smell",
+          "sourceStart": 0,
+          "sourceEnd": 26,
+          "spokenText": "Why Does Rain Have a Smell",
+          "spokenOccurrence": 1,
+          "startMs": 4080,
+          "endMs": 6080
+        },
+        {
+          "id": "label-002-teaching-2",
+          "sourceText": "Have a Smell",
+          "sourceStart": 14,
+          "sourceEnd": 26,
+          "spokenText": "have a smell",
+          "spokenOccurrence": 1,
+          "startMs": 5120,
+          "endMs": 6080
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-002-subtitle-1",
+          "text": "Why Does Rain Have a Smell?",
+          "language": "en",
+          "startMs": 400,
+          "endMs": 2560
+        },
+        {
+          "id": "label-002-subtitle-2",
+          "text": "从标题开始：",
+          "language": "zh",
+          "startMs": 2560,
+          "endMs": 3760
+        },
+        {
+          "id": "label-002-subtitle-3",
+          "text": "Why Does Rain Have a Smell?",
+          "language": "en",
+          "startMs": 4080,
+          "endMs": 6080
+        },
+        {
+          "id": "label-002-subtitle-4",
+          "text": "雨为什么会有气味？",
+          "language": "zh",
+          "startMs": 6320,
+          "endMs": 8240
+        },
+        {
+          "id": "label-002-subtitle-5",
+          "text": "have a smell 不是说雨“拥有”一种气味，",
+          "language": "zh",
+          "startMs": 8240,
+          "endMs": 11520
+        },
+        {
+          "id": "label-002-subtitle-6",
+          "text": "而是在问：雨为什么闻起来有味道？",
+          "language": "zh",
+          "startMs": 11600,
+          "endMs": 14880
+        },
+        {
+          "id": "label-002-subtitle-7",
+          "text": "真正有意思的是，那股味道有时比雨滴更早抵达。",
+          "language": "zh",
+          "startMs": 15200,
+          "endMs": 19440
+        },
+        {
+          "id": "label-002-subtitle-8",
+          "text": "文章就从这个熟悉的反差开始。",
+          "language": "zh",
+          "startMs": 19782,
+          "endMs": 22262
+        }
+      ]
+    },
+    {
+      "id": "label-003",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "People often notice the smell of rain before the first drop reaches the ground.\n\n先抓 before 排出的时间差：第一滴雨还没落地，人们已经察觉到雨的气味。notice 是感知到、察觉到；reach the ground 是到达地面，reach 后直接接地点，不加 to。作者写的还是 the first drop，把时间推到了雨刚开始的那一刻。\n\n带着这个先后关系再听：",
+          "sourceSentenceIds": [
+            "p01-s01"
+          ]
+        }
+      ],
+      "sentenceId": "p01-s01",
+      "highlightCues": [
+        {
+          "id": "label-003-original-read",
+          "sourceText": "People often notice the smell of rain before the first drop reaches the ground.",
+          "sourceStart": 0,
+          "sourceEnd": 79,
+          "spokenText": "People often notice the smell of rain before the first drop reaches the ground.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 4320
+        },
+        {
+          "id": "label-003-teaching-1",
+          "sourceText": "before",
+          "sourceStart": 38,
+          "sourceEnd": 44,
+          "spokenText": "before",
+          "spokenOccurrence": 1,
+          "startMs": 5120,
+          "endMs": 5760
+        },
+        {
+          "id": "label-003-teaching-2",
+          "sourceText": "notice",
+          "sourceStart": 13,
+          "sourceEnd": 19,
+          "spokenText": "notice",
+          "spokenOccurrence": 1,
+          "startMs": 11440,
+          "endMs": 12000
+        },
+        {
+          "id": "label-003-teaching-4",
+          "sourceText": "reach",
+          "sourceStart": 60,
+          "sourceEnd": 65,
+          "spokenText": "reach",
+          "spokenOccurrence": 1,
+          "startMs": 14000,
+          "endMs": 14400
+        },
+        {
+          "id": "label-003-teaching-5",
+          "sourceText": "the first drop",
+          "sourceStart": 45,
+          "sourceEnd": 59,
+          "spokenText": "the first drop",
+          "spokenOccurrence": 1,
+          "startMs": 20672,
+          "endMs": 21632
+        },
+        {
+          "id": "label-003-teaching-3",
+          "sourceText": "reaches the ground",
+          "sourceStart": 60,
+          "sourceEnd": 78,
+          "spokenText": "reach the ground",
+          "spokenOccurrence": 1,
+          "startMs": 14000,
+          "endMs": 15040
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-003-subtitle-1",
+          "text": "People often notice the smell of rain before the first drop reaches the ground.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 4320
+        },
+        {
+          "id": "label-003-subtitle-2",
+          "text": "先抓 before 排出的时间差：第一滴雨还没落地，",
+          "language": "zh",
+          "startMs": 4640,
+          "endMs": 8640
+        },
+        {
+          "id": "label-003-subtitle-3",
+          "text": "人们已经察觉到雨的气味。",
+          "language": "zh",
+          "startMs": 8960,
+          "endMs": 10960
+        },
+        {
+          "id": "label-003-subtitle-4",
+          "text": "notice 是感知到、察觉到；",
+          "language": "zh",
+          "startMs": 11440,
+          "endMs": 13760
+        },
+        {
+          "id": "label-003-subtitle-5",
+          "text": "reach the ground 是到达地面，",
+          "language": "zh",
+          "startMs": 14000,
+          "endMs": 16480
+        },
+        {
+          "id": "label-003-subtitle-6",
+          "text": "reach 后直接接地点，不加 to。",
+          "language": "zh",
+          "startMs": 16480,
+          "endMs": 19040
+        },
+        {
+          "id": "label-003-subtitle-7",
+          "text": "作者写的还是 the first drop，",
+          "language": "zh",
+          "startMs": 19712,
+          "endMs": 21632
+        },
+        {
+          "id": "label-003-subtitle-8",
+          "text": "把时间推到了雨刚开始的那一刻。",
+          "language": "zh",
+          "startMs": 21872,
+          "endMs": 24512
+        },
+        {
+          "id": "label-003-subtitle-9",
+          "text": "带着这个先后关系再听：",
+          "language": "zh",
+          "startMs": 24992,
+          "endMs": 26832
+        }
+      ]
+    },
+    {
+      "id": "label-004",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "People often notice the smell of rain before the first drop reaches the ground.\n\n",
+          "sourceSentenceIds": [
+            "p01-s01"
+          ]
+        }
+      ],
+      "sentenceId": "p01-s01",
+      "highlightCues": [
+        {
+          "id": "label-004-original-read",
+          "sourceText": "People often notice the smell of rain before the first drop reaches the ground.",
+          "sourceStart": 0,
+          "sourceEnd": 79,
+          "spokenText": "People often notice the smell of rain before the first drop reaches the ground.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 4240
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-004-subtitle-1",
+          "text": "People often notice the smell of rain before the first drop reaches the ground.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 4240
+        }
+      ]
+    },
+    {
+      "id": "label-005",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "That familiar scent has a name: petrichor.\n\nThat familiar scent 接住上一句的雨味。scent 是一种可辨认的气息，放在这里不一定表示香味。冒号后直接给它一个名字：petrichor，也就是雨落在干燥地面时常出现的特殊气味。这个词先认得、知道它在文中指什么就够了。\n\n",
+          "sourceSentenceIds": [
+            "p01-s02"
+          ]
+        }
+      ],
+      "sentenceId": "p01-s02",
+      "highlightCues": [
+        {
+          "id": "label-005-original-read",
+          "sourceText": "That familiar scent has a name: petrichor.",
+          "sourceStart": 0,
+          "sourceEnd": 42,
+          "spokenText": "That familiar scent has a name: petrichor.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 4160
+        },
+        {
+          "id": "label-005-teaching-1",
+          "sourceText": "That familiar scent",
+          "sourceStart": 0,
+          "sourceEnd": 19,
+          "spokenText": "That familiar scent",
+          "spokenOccurrence": 1,
+          "startMs": 4320,
+          "endMs": 5600
+        },
+        {
+          "id": "label-005-teaching-2",
+          "sourceText": "scent",
+          "sourceStart": 14,
+          "sourceEnd": 19,
+          "spokenText": "scent",
+          "spokenOccurrence": 1,
+          "startMs": 5120,
+          "endMs": 5600
+        },
+        {
+          "id": "label-005-teaching-3",
+          "sourceText": "petrichor",
+          "sourceStart": 32,
+          "sourceEnd": 41,
+          "spokenText": "petrichor",
+          "spokenOccurrence": 1,
+          "startMs": 14880,
+          "endMs": 15680
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-005-subtitle-1",
+          "text": "That familiar scent has a name: petrichor.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 4160
+        },
+        {
+          "id": "label-005-subtitle-2",
+          "text": "That familiar scent 接住上一句的雨味。",
+          "language": "zh",
+          "startMs": 4320,
+          "endMs": 7680
+        },
+        {
+          "id": "label-005-subtitle-3",
+          "text": "scent 是一种可辨认的气息，放在这里不一定表示香味。",
+          "language": "zh",
+          "startMs": 8000,
+          "endMs": 12400
+        },
+        {
+          "id": "label-005-subtitle-4",
+          "text": "冒号后直接给它一个名字：petrichor，",
+          "language": "zh",
+          "startMs": 12720,
+          "endMs": 15680
+        },
+        {
+          "id": "label-005-subtitle-5",
+          "text": "也就是雨落在干燥地面时常出现的特殊气味。",
+          "language": "zh",
+          "startMs": 15920,
+          "endMs": 19840
+        },
+        {
+          "id": "label-005-subtitle-6",
+          "text": "这个词先认得、知道它在文中指什么就够了。",
+          "language": "zh",
+          "startMs": 20406,
+          "endMs": 24006
+        }
+      ]
+    },
+    {
+      "id": "label-006",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "The word joins Greek roots for stone and a fluid once linked to the earth.\n\n这句比前面绕一点，先抓住 The word joins Greek roots：这个词组合了几个希腊词根，分别与石头和一种液体有关。真正需要慢下来的只有 a fluid once linked to the earth。它可以展开为 a fluid that was once linked to the earth，省略的 that was 补回来以后，就能看清 once linked to the earth 修饰的是 a fluid。once 是“曾经”，be linked to 是“与……联系在一起”。\n\n这也是一个可以迁移的阅读方法：名词后突然跟着过去分词，可以试着补回 that was，检查它是不是一个压缩的修饰部分。\n\n再听一次，只听后半部分修饰谁：",
+          "sourceSentenceIds": [
+            "p01-s03"
+          ]
+        }
+      ],
+      "sentenceId": "p01-s03",
+      "highlightCues": [
+        {
+          "id": "label-006-original-read",
+          "sourceText": "The word joins Greek roots for stone and a fluid once linked to the earth.",
+          "sourceStart": 0,
+          "sourceEnd": 74,
+          "spokenText": "The word joins Greek roots for stone and a fluid once linked to the earth.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 5680
+        },
+        {
+          "id": "label-006-teaching-1",
+          "sourceText": "The word joins Greek roots",
+          "sourceStart": 0,
+          "sourceEnd": 26,
+          "spokenText": "The word joins Greek roots",
+          "spokenOccurrence": 1,
+          "startMs": 8720,
+          "endMs": 10720
+        },
+        {
+          "id": "label-006-teaching-2",
+          "sourceText": "a fluid once linked to the earth",
+          "sourceStart": 41,
+          "sourceEnd": 73,
+          "spokenText": "a fluid once linked to the earth",
+          "spokenOccurrence": 1,
+          "startMs": 18320,
+          "endMs": 20880
+        },
+        {
+          "id": "label-006-teaching-3",
+          "sourceText": "once linked to the earth",
+          "sourceStart": 49,
+          "sourceEnd": 73,
+          "spokenText": "once linked to the earth",
+          "spokenOccurrence": 1,
+          "startMs": 19200,
+          "endMs": 20880
+        },
+        {
+          "id": "label-006-teaching-4",
+          "sourceText": "a fluid",
+          "sourceStart": 41,
+          "sourceEnd": 48,
+          "spokenText": "a fluid",
+          "spokenOccurrence": 1,
+          "startMs": 18320,
+          "endMs": 19200
+        },
+        {
+          "id": "label-006-teaching-5",
+          "sourceText": "once",
+          "sourceStart": 49,
+          "sourceEnd": 53,
+          "spokenText": "once",
+          "spokenOccurrence": 1,
+          "startMs": 19200,
+          "endMs": 19680
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-006-subtitle-1",
+          "text": "The word joins Greek roots for stone and a fluid once linked to the earth.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 5680
+        },
+        {
+          "id": "label-006-subtitle-2",
+          "text": "这句比前面绕一点，",
+          "language": "zh",
+          "startMs": 6080,
+          "endMs": 7520
+        },
+        {
+          "id": "label-006-subtitle-3",
+          "text": "先抓住 The word joins Greek roots：",
+          "language": "zh",
+          "startMs": 7520,
+          "endMs": 10720
+        },
+        {
+          "id": "label-006-subtitle-4",
+          "text": "这个词组合了几个希腊词根，分别与石头和一种液体有关。",
+          "language": "zh",
+          "startMs": 11200,
+          "endMs": 16160
+        },
+        {
+          "id": "label-006-subtitle-5",
+          "text": "真正需要慢下来的只有 a fluid once linked to the earth。",
+          "language": "zh",
+          "startMs": 16640,
+          "endMs": 20880
+        },
+        {
+          "id": "label-006-subtitle-6",
+          "text": "它可以展开为 a fluid that was once linked to the earth，",
+          "language": "zh",
+          "startMs": 21438,
+          "endMs": 25758
+        },
+        {
+          "id": "label-006-subtitle-7",
+          "text": "省略的 that was 补回来以后，",
+          "language": "zh",
+          "startMs": 26238,
+          "endMs": 28718
+        },
+        {
+          "id": "label-006-subtitle-8",
+          "text": "就能看清 once linked to the earth 修饰的是 a fluid。",
+          "language": "zh",
+          "startMs": 28878,
+          "endMs": 33429
+        },
+        {
+          "id": "label-006-subtitle-9",
+          "text": "once 是“曾经”，",
+          "language": "zh",
+          "startMs": 33429,
+          "endMs": 35678
+        },
+        {
+          "id": "label-006-subtitle-10",
+          "text": "be linked to 是“与……联系在一起”。",
+          "language": "zh",
+          "startMs": 35998,
+          "endMs": 38558
+        },
+        {
+          "id": "label-006-subtitle-11",
+          "text": "这也是一个可以迁移的阅读方法：名词后突然跟着过去分词，",
+          "language": "zh",
+          "startMs": 39040,
+          "endMs": 43760
+        },
+        {
+          "id": "label-006-subtitle-12",
+          "text": "可以试着补回 that was，",
+          "language": "zh",
+          "startMs": 44000,
+          "endMs": 45840
+        },
+        {
+          "id": "label-006-subtitle-13",
+          "text": "检查它是不是一个压缩的修饰部分。",
+          "language": "zh",
+          "startMs": 46160,
+          "endMs": 48880
+        },
+        {
+          "id": "label-006-subtitle-14",
+          "text": "再听一次，只听后半部分修饰谁：",
+          "language": "zh",
+          "startMs": 48960,
+          "endMs": 52000
+        }
+      ]
+    },
+    {
+      "id": "label-007",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "The word joins Greek roots for stone and a fluid once linked to the earth.\n\n",
+          "sourceSentenceIds": [
+            "p01-s03"
+          ]
+        }
+      ],
+      "sentenceId": "p01-s03",
+      "highlightCues": [
+        {
+          "id": "label-007-original-read",
+          "sourceText": "The word joins Greek roots for stone and a fluid once linked to the earth.",
+          "sourceStart": 0,
+          "sourceEnd": 74,
+          "spokenText": "The word joins Greek roots for stone and a fluid once linked to the earth.",
+          "spokenOccurrence": 0,
+          "startMs": 240,
+          "endMs": 6000
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-007-subtitle-1",
+          "text": "The word joins Greek roots for stone and a fluid once linked to the earth.",
+          "language": "en",
+          "startMs": 240,
+          "endMs": 6000
+        }
+      ]
+    },
+    {
+      "id": "label-008",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "It describes a real mixture rather than one single perfume.\n\nIt 仍然指 petrichor。rather than 把两边直接对照起来：它描述的是 a real mixture，多种真实成分形成的混合气味，而不是 one single perfume，一种单独调好的香味。one single 又把“不是只有一种”压得更重。\n\n第一段从日常经验走到科学命名，又提醒我们：所谓雨味并不是单一物质。下面开始看这份混合气味怎样进入空气。\n\n",
+          "sourceSentenceIds": [
+            "p01-s04"
+          ]
+        }
+      ],
+      "sentenceId": "p01-s04",
+      "highlightCues": [
+        {
+          "id": "label-008-original-read",
+          "sourceText": "It describes a real mixture rather than one single perfume.",
+          "sourceStart": 0,
+          "sourceEnd": 59,
+          "spokenText": "It describes a real mixture rather than one single perfume.",
+          "spokenOccurrence": 0,
+          "startMs": 80,
+          "endMs": 4080
+        },
+        {
+          "id": "label-008-teaching-1",
+          "sourceText": "It",
+          "sourceStart": 0,
+          "sourceEnd": 2,
+          "spokenText": "It",
+          "spokenOccurrence": 1,
+          "startMs": 4080,
+          "endMs": 4240
+        },
+        {
+          "id": "label-008-teaching-2",
+          "sourceText": "rather than",
+          "sourceStart": 28,
+          "sourceEnd": 39,
+          "spokenText": "rather than",
+          "spokenOccurrence": 1,
+          "startMs": 5536,
+          "endMs": 7040
+        },
+        {
+          "id": "label-008-teaching-3",
+          "sourceText": "a real mixture",
+          "sourceStart": 13,
+          "sourceEnd": 27,
+          "spokenText": "a real mixture",
+          "spokenOccurrence": 1,
+          "startMs": 10320,
+          "endMs": 11680
+        },
+        {
+          "id": "label-008-teaching-4",
+          "sourceText": "one single perfume",
+          "sourceStart": 40,
+          "sourceEnd": 58,
+          "spokenText": "one single perfume",
+          "spokenOccurrence": 1,
+          "startMs": 15280,
+          "endMs": 16720
+        },
+        {
+          "id": "label-008-teaching-5",
+          "sourceText": "one single",
+          "sourceStart": 40,
+          "sourceEnd": 50,
+          "spokenText": "one single",
+          "spokenOccurrence": 1,
+          "startMs": 15280,
+          "endMs": 16000
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-008-subtitle-1",
+          "text": "It describes a real mixture rather than one single perfume.",
+          "language": "en",
+          "startMs": 80,
+          "endMs": 4080
+        },
+        {
+          "id": "label-008-subtitle-2",
+          "text": "It 仍然指 petrichor。",
+          "language": "zh",
+          "startMs": 4080,
+          "endMs": 5536
+        },
+        {
+          "id": "label-008-subtitle-3",
+          "text": "rather than 把两边直接对照起来：",
+          "language": "zh",
+          "startMs": 5536,
+          "endMs": 8800
+        },
+        {
+          "id": "label-008-subtitle-4",
+          "text": "它描述的是 a real mixture，",
+          "language": "zh",
+          "startMs": 9040,
+          "endMs": 11680
+        },
+        {
+          "id": "label-008-subtitle-5",
+          "text": "多种真实成分形成的混合气味，",
+          "language": "zh",
+          "startMs": 11760,
+          "endMs": 14480
+        },
+        {
+          "id": "label-008-subtitle-6",
+          "text": "而不是 one single perfume，",
+          "language": "zh",
+          "startMs": 14720,
+          "endMs": 16720
+        },
+        {
+          "id": "label-008-subtitle-7",
+          "text": "一种单独调好的香味。",
+          "language": "zh",
+          "startMs": 16960,
+          "endMs": 18560
+        },
+        {
+          "id": "label-008-subtitle-8",
+          "text": "one single 又把“不是只有一种”压得更重。",
+          "language": "zh",
+          "startMs": 19271,
+          "endMs": 22391
+        },
+        {
+          "id": "label-008-subtitle-9",
+          "text": "第一段从日常经验走到科学命名，又提醒我们：",
+          "language": "zh",
+          "startMs": 22711,
+          "endMs": 26631
+        },
+        {
+          "id": "label-008-subtitle-10",
+          "text": "所谓雨味并不是单一物质。",
+          "language": "zh",
+          "startMs": 26631,
+          "endMs": 28951
+        },
+        {
+          "id": "label-008-subtitle-11",
+          "text": "下面开始看这份混合气味怎样进入空气。",
+          "language": "zh",
+          "startMs": 29191,
+          "endMs": 32471
+        }
+      ]
+    },
+    {
+      "id": "label-009",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "It appears when dry soil, plants, and tiny organisms release compounds into the air.\n\nIt 指雨味。后面三个并列来源——dry soil、plants、tiny organisms——共同执行 release：把能形成气味的化合物释放到空气里。release A into B 是很实用的表达，表示把 A 释放进 B，比如 release smoke into the air。\n\n",
+          "sourceReferences": [
+            "It",
+            "dry soil",
+            "plants",
+            "tiny organisms",
+            "release"
+          ],
+          "sourceSentenceIds": [
+            "p02-s01"
+          ]
+        }
+      ],
+      "sentenceId": "p02-s01",
+      "highlightCues": [
+        {
+          "id": "label-009-original-read",
+          "sourceText": "It appears when dry soil, plants, and tiny organisms release compounds into the air.",
+          "sourceStart": 0,
+          "sourceEnd": 84,
+          "spokenText": "It appears when dry soil, plants, and tiny organisms release compounds into the air.",
+          "spokenOccurrence": 0,
+          "startMs": 80,
+          "endMs": 7200
+        },
+        {
+          "id": "rain-p02-it-read",
+          "sourceText": "It",
+          "sourceStart": 0,
+          "sourceEnd": 2,
+          "spokenText": "It",
+          "spokenOccurrence": 0,
+          "startMs": 80,
+          "endMs": 240
+        },
+        {
+          "id": "rain-p02-dry-soil-read",
+          "sourceText": "dry soil",
+          "sourceStart": 16,
+          "sourceEnd": 24,
+          "spokenText": "dry soil",
+          "spokenOccurrence": 0,
+          "startMs": 1280,
+          "endMs": 2480
+        },
+        {
+          "id": "rain-p02-plants-read",
+          "sourceText": "plants",
+          "sourceStart": 26,
+          "sourceEnd": 32,
+          "spokenText": "plants",
+          "spokenOccurrence": 0,
+          "startMs": 2480,
+          "endMs": 3040
+        },
+        {
+          "id": "rain-p02-tiny-organisms-read",
+          "sourceText": "tiny organisms",
+          "sourceStart": 38,
+          "sourceEnd": 52,
+          "spokenText": "tiny organisms",
+          "spokenOccurrence": 0,
+          "startMs": 3520,
+          "endMs": 4800
+        },
+        {
+          "id": "rain-p02-release-read",
+          "sourceText": "release",
+          "sourceStart": 53,
+          "sourceEnd": 60,
+          "spokenText": "release",
+          "spokenOccurrence": 0,
+          "startMs": 5040,
+          "endMs": 5520
+        },
+        {
+          "id": "rain-p02-it-explain",
+          "sourceText": "It",
+          "sourceStart": 0,
+          "sourceEnd": 2,
+          "spokenText": "It",
+          "spokenOccurrence": 1,
+          "startMs": 7280,
+          "endMs": 7760
+        },
+        {
+          "id": "rain-p02-dry-soil-explain",
+          "sourceText": "dry soil",
+          "sourceStart": 16,
+          "sourceEnd": 24,
+          "spokenText": "dry soil",
+          "spokenOccurrence": 1,
+          "startMs": 10880,
+          "endMs": 11931
+        },
+        {
+          "id": "rain-p02-plants-explain",
+          "sourceText": "plants",
+          "sourceStart": 26,
+          "sourceEnd": 32,
+          "spokenText": "plants",
+          "spokenOccurrence": 1,
+          "startMs": 11931,
+          "endMs": 12789
+        },
+        {
+          "id": "rain-p02-tiny-organisms-explain",
+          "sourceText": "tiny organisms",
+          "sourceStart": 38,
+          "sourceEnd": 52,
+          "spokenText": "tiny organisms",
+          "spokenOccurrence": 1,
+          "startMs": 12789,
+          "endMs": 14160
+        },
+        {
+          "id": "rain-p02-release-explain",
+          "sourceText": "release",
+          "sourceStart": 53,
+          "sourceEnd": 60,
+          "spokenText": "release",
+          "spokenOccurrence": 1,
+          "startMs": 15440,
+          "endMs": 16000
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-009-subtitle-1",
+          "text": "It appears when dry soil, plants, and tiny organisms release compounds into the air.",
+          "language": "en",
+          "startMs": 80,
+          "endMs": 7200
+        },
+        {
+          "id": "label-009-subtitle-2",
+          "text": "It 指雨味。",
+          "language": "zh",
+          "startMs": 7280,
+          "endMs": 8800
+        },
+        {
+          "id": "label-009-subtitle-3",
+          "text": "后面三个并列来源——dry soil、plants、",
+          "language": "zh",
+          "startMs": 9280,
+          "endMs": 12789
+        },
+        {
+          "id": "label-009-subtitle-4",
+          "text": "tiny organisms——共同执行 release：",
+          "language": "zh",
+          "startMs": 12789,
+          "endMs": 16000
+        },
+        {
+          "id": "label-009-subtitle-5",
+          "text": "把能形成气味的化合物释放到空气里。",
+          "language": "zh",
+          "startMs": 16480,
+          "endMs": 19680
+        },
+        {
+          "id": "label-009-subtitle-6",
+          "text": "release A into B 是很实用的表达，",
+          "language": "zh",
+          "startMs": 20228,
+          "endMs": 23508
+        },
+        {
+          "id": "label-009-subtitle-7",
+          "text": "表示把 A 释放进 B，",
+          "language": "zh",
+          "startMs": 23828,
+          "endMs": 26308
+        },
+        {
+          "id": "label-009-subtitle-8",
+          "text": "比如 release smoke into the air。",
+          "language": "zh",
+          "startMs": 26308,
+          "endMs": 28788
+        }
+      ]
+    },
+    {
+      "id": "label-010",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "Rain carries those compounds upward as small droplets hit the ground.\n\nthose compounds 接住上一句的化合物，文章没有重新起头。核心动作是 Rain carries those compounds upward，雨把它们向上带；as small droplets hit the ground 补充这个动作发生的时刻。这个 as 是“当……时”，强调雨滴撞地与成分上升同时发生。雨不是凭空制造气味，而是在帮助地面已有的成分移动。\n\n",
+          "sourceSentenceIds": [
+            "p02-s02"
+          ]
+        }
+      ],
+      "sentenceId": "p02-s02",
+      "highlightCues": [
+        {
+          "id": "label-010-original-read",
+          "sourceText": "Rain carries those compounds upward as small droplets hit the ground.",
+          "sourceStart": 0,
+          "sourceEnd": 69,
+          "spokenText": "Rain carries those compounds upward as small droplets hit the ground.",
+          "spokenOccurrence": 0,
+          "startMs": 80,
+          "endMs": 5280
+        },
+        {
+          "id": "label-010-teaching-1",
+          "sourceText": "those compounds",
+          "sourceStart": 13,
+          "sourceEnd": 28,
+          "spokenText": "those compounds",
+          "spokenOccurrence": 1,
+          "startMs": 5520,
+          "endMs": 6480
+        },
+        {
+          "id": "label-010-teaching-2",
+          "sourceText": "Rain carries those compounds upward",
+          "sourceStart": 0,
+          "sourceEnd": 35,
+          "spokenText": "Rain carries those compounds upward",
+          "spokenOccurrence": 1,
+          "startMs": 11360,
+          "endMs": 13600
+        },
+        {
+          "id": "label-010-teaching-3",
+          "sourceText": "as small droplets hit the ground",
+          "sourceStart": 36,
+          "sourceEnd": 68,
+          "spokenText": "as small droplets hit the ground",
+          "spokenOccurrence": 1,
+          "startMs": 15680,
+          "endMs": 17680
+        },
+        {
+          "id": "label-010-teaching-4",
+          "sourceText": "as",
+          "sourceStart": 36,
+          "sourceEnd": 38,
+          "spokenText": "as",
+          "spokenOccurrence": 1,
+          "startMs": 15680,
+          "endMs": 15920
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-010-subtitle-1",
+          "text": "Rain carries those compounds upward as small droplets hit the ground.",
+          "language": "en",
+          "startMs": 80,
+          "endMs": 5280
+        },
+        {
+          "id": "label-010-subtitle-2",
+          "text": "those compounds 接住上一句的化合物，",
+          "language": "zh",
+          "startMs": 5520,
+          "endMs": 8160
+        },
+        {
+          "id": "label-010-subtitle-3",
+          "text": "文章没有重新起头。",
+          "language": "zh",
+          "startMs": 8400,
+          "endMs": 10000
+        },
+        {
+          "id": "label-010-subtitle-4",
+          "text": "核心动作是 Rain carries those compounds upward，",
+          "language": "zh",
+          "startMs": 10320,
+          "endMs": 13600
+        },
+        {
+          "id": "label-010-subtitle-5",
+          "text": "雨把它们向上带；",
+          "language": "zh",
+          "startMs": 13920,
+          "endMs": 15360
+        },
+        {
+          "id": "label-010-subtitle-6",
+          "text": "as small droplets hit the ground 补充这个动作发生的时刻。",
+          "language": "zh",
+          "startMs": 15680,
+          "endMs": 20080
+        },
+        {
+          "id": "label-010-subtitle-7",
+          "text": "这个 as 是“当……时”，强调雨滴撞地与成分上升同时发生。",
+          "language": "zh",
+          "startMs": 20692,
+          "endMs": 26212
+        },
+        {
+          "id": "label-010-subtitle-8",
+          "text": "雨不是凭空制造气味，而是在帮助地面已有的成分移动。",
+          "language": "zh",
+          "startMs": 26452,
+          "endMs": 30932
+        }
+      ]
+    },
+    {
+      "id": "label-011",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "The droplets can burst and make a fine spray.\n\n雨滴会 burst，突然破开，再形成 a fine spray。fine 在这里不是“很好”，而是颗粒非常细，所以整个画面是一层细小喷雾。can 也保留了可能性：这是雨滴撞地时可能发生的过程。\n\n",
+          "sourceSentenceIds": [
+            "p02-s03"
+          ]
+        }
+      ],
+      "sentenceId": "p02-s03",
+      "highlightCues": [
+        {
+          "id": "label-011-original-read",
+          "sourceText": "The droplets can burst and make a fine spray.",
+          "sourceStart": 0,
+          "sourceEnd": 45,
+          "spokenText": "The droplets can burst and make a fine spray.",
+          "spokenOccurrence": 0,
+          "startMs": 240,
+          "endMs": 3600
+        },
+        {
+          "id": "label-011-teaching-1",
+          "sourceText": "burst",
+          "sourceStart": 17,
+          "sourceEnd": 22,
+          "spokenText": "burst",
+          "spokenOccurrence": 1,
+          "startMs": 4720,
+          "endMs": 5520
+        },
+        {
+          "id": "label-011-teaching-2",
+          "sourceText": "a fine spray",
+          "sourceStart": 32,
+          "sourceEnd": 44,
+          "spokenText": "a fine spray",
+          "spokenOccurrence": 1,
+          "startMs": 7360,
+          "endMs": 8107
+        },
+        {
+          "id": "label-011-teaching-3",
+          "sourceText": "fine",
+          "sourceStart": 34,
+          "sourceEnd": 38,
+          "spokenText": "fine",
+          "spokenOccurrence": 1,
+          "startMs": 7440,
+          "endMs": 7840
+        },
+        {
+          "id": "label-011-teaching-4",
+          "sourceText": "can",
+          "sourceStart": 13,
+          "sourceEnd": 16,
+          "spokenText": "can",
+          "spokenOccurrence": 1,
+          "startMs": 15760,
+          "endMs": 16240
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-011-subtitle-1",
+          "text": "The droplets can burst and make a fine spray.",
+          "language": "en",
+          "startMs": 240,
+          "endMs": 3600
+        },
+        {
+          "id": "label-011-subtitle-2",
+          "text": "雨滴会 burst，突然破开，",
+          "language": "zh",
+          "startMs": 4160,
+          "endMs": 6480
+        },
+        {
+          "id": "label-011-subtitle-3",
+          "text": "再形成 a fine spray。",
+          "language": "zh",
+          "startMs": 6720,
+          "endMs": 8107
+        },
+        {
+          "id": "label-011-subtitle-4",
+          "text": "fine 在这里不是“很好”，而是颗粒非常细，",
+          "language": "zh",
+          "startMs": 8107,
+          "endMs": 12560
+        },
+        {
+          "id": "label-011-subtitle-5",
+          "text": "所以整个画面是一层细小喷雾。",
+          "language": "zh",
+          "startMs": 12800,
+          "endMs": 15360
+        },
+        {
+          "id": "label-011-subtitle-6",
+          "text": "can 也保留了可能性：这是雨滴撞地时可能发生的过程。",
+          "language": "zh",
+          "startMs": 15760,
+          "endMs": 20320
+        }
+      ]
+    },
+    {
+      "id": "label-012",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "That spray gives the scent a route into the air around you.\n\nThat spray 接着刚才的细雾。give the scent a route into ... 字面上是“给气味一条进入……的路线”，把看不见的传播写成了一条可以跟随的路径：从地面进入你周围正在呼吸的空气。\n\n刚才动作和指代都多，但它们只是一条连续过程。连起来听 those compounds、The droplets、That spray 怎样逐步交接信息：",
+          "sourceSentenceIds": [
+            "p02-s04"
+          ]
+        }
+      ],
+      "sentenceId": "p02-s04",
+      "highlightCues": [
+        {
+          "id": "label-012-original-read",
+          "sourceText": "That spray gives the scent a route into the air around you.",
+          "sourceStart": 0,
+          "sourceEnd": 59,
+          "spokenText": "That spray gives the scent a route into the air around you.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 4320
+        },
+        {
+          "id": "label-012-teaching-1",
+          "sourceText": "That spray",
+          "sourceStart": 0,
+          "sourceEnd": 10,
+          "spokenText": "That spray",
+          "spokenOccurrence": 1,
+          "startMs": 5200,
+          "endMs": 6080
+        },
+        {
+          "id": "label-012-teaching-2",
+          "sourceText": "gives the scent a route into",
+          "sourceStart": 11,
+          "sourceEnd": 39,
+          "spokenText": "give the scent a route into",
+          "spokenOccurrence": 1,
+          "startMs": 8080,
+          "endMs": 10240
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-012-subtitle-1",
+          "text": "That spray gives the scent a route into the air around you.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 4320
+        },
+        {
+          "id": "label-012-subtitle-2",
+          "text": "That spray 接着刚才的细雾。",
+          "language": "zh",
+          "startMs": 5200,
+          "endMs": 7440
+        },
+        {
+          "id": "label-012-subtitle-3",
+          "text": "give the scent a route into ... 字面上是“给气味一条进入……的路线”，",
+          "language": "zh",
+          "startMs": 8080,
+          "endMs": 13760
+        },
+        {
+          "id": "label-012-subtitle-4",
+          "text": "把看不见的传播写成了一条可以跟随的路径：",
+          "language": "zh",
+          "startMs": 14320,
+          "endMs": 17520
+        },
+        {
+          "id": "label-012-subtitle-5",
+          "text": "从地面进入你周围正在呼吸的空气。",
+          "language": "zh",
+          "startMs": 17840,
+          "endMs": 20880
+        },
+        {
+          "id": "label-012-subtitle-6",
+          "text": "刚才动作和指代都多，但它们只是一条连续过程。",
+          "language": "zh",
+          "startMs": 21758,
+          "endMs": 25838
+        },
+        {
+          "id": "label-012-subtitle-7",
+          "text": "连起来听 those compounds、",
+          "language": "zh",
+          "startMs": 26238,
+          "endMs": 28318
+        },
+        {
+          "id": "label-012-subtitle-8",
+          "text": "The droplets、",
+          "language": "en",
+          "startMs": 28318,
+          "endMs": 29811
+        },
+        {
+          "id": "label-012-subtitle-9",
+          "text": "That spray 怎样逐步交接信息：",
+          "language": "zh",
+          "startMs": 29811,
+          "endMs": 32158
+        }
+      ]
+    },
+    {
+      "id": "label-013",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "Rain carries those compounds upward as small droplets hit the ground. ",
+          "sourceSentenceIds": [
+            "p02-s02"
+          ]
+        }
+      ],
+      "sentenceId": "p02-s02",
+      "highlightCues": [
+        {
+          "id": "label-013-original-read",
+          "sourceText": "Rain carries those compounds upward as small droplets hit the ground.",
+          "sourceStart": 0,
+          "sourceEnd": 69,
+          "spokenText": "Rain carries those compounds upward as small droplets hit the ground.",
+          "spokenOccurrence": 0,
+          "startMs": 320,
+          "endMs": 4720
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-013-subtitle-1",
+          "text": "Rain carries those compounds upward as small droplets hit the ground.",
+          "language": "en",
+          "startMs": 320,
+          "endMs": 4720
+        }
+      ]
+    },
+    {
+      "id": "label-014",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "The droplets can burst and make a fine spray. ",
+          "sourceSentenceIds": [
+            "p02-s03"
+          ]
+        }
+      ],
+      "sentenceId": "p02-s03",
+      "highlightCues": [
+        {
+          "id": "label-014-original-read",
+          "sourceText": "The droplets can burst and make a fine spray.",
+          "sourceStart": 0,
+          "sourceEnd": 45,
+          "spokenText": "The droplets can burst and make a fine spray.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 3280
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-014-subtitle-1",
+          "text": "The droplets can burst and make a fine spray.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 3280
+        }
+      ]
+    },
+    {
+      "id": "label-015",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "That spray gives the scent a route into the air around you.\n\n传播路径已经清楚了。接下来，文章从混合物里挑出一种重要成分。\n\n",
+          "sourceSentenceIds": [
+            "p02-s04"
+          ]
+        }
+      ],
+      "sentenceId": "p02-s04",
+      "highlightCues": [
+        {
+          "id": "label-015-original-read",
+          "sourceText": "That spray gives the scent a route into the air around you.",
+          "sourceStart": 0,
+          "sourceEnd": 59,
+          "spokenText": "That spray gives the scent a route into the air around you.",
+          "spokenOccurrence": 0,
+          "startMs": 320,
+          "endMs": 4720
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-015-subtitle-1",
+          "text": "That spray gives the scent a route into the air around you.",
+          "language": "en",
+          "startMs": 320,
+          "endMs": 4720
+        },
+        {
+          "id": "label-015-subtitle-2",
+          "text": "传播路径已经清楚了。",
+          "language": "zh",
+          "startMs": 5280,
+          "endMs": 7120
+        },
+        {
+          "id": "label-015-subtitle-3",
+          "text": "接下来，文章从混合物里挑出一种重要成分。",
+          "language": "zh",
+          "startMs": 7440,
+          "endMs": 11520
+        }
+      ]
+    },
+    {
+      "id": "label-016",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "One important compound is made by soil bacteria.\n\nOne important compound 表示“其中一种重要化合物”，One 提醒我们它不是全部答案。作者先把这种化合物放到注意力中央，再用 is made by soil bacteria 补充制造者。换成主动句，事实不会变，但焦点会先落在细菌身上；这样的被动表达更符合文章正在解释“这种成分”的信息路线。\n\n",
+          "sourceSentenceIds": [
+            "p03-s01"
+          ]
+        }
+      ],
+      "sentenceId": "p03-s01",
+      "highlightCues": [
+        {
+          "id": "label-016-original-read",
+          "sourceText": "One important compound is made by soil bacteria.",
+          "sourceStart": 0,
+          "sourceEnd": 48,
+          "spokenText": "One important compound is made by soil bacteria.",
+          "spokenOccurrence": 0,
+          "startMs": 240,
+          "endMs": 4160
+        },
+        {
+          "id": "label-016-teaching-1",
+          "sourceText": "One important compound",
+          "sourceStart": 0,
+          "sourceEnd": 22,
+          "spokenText": "One important compound",
+          "spokenOccurrence": 1,
+          "startMs": 4320,
+          "endMs": 5840
+        },
+        {
+          "id": "label-016-teaching-2",
+          "sourceText": "One",
+          "sourceStart": 0,
+          "sourceEnd": 3,
+          "spokenText": "One",
+          "spokenOccurrence": 1,
+          "startMs": 4320,
+          "endMs": 4720
+        },
+        {
+          "id": "label-016-teaching-3",
+          "sourceText": "is made by soil bacteria",
+          "sourceStart": 23,
+          "sourceEnd": 47,
+          "spokenText": "is made by soil bacteria",
+          "spokenOccurrence": 1,
+          "startMs": 15200,
+          "endMs": 17360
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-016-subtitle-1",
+          "text": "One important compound is made by soil bacteria.",
+          "language": "en",
+          "startMs": 240,
+          "endMs": 4160
+        },
+        {
+          "id": "label-016-subtitle-2",
+          "text": "One important compound 表示“其中一种重要化合物”，",
+          "language": "zh",
+          "startMs": 4320,
+          "endMs": 8400
+        },
+        {
+          "id": "label-016-subtitle-3",
+          "text": "One 提醒我们它不是全部答案。",
+          "language": "zh",
+          "startMs": 8640,
+          "endMs": 11280
+        },
+        {
+          "id": "label-016-subtitle-4",
+          "text": "作者先把这种化合物放到注意力中央，",
+          "language": "zh",
+          "startMs": 11680,
+          "endMs": 14720
+        },
+        {
+          "id": "label-016-subtitle-5",
+          "text": "再用 is made by soil bacteria 补充制造者。",
+          "language": "zh",
+          "startMs": 14720,
+          "endMs": 18800
+        },
+        {
+          "id": "label-016-subtitle-6",
+          "text": "换成主动句，事实不会变，但焦点会先落在细菌身上；",
+          "language": "zh",
+          "startMs": 19322,
+          "endMs": 24282
+        },
+        {
+          "id": "label-016-subtitle-7",
+          "text": "这样的被动表达更符合文章正在解释“这种成分”的信息路线。",
+          "language": "zh",
+          "startMs": 24602,
+          "endMs": 29402
+        }
+      ]
+    },
+    {
+      "id": "label-017",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "It is called geosmin.\n\nIt 就是上一句的化合物，is called 给出名称：geosmin。知道它由土壤微生物产生、带有泥土气息，就足以跟上后文。\n\n",
+          "sourceSentenceIds": [
+            "p03-s02"
+          ]
+        }
+      ],
+      "sentenceId": "p03-s02",
+      "highlightCues": [
+        {
+          "id": "label-017-original-read",
+          "sourceText": "It is called geosmin.",
+          "sourceStart": 0,
+          "sourceEnd": 21,
+          "spokenText": "It is called geosmin.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 2080
+        },
+        {
+          "id": "label-017-teaching-1",
+          "sourceText": "It",
+          "sourceStart": 0,
+          "sourceEnd": 2,
+          "spokenText": "It",
+          "spokenOccurrence": 1,
+          "startMs": 2240,
+          "endMs": 2800
+        },
+        {
+          "id": "label-017-teaching-2",
+          "sourceText": "is called",
+          "sourceStart": 3,
+          "sourceEnd": 12,
+          "spokenText": "is called",
+          "spokenOccurrence": 1,
+          "startMs": 4960,
+          "endMs": 5680
+        },
+        {
+          "id": "label-017-teaching-3",
+          "sourceText": "geosmin",
+          "sourceStart": 13,
+          "sourceEnd": 20,
+          "spokenText": "geosmin",
+          "spokenOccurrence": 1,
+          "startMs": 6960,
+          "endMs": 8000
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-017-subtitle-1",
+          "text": "It is called geosmin.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 2080
+        },
+        {
+          "id": "label-017-subtitle-2",
+          "text": "It 就是上一句的化合物，is called 给出名称：",
+          "language": "zh",
+          "startMs": 2240,
+          "endMs": 6960
+        },
+        {
+          "id": "label-017-subtitle-3",
+          "text": "geosmin。",
+          "language": "en",
+          "startMs": 6960,
+          "endMs": 8000
+        },
+        {
+          "id": "label-017-subtitle-4",
+          "text": "知道它由土壤微生物产生、带有泥土气息，就足以跟上后文。",
+          "language": "zh",
+          "startMs": 8080,
+          "endMs": 13360
+        }
+      ]
+    },
+    {
+      "id": "label-018",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "Humans are unusually sensitive to it, even at very low levels.\n\nbe sensitive to 是“对……敏感”，it 仍指 geosmin。even at very low levels 说明即使含量非常低，人也能察觉到；levels 指物质的含量或浓度，even 把意外感放在“这么少也闻得到”上。\n\n",
+          "sourceSentenceIds": [
+            "p03-s03"
+          ]
+        }
+      ],
+      "sentenceId": "p03-s03",
+      "highlightCues": [
+        {
+          "id": "label-018-original-read",
+          "sourceText": "Humans are unusually sensitive to it, even at very low levels.",
+          "sourceStart": 0,
+          "sourceEnd": 62,
+          "spokenText": "Humans are unusually sensitive to it, even at very low levels.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 5440
+        },
+        {
+          "id": "label-018-teaching-1",
+          "sourceText": "it",
+          "sourceStart": 25,
+          "sourceEnd": 27,
+          "spokenText": "it",
+          "spokenOccurrence": 2,
+          "startMs": 6302,
+          "endMs": 6533
+        },
+        {
+          "id": "label-018-teaching-2",
+          "sourceText": "even at very low levels",
+          "sourceStart": 38,
+          "sourceEnd": 61,
+          "spokenText": "even at very low levels",
+          "spokenOccurrence": 1,
+          "startMs": 10371,
+          "endMs": 12960
+        },
+        {
+          "id": "label-018-teaching-3",
+          "sourceText": "levels",
+          "sourceStart": 55,
+          "sourceEnd": 61,
+          "spokenText": "levels",
+          "spokenOccurrence": 1,
+          "startMs": 12320,
+          "endMs": 12960
+        },
+        {
+          "id": "label-018-teaching-4",
+          "sourceText": "even",
+          "sourceStart": 38,
+          "sourceEnd": 42,
+          "spokenText": "even",
+          "spokenOccurrence": 1,
+          "startMs": 10371,
+          "endMs": 10720
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-018-subtitle-1",
+          "text": "Humans are unusually sensitive to it, even at very low levels.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 5440
+        },
+        {
+          "id": "label-018-subtitle-2",
+          "text": "be sensitive to 是“对……敏感”，",
+          "language": "zh",
+          "startMs": 5680,
+          "endMs": 8400
+        },
+        {
+          "id": "label-018-subtitle-3",
+          "text": "it 仍指 geosmin。",
+          "language": "zh",
+          "startMs": 8800,
+          "endMs": 10371
+        },
+        {
+          "id": "label-018-subtitle-4",
+          "text": "even at very low levels 说明即使含量非常低，",
+          "language": "zh",
+          "startMs": 10371,
+          "endMs": 15200
+        },
+        {
+          "id": "label-018-subtitle-5",
+          "text": "人也能察觉到；levels 指物质的含量或浓度，",
+          "language": "zh",
+          "startMs": 15360,
+          "endMs": 19760
+        },
+        {
+          "id": "label-018-subtitle-6",
+          "text": "even 把意外感放在“这么少也闻得到”上。",
+          "language": "zh",
+          "startMs": 20080,
+          "endMs": 23760
+        }
+      ]
+    },
+    {
+      "id": "label-019",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "That sensitivity may explain why a light shower can seem surprisingly noticeable.\n\nThat sensitivity 把上一句整件事接过来，再用 may explain why 推出一种可能解释。may 很重要：作者在提出有根据的判断，但没有把它说成唯一原因。\n\n后面的 why a light shower can seem surprisingly noticeable 整体接在 explain 后面，不是直接问句，所以用陈述语序 a light shower can ...，而不是 can a light shower ...。a light shower 是一阵小雨；因为人类对 geosmin 很敏感，小雨带来的气味也可能明显得出人意料。\n\n把两句连起来听，注意 That sensitivity 怎样把低浓度与明显感受连成因果：",
+          "sourceSentenceIds": [
+            "p03-s04"
+          ]
+        }
+      ],
+      "sentenceId": "p03-s04",
+      "highlightCues": [
+        {
+          "id": "label-019-original-read",
+          "sourceText": "That sensitivity may explain why a light shower can seem surprisingly noticeable.",
+          "sourceStart": 0,
+          "sourceEnd": 81,
+          "spokenText": "That sensitivity may explain why a light shower can seem surprisingly noticeable.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 5440
+        },
+        {
+          "id": "label-019-teaching-1",
+          "sourceText": "That sensitivity",
+          "sourceStart": 0,
+          "sourceEnd": 16,
+          "spokenText": "That sensitivity",
+          "spokenOccurrence": 1,
+          "startMs": 5920,
+          "endMs": 7360
+        },
+        {
+          "id": "label-019-teaching-2",
+          "sourceText": "may explain why",
+          "sourceStart": 17,
+          "sourceEnd": 32,
+          "spokenText": "may explain why",
+          "spokenOccurrence": 1,
+          "startMs": 10240,
+          "endMs": 11520
+        },
+        {
+          "id": "label-019-teaching-3",
+          "sourceText": "may",
+          "sourceStart": 17,
+          "sourceEnd": 20,
+          "spokenText": "may",
+          "spokenOccurrence": 1,
+          "startMs": 10240,
+          "endMs": 10560
+        },
+        {
+          "id": "label-019-teaching-4",
+          "sourceText": "why a light shower can seem surprisingly noticeable",
+          "sourceStart": 29,
+          "sourceEnd": 80,
+          "spokenText": "why a light shower can seem surprisingly noticeable",
+          "spokenOccurrence": 1,
+          "startMs": 21046,
+          "endMs": 24166
+        },
+        {
+          "id": "label-019-teaching-5",
+          "sourceText": "explain",
+          "sourceStart": 21,
+          "sourceEnd": 28,
+          "spokenText": "explain",
+          "spokenOccurrence": 1,
+          "startMs": 10640,
+          "endMs": 11200
+        },
+        {
+          "id": "label-019-teaching-6",
+          "sourceText": "a light shower can",
+          "sourceStart": 33,
+          "sourceEnd": 51,
+          "spokenText": "a light shower can",
+          "spokenOccurrence": 1,
+          "startMs": 21366,
+          "endMs": 22406
+        },
+        {
+          "id": "label-019-teaching-8",
+          "sourceText": "a light shower",
+          "sourceStart": 33,
+          "sourceEnd": 47,
+          "spokenText": "a light shower",
+          "spokenOccurrence": 1,
+          "startMs": 21366,
+          "endMs": 22246
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-019-subtitle-1",
+          "text": "That sensitivity may explain why a light shower can seem surprisingly noticeable.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 5440
+        },
+        {
+          "id": "label-019-subtitle-2",
+          "text": "That sensitivity 把上一句整件事接过来，",
+          "language": "zh",
+          "startMs": 5920,
+          "endMs": 9520
+        },
+        {
+          "id": "label-019-subtitle-3",
+          "text": "再用 may explain why 推出一种可能解释。",
+          "language": "zh",
+          "startMs": 9920,
+          "endMs": 13600
+        },
+        {
+          "id": "label-019-subtitle-4",
+          "text": "may 很重要：作者在提出有根据的判断，",
+          "language": "zh",
+          "startMs": 13920,
+          "endMs": 17600
+        },
+        {
+          "id": "label-019-subtitle-5",
+          "text": "但没有把它说成唯一原因。",
+          "language": "zh",
+          "startMs": 17760,
+          "endMs": 19920
+        },
+        {
+          "id": "label-019-subtitle-6",
+          "text": "后面的 why a light shower can seem surprisingly noticeable 整体接在 explain 后面，",
+          "language": "zh",
+          "startMs": 20326,
+          "endMs": 26806
+        },
+        {
+          "id": "label-019-subtitle-7",
+          "text": "不是直接问句，",
+          "language": "zh",
+          "startMs": 26806,
+          "endMs": 28086
+        },
+        {
+          "id": "label-019-subtitle-8",
+          "text": "所以用陈述语序 a light shower can ...，",
+          "language": "zh",
+          "startMs": 28086,
+          "endMs": 31366
+        },
+        {
+          "id": "label-019-subtitle-9",
+          "text": "而不是 can a light shower ...。",
+          "language": "zh",
+          "startMs": 31446,
+          "endMs": 33846
+        },
+        {
+          "id": "label-019-subtitle-10",
+          "text": "a light shower 是一阵小雨；",
+          "language": "zh",
+          "startMs": 33926,
+          "endMs": 36406
+        },
+        {
+          "id": "label-019-subtitle-11",
+          "text": "因为人类对 geosmin 很敏感，",
+          "language": "zh",
+          "startMs": 36797,
+          "endMs": 39277
+        },
+        {
+          "id": "label-019-subtitle-12",
+          "text": "小雨带来的气味也可能明显得出人意料。",
+          "language": "zh",
+          "startMs": 39357,
+          "endMs": 42957
+        },
+        {
+          "id": "label-019-subtitle-13",
+          "text": "把两句连起来听，",
+          "language": "zh",
+          "startMs": 42957,
+          "endMs": 44557
+        },
+        {
+          "id": "label-019-subtitle-14",
+          "text": "注意 That sensitivity 怎样把低浓度与明显感受连成因果：",
+          "language": "zh",
+          "startMs": 44557,
+          "endMs": 49917
+        }
+      ]
+    },
+    {
+      "id": "label-020",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "Humans are unusually sensitive to it, even at very low levels. ",
+          "sourceSentenceIds": [
+            "p03-s03"
+          ]
+        }
+      ],
+      "sentenceId": "p03-s03",
+      "highlightCues": [
+        {
+          "id": "label-020-original-read",
+          "sourceText": "Humans are unusually sensitive to it, even at very low levels.",
+          "sourceStart": 0,
+          "sourceEnd": 62,
+          "spokenText": "Humans are unusually sensitive to it, even at very low levels.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 5440
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-020-subtitle-1",
+          "text": "Humans are unusually sensitive to it, even at very low levels.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 5440
+        }
+      ]
+    },
+    {
+      "id": "label-021",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "That sensitivity may explain why a light shower can seem surprisingly noticeable.\n\n到这里出现了几个专业词，先把一条关系留住就够了：土壤细菌产生 geosmin，人类对它格外敏感。下面再补上植物留下的另一部分。\n\n",
+          "sourceSentenceIds": [
+            "p03-s04"
+          ]
+        }
+      ],
+      "sentenceId": "p03-s04",
+      "highlightCues": [
+        {
+          "id": "label-021-original-read",
+          "sourceText": "That sensitivity may explain why a light shower can seem surprisingly noticeable.",
+          "sourceStart": 0,
+          "sourceEnd": 81,
+          "spokenText": "That sensitivity may explain why a light shower can seem surprisingly noticeable.",
+          "spokenOccurrence": 0,
+          "startMs": 240,
+          "endMs": 5360
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-021-subtitle-1",
+          "text": "That sensitivity may explain why a light shower can seem surprisingly noticeable.",
+          "language": "en",
+          "startMs": 240,
+          "endMs": 5360
+        },
+        {
+          "id": "label-021-subtitle-2",
+          "text": "到这里出现了几个专业词，先把一条关系留住就够了：",
+          "language": "zh",
+          "startMs": 5520,
+          "endMs": 9920
+        },
+        {
+          "id": "label-021-subtitle-3",
+          "text": "土壤细菌产生 geosmin，人类对它格外敏感。",
+          "language": "zh",
+          "startMs": 10000,
+          "endMs": 13760
+        },
+        {
+          "id": "label-021-subtitle-4",
+          "text": "下面再补上植物留下的另一部分。",
+          "language": "zh",
+          "startMs": 14160,
+          "endMs": 16640
+        }
+      ]
+    },
+    {
+      "id": "label-022",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "Another part comes from oils that plants leave on dry surfaces.\n\n主线是 Another part comes from oils：雨味的另一部分来自油性成分。that plants leave on dry surfaces 修饰 oils，说明这些油是植物留在干燥表面上的。leave A on B 就是把 A 留在 B 上，原句用它把来源和位置一次说清。\n\n",
+          "sourceSentenceIds": [
+            "p04-s01"
+          ]
+        }
+      ],
+      "sentenceId": "p04-s01",
+      "highlightCues": [
+        {
+          "id": "label-022-original-read",
+          "sourceText": "Another part comes from oils that plants leave on dry surfaces.",
+          "sourceStart": 0,
+          "sourceEnd": 63,
+          "spokenText": "Another part comes from oils that plants leave on dry surfaces.",
+          "spokenOccurrence": 0,
+          "startMs": 320,
+          "endMs": 5680
+        },
+        {
+          "id": "label-022-teaching-1",
+          "sourceText": "Another part comes from oils",
+          "sourceStart": 0,
+          "sourceEnd": 28,
+          "spokenText": "Another part comes from oils",
+          "spokenOccurrence": 1,
+          "startMs": 7360,
+          "endMs": 9680
+        },
+        {
+          "id": "label-022-teaching-2",
+          "sourceText": "that plants leave on dry surfaces",
+          "sourceStart": 29,
+          "sourceEnd": 62,
+          "spokenText": "that plants leave on dry surfaces",
+          "spokenOccurrence": 1,
+          "startMs": 13280,
+          "endMs": 15760
+        },
+        {
+          "id": "label-022-teaching-3",
+          "sourceText": "oils",
+          "sourceStart": 24,
+          "sourceEnd": 28,
+          "spokenText": "oils",
+          "spokenOccurrence": 1,
+          "startMs": 9040,
+          "endMs": 9680
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-022-subtitle-1",
+          "text": "Another part comes from oils that plants leave on dry surfaces.",
+          "language": "en",
+          "startMs": 320,
+          "endMs": 5680
+        },
+        {
+          "id": "label-022-subtitle-2",
+          "text": "主线是 Another part comes from oils：",
+          "language": "zh",
+          "startMs": 6400,
+          "endMs": 9680
+        },
+        {
+          "id": "label-022-subtitle-3",
+          "text": "雨味的另一部分来自油性成分。",
+          "language": "zh",
+          "startMs": 10160,
+          "endMs": 12880
+        },
+        {
+          "id": "label-022-subtitle-4",
+          "text": "that plants leave on dry surfaces 修饰 oils，",
+          "language": "zh",
+          "startMs": 13280,
+          "endMs": 17200
+        },
+        {
+          "id": "label-022-subtitle-5",
+          "text": "说明这些油是植物留在干燥表面上的。",
+          "language": "zh",
+          "startMs": 17440,
+          "endMs": 20640
+        },
+        {
+          "id": "label-022-subtitle-6",
+          "text": "leave A on B 就是把 A 留在 B 上，",
+          "language": "zh",
+          "startMs": 21180,
+          "endMs": 25260
+        },
+        {
+          "id": "label-022-subtitle-7",
+          "text": "原句用它把来源和位置一次说清。",
+          "language": "zh",
+          "startMs": 25420,
+          "endMs": 28460
+        }
+      ]
+    },
+    {
+      "id": "label-023",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "Those oils build up during dry weather.\n\nThose oils 接住刚才的植物油。build up 不是突然出现，而是逐渐积累，是很值得带走的表达，比如 Pressure can build up over time.，压力会慢慢积累。原句里的积累发生在干燥天气期间。\n\n",
+          "sourceSentenceIds": [
+            "p04-s02"
+          ]
+        }
+      ],
+      "sentenceId": "p04-s02",
+      "highlightCues": [
+        {
+          "id": "label-023-original-read",
+          "sourceText": "Those oils build up during dry weather.",
+          "sourceStart": 0,
+          "sourceEnd": 39,
+          "spokenText": "Those oils build up during dry weather.",
+          "spokenOccurrence": 0,
+          "startMs": 400,
+          "endMs": 3600
+        },
+        {
+          "id": "label-023-teaching-1",
+          "sourceText": "Those oils",
+          "sourceStart": 0,
+          "sourceEnd": 10,
+          "spokenText": "Those oils",
+          "spokenOccurrence": 1,
+          "startMs": 3840,
+          "endMs": 4960
+        },
+        {
+          "id": "label-023-teaching-2",
+          "sourceText": "build up",
+          "sourceStart": 11,
+          "sourceEnd": 19,
+          "spokenText": "build up",
+          "spokenOccurrence": 1,
+          "startMs": 6960,
+          "endMs": 7680
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-023-subtitle-1",
+          "text": "Those oils build up during dry weather.",
+          "language": "en",
+          "startMs": 400,
+          "endMs": 3600
+        },
+        {
+          "id": "label-023-subtitle-2",
+          "text": "Those oils 接住刚才的植物油。",
+          "language": "zh",
+          "startMs": 3840,
+          "endMs": 6800
+        },
+        {
+          "id": "label-023-subtitle-3",
+          "text": "build up 不是突然出现，而是逐渐积累，",
+          "language": "zh",
+          "startMs": 6960,
+          "endMs": 10400
+        },
+        {
+          "id": "label-023-subtitle-4",
+          "text": "是很值得带走的表达，",
+          "language": "zh",
+          "startMs": 10640,
+          "endMs": 12560
+        },
+        {
+          "id": "label-023-subtitle-5",
+          "text": "比如 Pressure can build up over time.，",
+          "language": "zh",
+          "startMs": 12720,
+          "endMs": 15360
+        },
+        {
+          "id": "label-023-subtitle-6",
+          "text": "压力会慢慢积累。",
+          "language": "zh",
+          "startMs": 15520,
+          "endMs": 17040
+        },
+        {
+          "id": "label-023-subtitle-7",
+          "text": "原句里的积累发生在干燥天气期间。",
+          "language": "zh",
+          "startMs": 17360,
+          "endMs": 20480
+        }
+      ]
+    },
+    {
+      "id": "label-024",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "After a long dry spell, the first rain can release more of them at once.\n\na long dry spell 是一段持续很久的干燥天气；spell 在这里表示一段持续某种天气或状态的时期，也可以说 a cold spell，一段寒冷天气。主句里的 them 指那些植物油，at once 放回原句，不是单纯的“立刻”，而是一下子、集中地释放。\n\n英文的信息顺序正好跟着现实过程走：先有长期干燥，再有第一场雨，积累的成分随后集中释放。\n\n",
+          "sourceSentenceIds": [
+            "p04-s03"
+          ]
+        }
+      ],
+      "sentenceId": "p04-s03",
+      "highlightCues": [
+        {
+          "id": "label-024-original-read",
+          "sourceText": "After a long dry spell, the first rain can release more of them at once.",
+          "sourceStart": 0,
+          "sourceEnd": 72,
+          "spokenText": "After a long dry spell, the first rain can release more of them at once.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 4480
+        },
+        {
+          "id": "label-024-teaching-1",
+          "sourceText": "a long dry spell",
+          "sourceStart": 6,
+          "sourceEnd": 22,
+          "spokenText": "a long dry spell",
+          "spokenOccurrence": 1,
+          "startMs": 4800,
+          "endMs": 5760
+        },
+        {
+          "id": "label-024-teaching-2",
+          "sourceText": "spell",
+          "sourceStart": 17,
+          "sourceEnd": 22,
+          "spokenText": "spell",
+          "spokenOccurrence": 1,
+          "startMs": 5360,
+          "endMs": 5760
+        },
+        {
+          "id": "label-024-teaching-3",
+          "sourceText": "them",
+          "sourceStart": 59,
+          "sourceEnd": 63,
+          "spokenText": "them",
+          "spokenOccurrence": 1,
+          "startMs": 17870,
+          "endMs": 18350
+        },
+        {
+          "id": "label-024-teaching-4",
+          "sourceText": "at once",
+          "sourceStart": 64,
+          "sourceEnd": 71,
+          "spokenText": "at once",
+          "spokenOccurrence": 1,
+          "startMs": 20030,
+          "endMs": 20670
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-024-subtitle-1",
+          "text": "After a long dry spell, the first rain can release more of them at once.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 4480
+        },
+        {
+          "id": "label-024-subtitle-2",
+          "text": "a long dry spell 是一段持续很久的干燥天气；",
+          "language": "zh",
+          "startMs": 4800,
+          "endMs": 8240
+        },
+        {
+          "id": "label-024-subtitle-3",
+          "text": "spell 在这里表示一段持续某种天气或状态的时期，",
+          "language": "zh",
+          "startMs": 8640,
+          "endMs": 12960
+        },
+        {
+          "id": "label-024-subtitle-4",
+          "text": "也可以说 a cold spell，一段寒冷天气。",
+          "language": "zh",
+          "startMs": 13280,
+          "endMs": 16720
+        },
+        {
+          "id": "label-024-subtitle-5",
+          "text": "主句里的 them 指那些植物油，at once 放回原句，",
+          "language": "zh",
+          "startMs": 17310,
+          "endMs": 21550
+        },
+        {
+          "id": "label-024-subtitle-6",
+          "text": "不是单纯的“立刻”，而是一下子、集中地释放。",
+          "language": "zh",
+          "startMs": 21790,
+          "endMs": 25790
+        },
+        {
+          "id": "label-024-subtitle-7",
+          "text": "英文的信息顺序正好跟着现实过程走：先有长期干燥，",
+          "language": "zh",
+          "startMs": 25950,
+          "endMs": 30510
+        },
+        {
+          "id": "label-024-subtitle-8",
+          "text": "再有第一场雨，积累的成分随后集中释放。",
+          "language": "zh",
+          "startMs": 30670,
+          "endMs": 34430
+        }
+      ]
+    },
+    {
+      "id": "label-025",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "A sudden summer shower may therefore smell stronger than steady rain.\n\ntherefore 把前面的积累和释放推向结果：突然的夏季阵雨可能比持续稳定的雨闻起来更强。这个 smell 不是主动去“闻”，而是像 look、sound、feel 一样连接后面的形容词 stronger。比如 The soup smells good.，也是“闻起来怎么样”。作者再次用 may 保留余地，因为最终气味还会受其他条件影响。\n\n把植物油的三步过程连起来听：",
+          "sourceSentenceIds": [
+            "p04-s04"
+          ]
+        }
+      ],
+      "sentenceId": "p04-s04",
+      "highlightCues": [
+        {
+          "id": "label-025-original-read",
+          "sourceText": "A sudden summer shower may therefore smell stronger than steady rain.",
+          "sourceStart": 0,
+          "sourceEnd": 69,
+          "spokenText": "A sudden summer shower may therefore smell stronger than steady rain.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 4960
+        },
+        {
+          "id": "label-025-teaching-1",
+          "sourceText": "therefore",
+          "sourceStart": 27,
+          "sourceEnd": 36,
+          "spokenText": "therefore",
+          "spokenOccurrence": 1,
+          "startMs": 5440,
+          "endMs": 6240
+        },
+        {
+          "id": "label-025-teaching-2",
+          "sourceText": "smell",
+          "sourceStart": 37,
+          "sourceEnd": 42,
+          "spokenText": "smell",
+          "spokenOccurrence": 1,
+          "startMs": 14356,
+          "endMs": 14676
+        },
+        {
+          "id": "label-025-teaching-3",
+          "sourceText": "stronger",
+          "sourceStart": 43,
+          "sourceEnd": 51,
+          "spokenText": "stronger",
+          "spokenOccurrence": 1,
+          "startMs": 20676,
+          "endMs": 21636
+        },
+        {
+          "id": "label-025-teaching-4",
+          "sourceText": "may",
+          "sourceStart": 23,
+          "sourceEnd": 26,
+          "spokenText": "may",
+          "spokenOccurrence": 1,
+          "startMs": 26916,
+          "endMs": 27236
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-025-subtitle-1",
+          "text": "A sudden summer shower may therefore smell stronger than steady rain.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 4960
+        },
+        {
+          "id": "label-025-subtitle-2",
+          "text": "therefore 把前面的积累和释放推向结果：",
+          "language": "zh",
+          "startMs": 5440,
+          "endMs": 8800
+        },
+        {
+          "id": "label-025-subtitle-3",
+          "text": "突然的夏季阵雨可能比持续稳定的雨闻起来更强。",
+          "language": "zh",
+          "startMs": 9280,
+          "endMs": 13440
+        },
+        {
+          "id": "label-025-subtitle-4",
+          "text": "这个 smell 不是主动去“闻”，而是像 look、",
+          "language": "zh",
+          "startMs": 14116,
+          "endMs": 17058
+        },
+        {
+          "id": "label-025-subtitle-5",
+          "text": "sound、",
+          "language": "en",
+          "startMs": 17058,
+          "endMs": 17334
+        },
+        {
+          "id": "label-025-subtitle-6",
+          "text": "feel 一样连接后面的形容词 stronger。",
+          "language": "zh",
+          "startMs": 17334,
+          "endMs": 21636
+        },
+        {
+          "id": "label-025-subtitle-7",
+          "text": "比如 The soup smells good.，",
+          "language": "zh",
+          "startMs": 21876,
+          "endMs": 23716
+        },
+        {
+          "id": "label-025-subtitle-8",
+          "text": "也是“闻起来怎么样”。",
+          "language": "zh",
+          "startMs": 24196,
+          "endMs": 26036
+        },
+        {
+          "id": "label-025-subtitle-9",
+          "text": "作者再次用 may 保留余地，",
+          "language": "zh",
+          "startMs": 26036,
+          "endMs": 28116
+        },
+        {
+          "id": "label-025-subtitle-10",
+          "text": "因为最终气味还会受其他条件影响。",
+          "language": "zh",
+          "startMs": 28356,
+          "endMs": 31076
+        },
+        {
+          "id": "label-025-subtitle-11",
+          "text": "把植物油的三步过程连起来听：",
+          "language": "zh",
+          "startMs": 31665,
+          "endMs": 34305
+        }
+      ]
+    },
+    {
+      "id": "label-026",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "Those oils build up during dry weather. ",
+          "sourceSentenceIds": [
+            "p04-s02"
+          ]
+        }
+      ],
+      "sentenceId": "p04-s02",
+      "highlightCues": [
+        {
+          "id": "label-026-original-read",
+          "sourceText": "Those oils build up during dry weather.",
+          "sourceStart": 0,
+          "sourceEnd": 39,
+          "spokenText": "Those oils build up during dry weather.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 2960
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-026-subtitle-1",
+          "text": "Those oils build up during dry weather.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 2960
+        }
+      ]
+    },
+    {
+      "id": "label-027",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "After a long dry spell, the first rain can release more of them at once. ",
+          "sourceSentenceIds": [
+            "p04-s03"
+          ]
+        }
+      ],
+      "sentenceId": "p04-s03",
+      "highlightCues": [
+        {
+          "id": "label-027-original-read",
+          "sourceText": "After a long dry spell, the first rain can release more of them at once.",
+          "sourceStart": 0,
+          "sourceEnd": 72,
+          "spokenText": "After a long dry spell, the first rain can release more of them at once.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 5680
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-027-subtitle-1",
+          "text": "After a long dry spell, the first rain can release more of them at once.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 5680
+        }
+      ]
+    },
+    {
+      "id": "label-028",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "A sudden summer shower may therefore smell stronger than steady rain.\n\n干燥时积累，第一场雨时集中释放，这条因果已经建立。接下来文章把地点差异放进答案。\n\n",
+          "sourceSentenceIds": [
+            "p04-s04"
+          ]
+        }
+      ],
+      "sentenceId": "p04-s04",
+      "highlightCues": [
+        {
+          "id": "label-028-original-read",
+          "sourceText": "A sudden summer shower may therefore smell stronger than steady rain.",
+          "sourceStart": 0,
+          "sourceEnd": 69,
+          "spokenText": "A sudden summer shower may therefore smell stronger than steady rain.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 4640
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-028-subtitle-1",
+          "text": "A sudden summer shower may therefore smell stronger than steady rain.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 4640
+        },
+        {
+          "id": "label-028-subtitle-2",
+          "text": "干燥时积累，第一场雨时集中释放，这条因果已经建立。",
+          "language": "zh",
+          "startMs": 5040,
+          "endMs": 10080
+        },
+        {
+          "id": "label-028-subtitle-3",
+          "text": "接下来文章把地点差异放进答案。",
+          "language": "zh",
+          "startMs": 10400,
+          "endMs": 13120
+        }
+      ]
+    },
+    {
+      "id": "label-029",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "The smell is not exactly the same in every place.\n\nnot exactly the same 是“不完全相同”。作者没有说 completely different，而是用 not exactly 留出细微差别，继续保持科普文谨慎、不绝对的语气。\n\n",
+          "sourceSentenceIds": [
+            "p05-s01"
+          ]
+        }
+      ],
+      "sentenceId": "p05-s01",
+      "highlightCues": [
+        {
+          "id": "label-029-original-read",
+          "sourceText": "The smell is not exactly the same in every place.",
+          "sourceStart": 0,
+          "sourceEnd": 49,
+          "spokenText": "The smell is not exactly the same in every place.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 4000
+        },
+        {
+          "id": "label-029-teaching-1",
+          "sourceText": "not exactly the same",
+          "sourceStart": 13,
+          "sourceEnd": 33,
+          "spokenText": "not exactly the same",
+          "spokenOccurrence": 1,
+          "startMs": 4240,
+          "endMs": 6080
+        },
+        {
+          "id": "label-029-teaching-2",
+          "sourceText": "not exactly",
+          "sourceStart": 13,
+          "sourceEnd": 24,
+          "spokenText": "not exactly",
+          "spokenOccurrence": 1,
+          "startMs": 4240,
+          "endMs": 5440
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-029-subtitle-1",
+          "text": "The smell is not exactly the same in every place.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 4000
+        },
+        {
+          "id": "label-029-subtitle-2",
+          "text": "not exactly the same 是“不完全相同”。",
+          "language": "zh",
+          "startMs": 4240,
+          "endMs": 7760
+        },
+        {
+          "id": "label-029-subtitle-3",
+          "text": "作者没有说 completely different，",
+          "language": "zh",
+          "startMs": 8080,
+          "endMs": 10240
+        },
+        {
+          "id": "label-029-subtitle-4",
+          "text": "而是用 not exactly 留出细微差别，",
+          "language": "zh",
+          "startMs": 10560,
+          "endMs": 13760
+        },
+        {
+          "id": "label-029-subtitle-5",
+          "text": "继续保持科普文谨慎、不绝对的语气。",
+          "language": "zh",
+          "startMs": 14080,
+          "endMs": 17600
+        }
+      ]
+    },
+    {
+      "id": "label-030",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "Temperature changes how quickly compounds move through the air.\n\n温度改变的是 how quickly compounds move through the air，也就是化合物在空气中移动得多快。整个 how quickly ... 接在 changes 后面，是嵌入结构，所以使用陈述语序 compounds move。直接提问会说 How quickly do compounds move?；嵌入句子后则说 We know how quickly compounds move.\n\n作者没有笼统地说温度“会影响气味”，而是具体写出它改变传播速度。带着这个信息组织再听：",
+          "sourceSentenceIds": [
+            "p05-s02"
+          ]
+        }
+      ],
+      "sentenceId": "p05-s02",
+      "highlightCues": [
+        {
+          "id": "label-030-original-read",
+          "sourceText": "Temperature changes how quickly compounds move through the air.",
+          "sourceStart": 0,
+          "sourceEnd": 63,
+          "spokenText": "Temperature changes how quickly compounds move through the air.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 4400
+        },
+        {
+          "id": "label-030-teaching-1",
+          "sourceText": "how quickly compounds move through the air",
+          "sourceStart": 20,
+          "sourceEnd": 62,
+          "spokenText": "how quickly compounds move through the air",
+          "spokenOccurrence": 1,
+          "startMs": 5760,
+          "endMs": 8320
+        },
+        {
+          "id": "label-030-teaching-2",
+          "sourceText": "how quickly",
+          "sourceStart": 20,
+          "sourceEnd": 31,
+          "spokenText": "how quickly",
+          "spokenOccurrence": 1,
+          "startMs": 5760,
+          "endMs": 6560
+        },
+        {
+          "id": "label-030-teaching-3",
+          "sourceText": "changes",
+          "sourceStart": 12,
+          "sourceEnd": 19,
+          "spokenText": "changes",
+          "spokenOccurrence": 1,
+          "startMs": 14160,
+          "endMs": 14640
+        },
+        {
+          "id": "label-030-teaching-4",
+          "sourceText": "compounds move",
+          "sourceStart": 32,
+          "sourceEnd": 46,
+          "spokenText": "compounds move",
+          "spokenOccurrence": 1,
+          "startMs": 6560,
+          "endMs": 7440
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-030-subtitle-1",
+          "text": "Temperature changes how quickly compounds move through the air.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 4400
+        },
+        {
+          "id": "label-030-subtitle-2",
+          "text": "温度改变的是 how quickly compounds move through the air，",
+          "language": "zh",
+          "startMs": 4480,
+          "endMs": 8320
+        },
+        {
+          "id": "label-030-subtitle-3",
+          "text": "也就是化合物在空气中移动得多快。",
+          "language": "zh",
+          "startMs": 8560,
+          "endMs": 11680
+        },
+        {
+          "id": "label-030-subtitle-4",
+          "text": "整个 how quickly ... 接在 changes 后面，",
+          "language": "zh",
+          "startMs": 12080,
+          "endMs": 15360
+        },
+        {
+          "id": "label-030-subtitle-5",
+          "text": "是嵌入结构，所以使用陈述语序 compounds move。",
+          "language": "zh",
+          "startMs": 15360,
+          "endMs": 19520
+        },
+        {
+          "id": "label-030-subtitle-6",
+          "text": "直接提问会说 How quickly do compounds move?",
+          "language": "zh",
+          "startMs": 20068,
+          "endMs": 23108
+        },
+        {
+          "id": "label-030-subtitle-8",
+          "text": "嵌入句子后则说 We know how quickly compounds move.",
+          "language": "zh",
+          "startMs": 23668,
+          "endMs": 28068
+        },
+        {
+          "id": "label-030-subtitle-9",
+          "text": "作者没有笼统地说温度“会影响气味”，",
+          "language": "zh",
+          "startMs": 28308,
+          "endMs": 31668
+        },
+        {
+          "id": "label-030-subtitle-10",
+          "text": "而是具体写出它改变传播速度。",
+          "language": "zh",
+          "startMs": 31828,
+          "endMs": 34548
+        },
+        {
+          "id": "label-030-subtitle-11",
+          "text": "带着这个信息组织再听：",
+          "language": "zh",
+          "startMs": 34868,
+          "endMs": 36788
+        }
+      ]
+    },
+    {
+      "id": "label-031",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "Temperature changes how quickly compounds move through the air.\n\n",
+          "sourceSentenceIds": [
+            "p05-s02"
+          ]
+        }
+      ],
+      "sentenceId": "p05-s02",
+      "highlightCues": [
+        {
+          "id": "label-031-original-read",
+          "sourceText": "Temperature changes how quickly compounds move through the air.",
+          "sourceStart": 0,
+          "sourceEnd": 63,
+          "spokenText": "Temperature changes how quickly compounds move through the air.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 3600
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-031-subtitle-1",
+          "text": "Temperature changes how quickly compounds move through the air.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 3600
+        }
+      ]
+    },
+    {
+      "id": "label-032",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "Wind decides whether they reach you or drift away.\n\nthey 指这些化合物。whether ... or ... 给出两个可能结果：它们到达你这里，或者 drift away，随风慢慢飘走。Wind decides ... 带一点拟人，让风像是在决定传播路线；地面释放了气味成分，并不等于你一定闻得到。\n\n",
+          "sourceSentenceIds": [
+            "p05-s03"
+          ]
+        }
+      ],
+      "sentenceId": "p05-s03",
+      "highlightCues": [
+        {
+          "id": "label-032-original-read",
+          "sourceText": "Wind decides whether they reach you or drift away.",
+          "sourceStart": 0,
+          "sourceEnd": 50,
+          "spokenText": "Wind decides whether they reach you or drift away.",
+          "spokenOccurrence": 0,
+          "startMs": 240,
+          "endMs": 4000
+        },
+        {
+          "id": "label-032-teaching-1",
+          "sourceText": "they",
+          "sourceStart": 21,
+          "sourceEnd": 25,
+          "spokenText": "they",
+          "spokenOccurrence": 1,
+          "startMs": 4560,
+          "endMs": 4960
+        },
+        {
+          "id": "label-032-teaching-2",
+          "sourceText": "whether",
+          "sourceStart": 13,
+          "sourceEnd": 20,
+          "spokenText": "whether",
+          "spokenOccurrence": 1,
+          "startMs": 6720,
+          "endMs": 7280
+        },
+        {
+          "id": "label-032-teaching-3",
+          "sourceText": "or",
+          "sourceStart": 36,
+          "sourceEnd": 38,
+          "spokenText": "or",
+          "spokenOccurrence": 1,
+          "startMs": 7600,
+          "endMs": 8160
+        },
+        {
+          "id": "label-032-teaching-4",
+          "sourceText": "drift away",
+          "sourceStart": 39,
+          "sourceEnd": 49,
+          "spokenText": "drift away",
+          "spokenOccurrence": 1,
+          "startMs": 11920,
+          "endMs": 12880
+        },
+        {
+          "id": "label-032-teaching-5",
+          "sourceText": "Wind decides",
+          "sourceStart": 0,
+          "sourceEnd": 12,
+          "spokenText": "Wind decides",
+          "spokenOccurrence": 1,
+          "startMs": 15040,
+          "endMs": 16240
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-032-subtitle-1",
+          "text": "Wind decides whether they reach you or drift away.",
+          "language": "en",
+          "startMs": 240,
+          "endMs": 4000
+        },
+        {
+          "id": "label-032-subtitle-2",
+          "text": "they 指这些化合物。",
+          "language": "zh",
+          "startMs": 4560,
+          "endMs": 6240
+        },
+        {
+          "id": "label-032-subtitle-3",
+          "text": "whether ... or ... 给出两个可能结果：",
+          "language": "zh",
+          "startMs": 6720,
+          "endMs": 9920
+        },
+        {
+          "id": "label-032-subtitle-4",
+          "text": "它们到达你这里，或者 drift away，随风慢慢飘走。",
+          "language": "zh",
+          "startMs": 10080,
+          "endMs": 14480
+        },
+        {
+          "id": "label-032-subtitle-5",
+          "text": "Wind decides ... 带一点拟人，",
+          "language": "zh",
+          "startMs": 15040,
+          "endMs": 17520
+        },
+        {
+          "id": "label-032-subtitle-6",
+          "text": "让风像是在决定传播路线；地面释放了气味成分，",
+          "language": "zh",
+          "startMs": 17760,
+          "endMs": 22716
+        },
+        {
+          "id": "label-032-subtitle-7",
+          "text": "并不等于你一定闻得到。",
+          "language": "zh",
+          "startMs": 22716,
+          "endMs": 24396
+        }
+      ]
+    },
+    {
+      "id": "label-033",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "Soil and local plants add their own small signature.\n\nsignature 原本是“签名”，放在这句里是一个比喻，表示一个地方独有的小标记。土壤和当地植物不同，就会给雨味加入自己的特征；类似的表达还有 a signature style，一种有鲜明个人标志的风格。\n\n温度决定移动速度，风决定到达还是飘走，土壤和植物留下当地特征。文章的科学机制到这里已经完整，最后几句会把它重新变成一种生活里的感官经验。\n\n",
+          "sourceSentenceIds": [
+            "p05-s04"
+          ]
+        }
+      ],
+      "sentenceId": "p05-s04",
+      "highlightCues": [
+        {
+          "id": "label-033-original-read",
+          "sourceText": "Soil and local plants add their own small signature.",
+          "sourceStart": 0,
+          "sourceEnd": 52,
+          "spokenText": "Soil and local plants add their own small signature.",
+          "spokenOccurrence": 0,
+          "startMs": 240,
+          "endMs": 4800
+        },
+        {
+          "id": "label-033-teaching-1",
+          "sourceText": "signature",
+          "sourceStart": 42,
+          "sourceEnd": 51,
+          "spokenText": "signature",
+          "spokenOccurrence": 1,
+          "startMs": 4960,
+          "endMs": 5920
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-033-subtitle-1",
+          "text": "Soil and local plants add their own small signature.",
+          "language": "en",
+          "startMs": 240,
+          "endMs": 4800
+        },
+        {
+          "id": "label-033-subtitle-2",
+          "text": "signature 原本是“签名”，放在这句里是一个比喻，",
+          "language": "zh",
+          "startMs": 4960,
+          "endMs": 9120
+        },
+        {
+          "id": "label-033-subtitle-3",
+          "text": "表示一个地方独有的小标记。",
+          "language": "zh",
+          "startMs": 9280,
+          "endMs": 11680
+        },
+        {
+          "id": "label-033-subtitle-4",
+          "text": "土壤和当地植物不同，就会给雨味加入自己的特征；",
+          "language": "zh",
+          "startMs": 12080,
+          "endMs": 16480
+        },
+        {
+          "id": "label-033-subtitle-5",
+          "text": "类似的表达还有 a signature style，",
+          "language": "zh",
+          "startMs": 16949,
+          "endMs": 20149
+        },
+        {
+          "id": "label-033-subtitle-6",
+          "text": "一种有鲜明个人标志的风格。",
+          "language": "zh",
+          "startMs": 20229,
+          "endMs": 22549
+        },
+        {
+          "id": "label-033-subtitle-7",
+          "text": "温度决定移动速度，风决定到达还是飘走，",
+          "language": "zh",
+          "startMs": 22949,
+          "endMs": 26949
+        },
+        {
+          "id": "label-033-subtitle-8",
+          "text": "土壤和植物留下当地特征。",
+          "language": "zh",
+          "startMs": 27189,
+          "endMs": 29829
+        },
+        {
+          "id": "label-033-subtitle-9",
+          "text": "文章的科学机制到这里已经完整，",
+          "language": "zh",
+          "startMs": 29989,
+          "endMs": 32949
+        },
+        {
+          "id": "label-033-subtitle-10",
+          "text": "最后几句会把它重新变成一种生活里的感官经验。",
+          "language": "zh",
+          "startMs": 32949,
+          "endMs": 36949
+        }
+      ]
+    },
+    {
+      "id": "label-034",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "So the next time rain seems to have a smell, you are noticing a small weather story.\n\n句首的 So 表明这是前文解释之后得出的新理解。the next time 是“下次……的时候”，把科普说明带回未来的生活场景；seem to have a smell 又保留一点距离，不把雨水本身直接说成气味来源。a small weather story 则把刚才的土壤、植物、干燥和雨滴收进一个有画面的比喻。\n\n",
+          "sourceSentenceIds": [
+            "p06-s01"
+          ]
+        }
+      ],
+      "sentenceId": "p06-s01",
+      "highlightCues": [
+        {
+          "id": "label-034-original-read",
+          "sourceText": "So the next time rain seems to have a smell, you are noticing a small weather story.",
+          "sourceStart": 0,
+          "sourceEnd": 84,
+          "spokenText": "So the next time rain seems to have a smell, you are noticing a small weather story.",
+          "spokenOccurrence": 0,
+          "startMs": 80,
+          "endMs": 6080
+        },
+        {
+          "id": "label-034-teaching-1",
+          "sourceText": "So",
+          "sourceStart": 0,
+          "sourceEnd": 2,
+          "spokenText": "So",
+          "spokenOccurrence": 1,
+          "startMs": 6960,
+          "endMs": 7520
+        },
+        {
+          "id": "label-034-teaching-2",
+          "sourceText": "the next time",
+          "sourceStart": 3,
+          "sourceEnd": 16,
+          "spokenText": "the next time",
+          "spokenOccurrence": 1,
+          "startMs": 11680,
+          "endMs": 12480
+        },
+        {
+          "id": "label-034-teaching-4",
+          "sourceText": "a small weather story",
+          "sourceStart": 62,
+          "sourceEnd": 83,
+          "spokenText": "a small weather story",
+          "spokenOccurrence": 1,
+          "startMs": 24907,
+          "endMs": 26347
+        },
+        {
+          "id": "label-034-teaching-3",
+          "sourceText": "seems to have a smell",
+          "sourceStart": 22,
+          "sourceEnd": 43,
+          "spokenText": "seem to have a smell",
+          "spokenOccurrence": 1,
+          "startMs": 18507,
+          "endMs": 19547
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-034-subtitle-1",
+          "text": "So the next time rain seems to have a smell,",
+          "language": "en",
+          "startMs": 80,
+          "endMs": 2960
+        },
+        {
+          "id": "label-034-subtitle-2",
+          "text": "you are noticing a small weather story.",
+          "language": "en",
+          "startMs": 3360,
+          "endMs": 6080
+        },
+        {
+          "id": "label-034-subtitle-3",
+          "text": "句首的 So 表明这是前文解释之后得出的新理解。",
+          "language": "zh",
+          "startMs": 6480,
+          "endMs": 10800
+        },
+        {
+          "id": "label-034-subtitle-4",
+          "text": "the next time 是“下次……的时候”，",
+          "language": "zh",
+          "startMs": 11680,
+          "endMs": 14560
+        },
+        {
+          "id": "label-034-subtitle-5",
+          "text": "把科普说明带回未来的生活场景；",
+          "language": "zh",
+          "startMs": 14960,
+          "endMs": 17680
+        },
+        {
+          "id": "label-034-subtitle-6",
+          "text": "seem to have a smell 又保留一点距离，",
+          "language": "zh",
+          "startMs": 18507,
+          "endMs": 21227
+        },
+        {
+          "id": "label-034-subtitle-7",
+          "text": "不把雨水本身直接说成气味来源。",
+          "language": "zh",
+          "startMs": 21227,
+          "endMs": 24267
+        },
+        {
+          "id": "label-034-subtitle-8",
+          "text": "a small weather story 则把刚才的土壤、",
+          "language": "zh",
+          "startMs": 24907,
+          "endMs": 27707
+        },
+        {
+          "id": "label-034-subtitle-9",
+          "text": "植物、干燥和雨滴收进一个有画面的比喻。",
+          "language": "zh",
+          "startMs": 27707,
+          "endMs": 31467
+        }
+      ]
+    },
+    {
+      "id": "label-035",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "The air is carrying evidence of a dry landscape meeting water again.\n\n先看到空气正在携带 evidence，再看后面是什么的证据。evidence of ... 是“……的证据”，evidence 通常作不可数名词。这份证据指向 a dry landscape meeting water again：一片干燥土地重新遇到水。科学过程在这句话里变成了一次“相遇”。\n\n",
+          "sourceSentenceIds": [
+            "p06-s02"
+          ]
+        }
+      ],
+      "sentenceId": "p06-s02",
+      "highlightCues": [
+        {
+          "id": "label-035-original-read",
+          "sourceText": "The air is carrying evidence of a dry landscape meeting water again.",
+          "sourceStart": 0,
+          "sourceEnd": 68,
+          "spokenText": "The air is carrying evidence of a dry landscape meeting water again.",
+          "spokenOccurrence": 0,
+          "startMs": 80,
+          "endMs": 5120
+        },
+        {
+          "id": "label-035-teaching-1",
+          "sourceText": "evidence",
+          "sourceStart": 20,
+          "sourceEnd": 28,
+          "spokenText": "evidence",
+          "spokenOccurrence": 1,
+          "startMs": 7520,
+          "endMs": 8160
+        },
+        {
+          "id": "label-035-teaching-2",
+          "sourceText": "evidence of",
+          "sourceStart": 20,
+          "sourceEnd": 31,
+          "spokenText": "evidence of",
+          "spokenOccurrence": 1,
+          "startMs": 10960,
+          "endMs": 11840
+        },
+        {
+          "id": "label-035-teaching-3",
+          "sourceText": "a dry landscape meeting water again",
+          "sourceStart": 32,
+          "sourceEnd": 67,
+          "spokenText": "a dry landscape meeting water again",
+          "spokenOccurrence": 1,
+          "startMs": 18131,
+          "endMs": 20531
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-035-subtitle-1",
+          "text": "The air is carrying evidence of a dry landscape meeting water again.",
+          "language": "en",
+          "startMs": 80,
+          "endMs": 5120
+        },
+        {
+          "id": "label-035-subtitle-2",
+          "text": "先看到空气正在携带 evidence，再看后面是什么的证据。",
+          "language": "zh",
+          "startMs": 5760,
+          "endMs": 10640
+        },
+        {
+          "id": "label-035-subtitle-3",
+          "text": "evidence of ... 是“……的证据”，",
+          "language": "zh",
+          "startMs": 10960,
+          "endMs": 13520
+        },
+        {
+          "id": "label-035-subtitle-4",
+          "text": "evidence 通常作不可数名词。",
+          "language": "zh",
+          "startMs": 13920,
+          "endMs": 16160
+        },
+        {
+          "id": "label-035-subtitle-5",
+          "text": "这份证据指向 a dry landscape meeting water again：",
+          "language": "zh",
+          "startMs": 16771,
+          "endMs": 20531
+        },
+        {
+          "id": "label-035-subtitle-6",
+          "text": "一片干燥土地重新遇到水。",
+          "language": "zh",
+          "startMs": 20611,
+          "endMs": 22931
+        },
+        {
+          "id": "label-035-subtitle-7",
+          "text": "科学过程在这句话里变成了一次“相遇”。",
+          "language": "zh",
+          "startMs": 22931,
+          "endMs": 25971
+        }
+      ]
+    },
+    {
+      "id": "label-036",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "It is a sensory clue about what was on the ground before the rain began.\n\nIt 指这股雨味，a sensory clue 是一个通过感官得到的线索，得到线索的是嗅觉。what was on the ground 整体表示“地面上原来有什么”；它不是直接疑问，而是接在 about 后面的内容，所以保持陈述语序。雨味不能给出一份精确清单，却能透露下雨前地面上积累过什么。\n\n",
+          "sourceSentenceIds": [
+            "p06-s03"
+          ]
+        }
+      ],
+      "sentenceId": "p06-s03",
+      "highlightCues": [
+        {
+          "id": "label-036-original-read",
+          "sourceText": "It is a sensory clue about what was on the ground before the rain began.",
+          "sourceStart": 0,
+          "sourceEnd": 72,
+          "spokenText": "It is a sensory clue about what was on the ground before the rain began.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 4160
+        },
+        {
+          "id": "label-036-teaching-1",
+          "sourceText": "It",
+          "sourceStart": 0,
+          "sourceEnd": 2,
+          "spokenText": "It",
+          "spokenOccurrence": 1,
+          "startMs": 4320,
+          "endMs": 4720
+        },
+        {
+          "id": "label-036-teaching-2",
+          "sourceText": "a sensory clue",
+          "sourceStart": 6,
+          "sourceEnd": 20,
+          "spokenText": "a sensory clue",
+          "spokenOccurrence": 1,
+          "startMs": 6160,
+          "endMs": 7120
+        },
+        {
+          "id": "label-036-teaching-3",
+          "sourceText": "what was on the ground",
+          "sourceStart": 27,
+          "sourceEnd": 49,
+          "spokenText": "what was on the ground",
+          "spokenOccurrence": 1,
+          "startMs": 11600,
+          "endMs": 12640
+        },
+        {
+          "id": "label-036-teaching-4",
+          "sourceText": "about",
+          "sourceStart": 21,
+          "sourceEnd": 26,
+          "spokenText": "about",
+          "spokenOccurrence": 1,
+          "startMs": 18054,
+          "endMs": 18534
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-036-subtitle-1",
+          "text": "It is a sensory clue about what was on the ground before the rain began.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 4160
+        },
+        {
+          "id": "label-036-subtitle-2",
+          "text": "It 指这股雨味，",
+          "language": "zh",
+          "startMs": 4320,
+          "endMs": 5840
+        },
+        {
+          "id": "label-036-subtitle-3",
+          "text": "a sensory clue 是一个通过感官得到的线索，",
+          "language": "zh",
+          "startMs": 6160,
+          "endMs": 9280
+        },
+        {
+          "id": "label-036-subtitle-4",
+          "text": "得到线索的是嗅觉。",
+          "language": "zh",
+          "startMs": 9600,
+          "endMs": 11280
+        },
+        {
+          "id": "label-036-subtitle-5",
+          "text": "what was on the ground 整体表示“地面上原来有什么”；",
+          "language": "zh",
+          "startMs": 11600,
+          "endMs": 15200
+        },
+        {
+          "id": "label-036-subtitle-6",
+          "text": "它不是直接疑问，而是接在 about 后面的内容，",
+          "language": "zh",
+          "startMs": 15814,
+          "endMs": 19654
+        },
+        {
+          "id": "label-036-subtitle-7",
+          "text": "所以保持陈述语序。",
+          "language": "zh",
+          "startMs": 19654,
+          "endMs": 21334
+        },
+        {
+          "id": "label-036-subtitle-8",
+          "text": "雨味不能给出一份精确清单，却能透露下雨前地面上积累过什么。",
+          "language": "zh",
+          "startMs": 21734,
+          "endMs": 27174
+        }
+      ]
+    },
+    {
+      "id": "label-037",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "That is why the same weather can feel different in two nearby places.\n\nThat is why ... 是很实用的总结框架：这就是为什么……。That 把前面的温度、风、土壤、植物和传播过程整体收回来。作者用 feel different，比只说 smell different 更宽，它包括一个地方带给人的整体感受。即使两个地点离得很近，同样的天气也可能有不同的气息和氛围。\n\n最后四句连起来听，不再逐词拆解，感受文章怎样从科学机制回到一个可以闻到的天气故事：",
+          "sourceSentenceIds": [
+            "p06-s04"
+          ]
+        }
+      ],
+      "sentenceId": "p06-s04",
+      "highlightCues": [
+        {
+          "id": "label-037-original-read",
+          "sourceText": "That is why the same weather can feel different in two nearby places.",
+          "sourceStart": 0,
+          "sourceEnd": 69,
+          "spokenText": "That is why the same weather can feel different in two nearby places.",
+          "spokenOccurrence": 0,
+          "startMs": 320,
+          "endMs": 5120
+        },
+        {
+          "id": "label-037-teaching-1",
+          "sourceText": "That is why",
+          "sourceStart": 0,
+          "sourceEnd": 11,
+          "spokenText": "That is why",
+          "spokenOccurrence": 1,
+          "startMs": 5680,
+          "endMs": 6720
+        },
+        {
+          "id": "label-037-teaching-2",
+          "sourceText": "That",
+          "sourceStart": 0,
+          "sourceEnd": 4,
+          "spokenText": "That",
+          "spokenOccurrence": 1,
+          "startMs": 5680,
+          "endMs": 6000
+        },
+        {
+          "id": "label-037-teaching-3",
+          "sourceText": "feel different",
+          "sourceStart": 33,
+          "sourceEnd": 47,
+          "spokenText": "feel different",
+          "spokenOccurrence": 1,
+          "startMs": 18002,
+          "endMs": 18882
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-037-subtitle-1",
+          "text": "That is why the same weather can feel different in two nearby places.",
+          "language": "en",
+          "startMs": 320,
+          "endMs": 5120
+        },
+        {
+          "id": "label-037-subtitle-2",
+          "text": "That is why ... 是很实用的总结框架：",
+          "language": "zh",
+          "startMs": 5680,
+          "endMs": 8800
+        },
+        {
+          "id": "label-037-subtitle-3",
+          "text": "这就是为什么……。",
+          "language": "zh",
+          "startMs": 9120,
+          "endMs": 10400
+        },
+        {
+          "id": "label-037-subtitle-4",
+          "text": "That 把前面的温度、风、土壤、植物和传播过程整体收回来。",
+          "language": "zh",
+          "startMs": 10720,
+          "endMs": 16560
+        },
+        {
+          "id": "label-037-subtitle-5",
+          "text": "作者用 feel different，",
+          "language": "zh",
+          "startMs": 17442,
+          "endMs": 18882
+        },
+        {
+          "id": "label-037-subtitle-6",
+          "text": "比只说 smell different 更宽，",
+          "language": "zh",
+          "startMs": 19282,
+          "endMs": 22002
+        },
+        {
+          "id": "label-037-subtitle-7",
+          "text": "它包括一个地方带给人的整体感受。",
+          "language": "zh",
+          "startMs": 22082,
+          "endMs": 24642
+        },
+        {
+          "id": "label-037-subtitle-8",
+          "text": "即使两个地点离得很近，同样的天气也可能有不同的气息和氛围。",
+          "language": "zh",
+          "startMs": 25122,
+          "endMs": 30162
+        },
+        {
+          "id": "label-037-subtitle-9",
+          "text": "最后四句连起来听，不再逐词拆解，",
+          "language": "zh",
+          "startMs": 31010,
+          "endMs": 34210
+        },
+        {
+          "id": "label-037-subtitle-10",
+          "text": "感受文章怎样从科学机制回到一个可以闻到的天气故事：",
+          "language": "zh",
+          "startMs": 34450,
+          "endMs": 39010
+        }
+      ]
+    },
+    {
+      "id": "label-038",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "So the next time rain seems to have a smell, you are noticing a small weather story. ",
+          "sourceSentenceIds": [
+            "p06-s01"
+          ]
+        }
+      ],
+      "sentenceId": "p06-s01",
+      "highlightCues": [
+        {
+          "id": "label-038-original-read",
+          "sourceText": "So the next time rain seems to have a smell, you are noticing a small weather story.",
+          "sourceStart": 0,
+          "sourceEnd": 84,
+          "spokenText": "So the next time rain seems to have a smell, you are noticing a small weather story.",
+          "spokenOccurrence": 0,
+          "startMs": 240,
+          "endMs": 5760
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-038-subtitle-1",
+          "text": "So the next time rain seems to have a smell,",
+          "language": "en",
+          "startMs": 240,
+          "endMs": 3360
+        },
+        {
+          "id": "label-038-subtitle-2",
+          "text": "you are noticing a small weather story.",
+          "language": "en",
+          "startMs": 3360,
+          "endMs": 5760
+        }
+      ]
+    },
+    {
+      "id": "label-039",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "The air is carrying evidence of a dry landscape meeting water again. ",
+          "sourceSentenceIds": [
+            "p06-s02"
+          ]
+        }
+      ],
+      "sentenceId": "p06-s02",
+      "highlightCues": [
+        {
+          "id": "label-039-original-read",
+          "sourceText": "The air is carrying evidence of a dry landscape meeting water again.",
+          "sourceStart": 0,
+          "sourceEnd": 68,
+          "spokenText": "The air is carrying evidence of a dry landscape meeting water again.",
+          "spokenOccurrence": 0,
+          "startMs": 240,
+          "endMs": 4640
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-039-subtitle-1",
+          "text": "The air is carrying evidence of a dry landscape meeting water again.",
+          "language": "en",
+          "startMs": 240,
+          "endMs": 4640
+        }
+      ]
+    },
+    {
+      "id": "label-040",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "It is a sensory clue about what was on the ground before the rain began. ",
+          "sourceSentenceIds": [
+            "p06-s03"
+          ]
+        }
+      ],
+      "sentenceId": "p06-s03",
+      "highlightCues": [
+        {
+          "id": "label-040-original-read",
+          "sourceText": "It is a sensory clue about what was on the ground before the rain began.",
+          "sourceStart": 0,
+          "sourceEnd": 72,
+          "spokenText": "It is a sensory clue about what was on the ground before the rain began.",
+          "spokenOccurrence": 0,
+          "startMs": 160,
+          "endMs": 5360
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-040-subtitle-1",
+          "text": "It is a sensory clue about what was on the ground before the rain began.",
+          "language": "en",
+          "startMs": 160,
+          "endMs": 5360
+        }
+      ]
+    },
+    {
+      "id": "label-041",
+      "type": "sentence",
+      "segments": [
+        {
+          "language": "en",
+          "role": "reread",
+          "text": "That is why the same weather can feel different in two nearby places.",
+          "sourceSentenceIds": [
+            "p06-s04"
+          ]
+        }
+      ],
+      "sentenceId": "p06-s04",
+      "highlightCues": [
+        {
+          "id": "label-041-original-read",
+          "sourceText": "That is why the same weather can feel different in two nearby places.",
+          "sourceStart": 0,
+          "sourceEnd": 69,
+          "spokenText": "That is why the same weather can feel different in two nearby places.",
+          "spokenOccurrence": 0,
+          "startMs": 560,
+          "endMs": 5360
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "label-041-subtitle-1",
+          "text": "That is why the same weather can feel different in two nearby places.",
+          "language": "en",
+          "startMs": 560,
+          "endMs": 5360
+        }
+      ]
+    },
+    {
+      "id": "label-042",
+      "type": "outro",
+      "segments": [
+        {
+          "language": "zh",
+          "role": "warmth",
+          "text": "\n\n现在回到标题：Why Does Rain Have a Smell?\n\n雨水本身并不是一瓶固定的香水。土壤、植物和微小生物留下或释放的成分，在雨滴撞击时被细雾带进空气；geosmin、植物油和人的敏感度解释了气味为什么明显，温度、风与当地环境又让它因地而异。\n\n读这篇科普文时，我们不只跟住了过程，也看到了英文怎样组织信息：用 that、those 接住前文，用 may、not exactly 保留判断分寸，再用 That is why ... 收束原因。遇到 once linked ... 这样的压缩修饰，或 how quickly ... 这样的嵌入结构，也可以先展开关系，再回到整句。\n\n这篇文章已经从标题读到了最后一句。这一遍读到这里就够了，不必让所有表达同时留下。下一次雨还没落下、空气却先有了味道时，你会知道，一片干燥土地正在通过空气讲出它与水重新相遇的故事。"
+        }
+      ],
+      "highlightCues": [],
+      "subtitleCues": [
+        {
+          "id": "label-042-subtitle-1",
+          "text": "现在回到标题：",
+          "language": "zh",
+          "startMs": 80,
+          "endMs": 1680
+        },
+        {
+          "id": "label-042-subtitle-2",
+          "text": "Why Does Rain Have a Smell?",
+          "language": "en",
+          "startMs": 1760,
+          "endMs": 3920
+        },
+        {
+          "id": "label-042-subtitle-3",
+          "text": "雨水本身并不是一瓶固定的香水。",
+          "language": "zh",
+          "startMs": 4240,
+          "endMs": 7200
+        },
+        {
+          "id": "label-042-subtitle-4",
+          "text": "土壤、植物和微小生物留下或释放的成分，",
+          "language": "zh",
+          "startMs": 7440,
+          "endMs": 11200
+        },
+        {
+          "id": "label-042-subtitle-5",
+          "text": "在雨滴撞击时被细雾带进空气；geosmin、",
+          "language": "zh",
+          "startMs": 11600,
+          "endMs": 16268
+        },
+        {
+          "id": "label-042-subtitle-6",
+          "text": "植物油和人的敏感度解释了气味为什么明显，温度、",
+          "language": "zh",
+          "startMs": 16268,
+          "endMs": 21228
+        },
+        {
+          "id": "label-042-subtitle-7",
+          "text": "风与当地环境又让它因地而异。",
+          "language": "zh",
+          "startMs": 21228,
+          "endMs": 24108
+        },
+        {
+          "id": "label-042-subtitle-8",
+          "text": "读这篇科普文时，我们不只跟住了过程，",
+          "language": "zh",
+          "startMs": 24812,
+          "endMs": 27852
+        },
+        {
+          "id": "label-042-subtitle-9",
+          "text": "也看到了英文怎样组织信息：用 that、",
+          "language": "zh",
+          "startMs": 27932,
+          "endMs": 31336
+        },
+        {
+          "id": "label-042-subtitle-10",
+          "text": "those 接住前文，用 may、",
+          "language": "zh",
+          "startMs": 31336,
+          "endMs": 34052
+        },
+        {
+          "id": "label-042-subtitle-11",
+          "text": "not exactly 保留判断分寸，",
+          "language": "zh",
+          "startMs": 34052,
+          "endMs": 36972
+        },
+        {
+          "id": "label-042-subtitle-12",
+          "text": "再用 That is why ... 收束原因。",
+          "language": "zh",
+          "startMs": 36972,
+          "endMs": 40012
+        },
+        {
+          "id": "label-042-subtitle-13",
+          "text": "遇到 once linked ... 这样的压缩修饰，",
+          "language": "zh",
+          "startMs": 40012,
+          "endMs": 43052
+        },
+        {
+          "id": "label-042-subtitle-14",
+          "text": "或 how quickly ... 这样的嵌入结构，",
+          "language": "zh",
+          "startMs": 43052,
+          "endMs": 46012
+        },
+        {
+          "id": "label-042-subtitle-15",
+          "text": "也可以先展开关系，再回到整句。",
+          "language": "zh",
+          "startMs": 46012,
+          "endMs": 49052
+        },
+        {
+          "id": "label-042-subtitle-16",
+          "text": "这篇文章已经从标题读到了最后一句。",
+          "language": "zh",
+          "startMs": 49292,
+          "endMs": 52412
+        },
+        {
+          "id": "label-042-subtitle-17",
+          "text": "这一遍读到这里就够了，不必让所有表达同时留下。",
+          "language": "zh",
+          "startMs": 52492,
+          "endMs": 56732
+        },
+        {
+          "id": "label-042-subtitle-18",
+          "text": "下一次雨还没落下、空气却先有了味道时，你会知道，",
+          "language": "zh",
+          "startMs": 57246,
+          "endMs": 61726
+        },
+        {
+          "id": "label-042-subtitle-19",
+          "text": "一片干燥土地正在通过空气讲出它与水重新相遇的故事。",
+          "language": "zh",
+          "startMs": 61886,
+          "endMs": 66606
+        }
+      ]
+    }
+  ],
+  "audio": [
+    {
+      "audioId": "why-rain-has-a-smell-label-001",
+      "blockIds": [
+        "label-001"
+      ],
+      "path": "why-rain-has-a-smell/label-001/2026-07-29T13-28-02-614Z-fb60475d/audio.wav",
+      "durationMs": 8884,
+      "status": "ready",
+      "scriptHash": "572552831f1a24838ed53b3caae59f3ab6e380c13ec601fa47d541ce5550e70b"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-002",
+      "blockIds": [
+        "label-002"
+      ],
+      "path": "why-rain-has-a-smell/label-002/2026-07-29T13-28-06-642Z-5aa3c545/audio.wav",
+      "durationMs": 22286,
+      "status": "ready",
+      "scriptHash": "fa8f7a57cc282b9b3a3470318658c72e95fdf986f53bc2852bbf94969c5cfdb8"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-003",
+      "blockIds": [
+        "label-003"
+      ],
+      "path": "why-rain-has-a-smell/label-003/2026-07-29T13-28-12-080Z-ebe04b35/audio.wav",
+      "durationMs": 27053,
+      "status": "ready",
+      "scriptHash": "0a8ea04bab7aab0730f7a257d564d734343326f433c8532a91a4bbcd6912a31e"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-004",
+      "blockIds": [
+        "label-004"
+      ],
+      "path": "why-rain-has-a-smell/label-004/2026-07-29T13-28-13-556Z-197a31b3/audio.wav",
+      "durationMs": 4394,
+      "status": "ready",
+      "scriptHash": "819764eeda599d28a4b091b6e67a71ba902ad12f6cafbae2e6a0a6de797fc4fb"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-005",
+      "blockIds": [
+        "label-005"
+      ],
+      "path": "why-rain-has-a-smell/label-005/2026-07-29T13-28-18-328Z-1b009c20/audio.wav",
+      "durationMs": 24065,
+      "status": "ready",
+      "scriptHash": "4f3aac86dfd8412f76ec2bc351184837da8a79622fd90236702ac17fd8b4d773"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-006",
+      "blockIds": [
+        "label-006"
+      ],
+      "path": "why-rain-has-a-smell/label-006/2026-07-29T13-28-27-278Z-6837a070/audio.wav",
+      "durationMs": 51996,
+      "status": "ready",
+      "scriptHash": "6ef9f6373f9c43a8693692aa67bde2dd924467e9a859645dd7f10d078d1c9073"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-007",
+      "blockIds": [
+        "label-007"
+      ],
+      "path": "why-rain-has-a-smell/label-007/2026-07-29T13-28-29-477Z-ab74be91/audio.wav",
+      "durationMs": 6097,
+      "status": "ready",
+      "scriptHash": "2a889d2d999bb4cc4725eff99028f0b3f3ef0e8146c5a1c03f7ac86632cabc92"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-008",
+      "blockIds": [
+        "label-008"
+      ],
+      "path": "why-rain-has-a-smell/label-008/2026-07-29T13-28-35-244Z-a466b033/audio.wav",
+      "durationMs": 32504,
+      "status": "ready",
+      "scriptHash": "b539bb8fb9c1362939075ccea085f72bcdfe3c123d87d5403c93d67d896dd34c"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-009",
+      "blockIds": [
+        "label-009"
+      ],
+      "path": "why-rain-has-a-smell/label-009/2026-07-29T13-28-40-265Z-c56688f9/audio.wav",
+      "durationMs": 28817,
+      "status": "ready",
+      "scriptHash": "ecf809fa62d1e1ec4744e1cddd578e72d5c26f4fad1e15375075a144824a7bad"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-010",
+      "blockIds": [
+        "label-010"
+      ],
+      "path": "why-rain-has-a-smell/label-010/2026-07-29T13-28-45-977Z-04d4c472/audio.wav",
+      "durationMs": 30974,
+      "status": "ready",
+      "scriptHash": "12595983044c405c767f7b6ab087b54f8d4aea940fdb5e279e8304b50b5d554a"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-011",
+      "blockIds": [
+        "label-011"
+      ],
+      "path": "why-rain-has-a-smell/label-011/2026-07-29T13-28-50-045Z-efccf188/audio.wav",
+      "durationMs": 20390,
+      "status": "ready",
+      "scriptHash": "0295b51f63faa2aa81910c0bfa42b90cdfb1931ff266dd26ede5766a649b0773"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-012",
+      "blockIds": [
+        "label-012"
+      ],
+      "path": "why-rain-has-a-smell/label-012/2026-07-29T13-28-56-527Z-4f33ab2a/audio.wav",
+      "durationMs": 32169,
+      "status": "ready",
+      "scriptHash": "4916b91b9c10a6918b6152b980e45b1e257f67c6508762aa2329b4938ce1ba6e"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-013",
+      "blockIds": [
+        "label-013"
+      ],
+      "path": "why-rain-has-a-smell/label-013/2026-07-29T13-28-58-676Z-d4a20de4/audio.wav",
+      "durationMs": 4962,
+      "status": "ready",
+      "scriptHash": "e4afe6a9a8539c1735723ec12e810c802207f9dd39f0c4f2ee2baa0ccad98f6a"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-014",
+      "blockIds": [
+        "label-014"
+      ],
+      "path": "why-rain-has-a-smell/label-014/2026-07-29T13-28-59-736Z-d5e425f7/audio.wav",
+      "durationMs": 3466,
+      "status": "ready",
+      "scriptHash": "a5bf2a7bcbab6e548950dbf2ea0a13973d25165ef89cf9e851631957d7325a0a"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-015",
+      "blockIds": [
+        "label-015"
+      ],
+      "path": "why-rain-has-a-smell/label-015/2026-07-29T13-29-01-899Z-73d84ee8/audio.wav",
+      "durationMs": 11567,
+      "status": "ready",
+      "scriptHash": "43eb85cd434d22178a1ca696b55a0b1018b606ff60bcbd38ea6b95e0a66c05c2"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-016",
+      "blockIds": [
+        "label-016"
+      ],
+      "path": "why-rain-has-a-smell/label-016/2026-07-29T13-29-07-222Z-eef012b7/audio.wav",
+      "durationMs": 29446,
+      "status": "ready",
+      "scriptHash": "461f450c313c89157b138de74305f8e2241a7164fb49bdf69463d5de6f341e85"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-017",
+      "blockIds": [
+        "label-017"
+      ],
+      "path": "why-rain-has-a-smell/label-017/2026-07-29T13-29-09-873Z-e542c899/audio.wav",
+      "durationMs": 13373,
+      "status": "ready",
+      "scriptHash": "447ec1f8758f2beb5ee5be295e0d8301eb33b4c00d657a1fdaf87602116c3e67"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-018",
+      "blockIds": [
+        "label-018"
+      ],
+      "path": "why-rain-has-a-smell/label-018/2026-07-29T13-29-14-031Z-ab6c85f7/audio.wav",
+      "durationMs": 23796,
+      "status": "ready",
+      "scriptHash": "d074b84059b5aefe4f0ff05313ba3bb2605732c44a18add21a96cbb0bb16ca9e"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-019",
+      "blockIds": [
+        "label-019"
+      ],
+      "path": "why-rain-has-a-smell/label-019/2026-07-29T13-29-22-974Z-7658bc36/audio.wav",
+      "durationMs": 49942,
+      "status": "ready",
+      "scriptHash": "73866245eb273fda74e025d39c56c4eb55065943a059da0414cb28260b311105"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-020",
+      "blockIds": [
+        "label-020"
+      ],
+      "path": "why-rain-has-a-smell/label-020/2026-07-29T13-29-25-433Z-a0ec16f8/audio.wav",
+      "durationMs": 5633,
+      "status": "ready",
+      "scriptHash": "7d86a365d85c833e2e5dbf158c1f1542e6ced856c1c49c3b0f42d6d5b6569a8c"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-021",
+      "blockIds": [
+        "label-021"
+      ],
+      "path": "why-rain-has-a-smell/label-021/2026-07-29T13-29-29-151Z-84a99ee5/audio.wav",
+      "durationMs": 16727,
+      "status": "ready",
+      "scriptHash": "25fffc2c3dc942146e5ae0c71b68709069fbbf02026e435dede3b84302baca0c"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-022",
+      "blockIds": [
+        "label-022"
+      ],
+      "path": "why-rain-has-a-smell/label-022/2026-07-29T13-29-34-188Z-cff3ce3c/audio.wav",
+      "durationMs": 28482,
+      "status": "ready",
+      "scriptHash": "25cb782db3e9a16baa95c43a8f7f166a6ee4ca1b256f78dda1cc3720743172ba"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-023",
+      "blockIds": [
+        "label-023"
+      ],
+      "path": "why-rain-has-a-smell/label-023/2026-07-29T13-29-38-348Z-be3b8bf8/audio.wav",
+      "durationMs": 20494,
+      "status": "ready",
+      "scriptHash": "6f227431bdec1f0f17db4adab0ac05f970ab2113014da837d8a51190a62aae75"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-024",
+      "blockIds": [
+        "label-024"
+      ],
+      "path": "why-rain-has-a-smell/label-024/2026-07-29T13-29-44-758Z-1b6ee506/audio.wav",
+      "durationMs": 34476,
+      "status": "ready",
+      "scriptHash": "e224ac621fa29354a7a31025e3705c5485f647190550fb94569a37b526fce6d1"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-025",
+      "blockIds": [
+        "label-025"
+      ],
+      "path": "why-rain-has-a-smell/label-025/2026-07-29T13-29-51-404Z-51906195/audio.wav",
+      "durationMs": 34387,
+      "status": "ready",
+      "scriptHash": "8e37e4de22ab2cfbee621602d255785e66065ff5060b849489820bc3d77d738d"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-026",
+      "blockIds": [
+        "label-026"
+      ],
+      "path": "why-rain-has-a-smell/label-026/2026-07-29T13-29-52-779Z-503b079e/audio.wav",
+      "durationMs": 3156,
+      "status": "ready",
+      "scriptHash": "1d612ca3eafef7b71893f9a0632b7e92543e90fdd1bdc43d1b9055d9be8dd093"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-027",
+      "blockIds": [
+        "label-027"
+      ],
+      "path": "why-rain-has-a-smell/label-027/2026-07-29T13-29-54-258Z-41c7f0ac/audio.wav",
+      "durationMs": 5891,
+      "status": "ready",
+      "scriptHash": "ff7b5a043392bd98771a23e0027a36d0f8358f8dfd50f22be6dd1ec256447834"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-028",
+      "blockIds": [
+        "label-028"
+      ],
+      "path": "why-rain-has-a-smell/label-028/2026-07-29T13-29-56-836Z-db079c7a/audio.wav",
+      "durationMs": 13115,
+      "status": "ready",
+      "scriptHash": "ce26174c74aee73776d07acc4d6ce875d7ca3c2fc480ca8e493612a745ca6c43"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-029",
+      "blockIds": [
+        "label-029"
+      ],
+      "path": "why-rain-has-a-smell/label-029/2026-07-29T13-30-00-098Z-fc620146/audio.wav",
+      "durationMs": 17604,
+      "status": "ready",
+      "scriptHash": "0ae0366b8b0dee7b000c8b31e5e927904de31cfe9f34f5eab8f46442fb66d4f3"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-030",
+      "blockIds": [
+        "label-030"
+      ],
+      "path": "why-rain-has-a-smell/label-030/2026-07-29T13-30-06-351Z-9b64a952/audio.wav",
+      "durationMs": 36996,
+      "status": "ready",
+      "scriptHash": "548e959b77bad59181ede2bf201717117fe3bb9f865933b2c2bfc4e48f51e849"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-031",
+      "blockIds": [
+        "label-031"
+      ],
+      "path": "why-rain-has-a-smell/label-031/2026-07-29T13-30-07-828Z-938c32fe/audio.wav",
+      "durationMs": 3724,
+      "status": "ready",
+      "scriptHash": "ffae659b1007d68ea037b4129cae3dfd775c0dd40055518d2f5e6625de01659f"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-032",
+      "blockIds": [
+        "label-032"
+      ],
+      "path": "why-rain-has-a-smell/label-032/2026-07-29T13-30-12-208Z-6cedfdcc/audio.wav",
+      "durationMs": 24470,
+      "status": "ready",
+      "scriptHash": "3049d91dd6d362f9d3e71fd5bd7d12e29d945289be3e685ffd64a0852faf647d"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-033",
+      "blockIds": [
+        "label-033"
+      ],
+      "path": "why-rain-has-a-smell/label-033/2026-07-29T13-30-19-484Z-1098a9fb/audio.wav",
+      "durationMs": 37004,
+      "status": "ready",
+      "scriptHash": "c38aec3792882e94cfe2d7d509e221226840325c4a292187cf7eeeb4e287718a"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-034",
+      "blockIds": [
+        "label-034"
+      ],
+      "path": "why-rain-has-a-smell/label-034/2026-07-29T13-30-25-660Z-8ce9d1bb/audio.wav",
+      "durationMs": 31549,
+      "status": "ready",
+      "scriptHash": "2d41d45e75efdd990a6dd9a6af9f1dcafd845c5e9ee2ed5e56f6399b1c1d1fab"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-035",
+      "blockIds": [
+        "label-035"
+      ],
+      "path": "why-rain-has-a-smell/label-035/2026-07-29T13-30-30-800Z-a02d566c/audio.wav",
+      "durationMs": 25982,
+      "status": "ready",
+      "scriptHash": "a932bb2d26d9e8df3ba22fcfda935f1fa6f402691b8e31c0d47966d87521fbdb"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-036",
+      "blockIds": [
+        "label-036"
+      ],
+      "path": "why-rain-has-a-smell/label-036/2026-07-29T13-30-35-946Z-4801665c/audio.wav",
+      "durationMs": 27283,
+      "status": "ready",
+      "scriptHash": "ecafb4849212ba5d4958ae0b2e5f258bca107f92aaa3d224f9defb5772c53646"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-037",
+      "blockIds": [
+        "label-037"
+      ],
+      "path": "why-rain-has-a-smell/label-037/2026-07-29T13-30-42-251Z-c2b431fb/audio.wav",
+      "durationMs": 39042,
+      "status": "ready",
+      "scriptHash": "3c449342449ff4c30d99d2bedc9449104aaf3015eba9ac574751a8783407ba70"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-038",
+      "blockIds": [
+        "label-038"
+      ],
+      "path": "why-rain-has-a-smell/label-038/2026-07-29T13-30-44-407Z-1759f25c/audio.wav",
+      "durationMs": 5942,
+      "status": "ready",
+      "scriptHash": "c3167a51847da3edb73e254b7e9b48c2b39f79e240eb08972517440ac2d878b0"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-039",
+      "blockIds": [
+        "label-039"
+      ],
+      "path": "why-rain-has-a-smell/label-039/2026-07-29T13-30-45-612Z-f2d49388/audio.wav",
+      "durationMs": 4704,
+      "status": "ready",
+      "scriptHash": "a610ac2412084a7a5a9201a82620121b48f61c589889744ec7c87cc589f02ca3"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-040",
+      "blockIds": [
+        "label-040"
+      ],
+      "path": "why-rain-has-a-smell/label-040/2026-07-29T13-30-46-948Z-295e9e10/audio.wav",
+      "durationMs": 5375,
+      "status": "ready",
+      "scriptHash": "5671c56cbeeeb305514e7ca1192f9a995a4eb6670642069333bd2d2588dd5e60"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-041",
+      "blockIds": [
+        "label-041"
+      ],
+      "path": "why-rain-has-a-smell/label-041/2026-07-29T13-30-48-342Z-25c75a91/audio.wav",
+      "durationMs": 5530,
+      "status": "ready",
+      "scriptHash": "9eaba5ba61d07463a49dcb6f7584e5875acfa210baab7c7c53f6c85095d56f6c"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-label-042",
+      "blockIds": [
+        "label-042"
+      ],
+      "path": "why-rain-has-a-smell/label-042/2026-07-29T13-30-59-949Z-a7d7e948/audio.wav",
+      "durationMs": 66616,
+      "status": "ready",
+      "scriptHash": "e523dc9cae3e013dfb3702607cdf4006bc8787f27fec7fef2778b7780a741a53"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p01-s01",
+      "blockIds": [],
+      "sentenceId": "p01-s01",
+      "path": "why-rain-has-a-smell/p01-s01/2026-07-29T14-42-08-913Z-cacf5e8c/audio.wav",
+      "durationMs": 5375,
+      "status": "ready",
+      "scriptHash": "5f6945a078a071292e5035e70c6fddae2ee1132ce1728778c1d2c738ba0ddab3"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p01-s02",
+      "blockIds": [],
+      "sentenceId": "p01-s02",
+      "path": "why-rain-has-a-smell/p01-s02/2026-07-29T14-42-10-283Z-e20a2885/audio.wav",
+      "durationMs": 3620,
+      "status": "ready",
+      "scriptHash": "d764b87ee4cfb7c8cd725e46b60d5ee47f027d2f7e325ac92f4982136fcb4a06"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p01-s03",
+      "blockIds": [],
+      "sentenceId": "p01-s03",
+      "path": "why-rain-has-a-smell/p01-s03/2026-07-29T14-42-11-568Z-ed93ca79/audio.wav",
+      "durationMs": 5530,
+      "status": "ready",
+      "scriptHash": "2fad9141d654fa62187ad5ed4aa7175c90a6dab5156442293ec35088b2aaebff"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p01-s04",
+      "blockIds": [],
+      "sentenceId": "p01-s04",
+      "path": "why-rain-has-a-smell/p01-s04/2026-07-29T14-42-12-908Z-1d28733e/audio.wav",
+      "durationMs": 4085,
+      "status": "ready",
+      "scriptHash": "94dc4b412db7e1a0fe86f35a12a9f01beb49d8ad42184068983f60bd6cb1b378"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p02-s01",
+      "blockIds": [],
+      "sentenceId": "p02-s01",
+      "path": "why-rain-has-a-smell/p02-s01/2026-07-29T14-42-14-379Z-b37f0b33/audio.wav",
+      "durationMs": 6355,
+      "status": "ready",
+      "scriptHash": "673afccf8e830e70a0296c6b48a330d3b86c43a84cd669a3222e3ca94149da64"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p02-s02",
+      "blockIds": [],
+      "sentenceId": "p02-s02",
+      "path": "why-rain-has-a-smell/p02-s02/2026-07-29T14-42-15-877Z-929f495e/audio.wav",
+      "durationMs": 4446,
+      "status": "ready",
+      "scriptHash": "5f9ee3e7cdb9952c45facd045388b1ab97087e1e9b9495899b1c6be6c3868739"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p02-s03",
+      "blockIds": [],
+      "sentenceId": "p02-s03",
+      "path": "why-rain-has-a-smell/p02-s03/2026-07-29T14-42-17-071Z-0477a4aa/audio.wav",
+      "durationMs": 3001,
+      "status": "ready",
+      "scriptHash": "fe3785db4a7594f1c382ff18bfeab65497d8a09361605175446da680d4eb8f30"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p02-s04",
+      "blockIds": [],
+      "sentenceId": "p02-s04",
+      "path": "why-rain-has-a-smell/p02-s04/2026-07-29T14-42-18-415Z-0e8f4a2c/audio.wav",
+      "durationMs": 3827,
+      "status": "ready",
+      "scriptHash": "1709c15a839b830cf106a11cfe3fccfb180e29813635591935793594c9e473c1"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p03-s01",
+      "blockIds": [],
+      "sentenceId": "p03-s01",
+      "path": "why-rain-has-a-smell/p03-s01/2026-07-29T14-42-19-928Z-c0755071/audio.wav",
+      "durationMs": 4652,
+      "status": "ready",
+      "scriptHash": "a7e15248e9010f4f74b38e1c2cddfd190d5a84922cce7b11ded3e922375dcf2d"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p03-s02",
+      "blockIds": [],
+      "sentenceId": "p03-s02",
+      "path": "why-rain-has-a-smell/p03-s02/2026-07-29T14-42-20-858Z-0739027d/audio.wav",
+      "durationMs": 2898,
+      "status": "ready",
+      "scriptHash": "a478278ea0ac3c6122e89ae3415820c1e05835ba0c369b326ae3e9766d88b4b4"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p03-s03",
+      "blockIds": [],
+      "sentenceId": "p03-s03",
+      "path": "why-rain-has-a-smell/p03-s03/2026-07-29T14-42-22-387Z-63257bd0/audio.wav",
+      "durationMs": 4910,
+      "status": "ready",
+      "scriptHash": "fcd024492476118e9c6952c9f85e560756d5bfa45162951c59854aa5afb3fb5a"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p03-s04",
+      "blockIds": [],
+      "sentenceId": "p03-s04",
+      "path": "why-rain-has-a-smell/p03-s04/2026-07-29T14-42-23-875Z-9a39bb46/audio.wav",
+      "durationMs": 6149,
+      "status": "ready",
+      "scriptHash": "f4142347c0957ca0a701f3a74af57f0993f9b4a10592d379f178c0f89309dc89"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p04-s01",
+      "blockIds": [],
+      "sentenceId": "p04-s01",
+      "path": "why-rain-has-a-smell/p04-s01/2026-07-29T14-42-26-151Z-6748f351/audio.wav",
+      "durationMs": 4704,
+      "status": "ready",
+      "scriptHash": "8ee75d2407f84f28e7494dd666779aef0f39fae3f01456c7e53a7102e0cd29ab"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p04-s02",
+      "blockIds": [],
+      "sentenceId": "p04-s02",
+      "path": "why-rain-has-a-smell/p04-s02/2026-07-29T14-42-27-301Z-ffde50f4/audio.wav",
+      "durationMs": 2743,
+      "status": "ready",
+      "scriptHash": "012abf7871369946ed6a7bbc4af041279176f377c98c0b72039d527a5164b796"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p04-s03",
+      "blockIds": [],
+      "sentenceId": "p04-s03",
+      "path": "why-rain-has-a-smell/p04-s03/2026-07-29T14-42-28-726Z-884cfb0a/audio.wav",
+      "durationMs": 5117,
+      "status": "ready",
+      "scriptHash": "37aed26f7d9ad6c5689c70dbe05bba70a8cd41db995a199a57af16e6fcef147c"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p04-s04",
+      "blockIds": [],
+      "sentenceId": "p04-s04",
+      "path": "why-rain-has-a-smell/p04-s04/2026-07-29T14-42-30-269Z-bc8bd137/audio.wav",
+      "durationMs": 4394,
+      "status": "ready",
+      "scriptHash": "590192e589f709df04db500aa88c5f4981ff0529dcc7f6913680d20a0e5cd3d1"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p05-s01",
+      "blockIds": [],
+      "sentenceId": "p05-s01",
+      "path": "why-rain-has-a-smell/p05-s01/2026-07-29T14-42-31-410Z-7994b827/audio.wav",
+      "durationMs": 2950,
+      "status": "ready",
+      "scriptHash": "75be7b7e4ea8f726a14a60b1265fac24968258666c6b4472b45a3f1e73ca91ad"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p05-s02",
+      "blockIds": [],
+      "sentenceId": "p05-s02",
+      "path": "why-rain-has-a-smell/p05-s02/2026-07-29T14-42-32-463Z-6b0a6085/audio.wav",
+      "durationMs": 3827,
+      "status": "ready",
+      "scriptHash": "600f5b257563fc32485b7cb2294afc7a1ecf6dec17dce7effd053b8f146b881c"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p05-s03",
+      "blockIds": [],
+      "sentenceId": "p05-s03",
+      "path": "why-rain-has-a-smell/p05-s03/2026-07-29T14-42-33-662Z-67534e87/audio.wav",
+      "durationMs": 3672,
+      "status": "ready",
+      "scriptHash": "b491a8e5c9277d9554f8ba5748d06e8c965135e13e499ece7860b2714bec1669"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p05-s04",
+      "blockIds": [],
+      "sentenceId": "p05-s04",
+      "path": "why-rain-has-a-smell/p05-s04/2026-07-29T14-42-35-129Z-e0f53570/audio.wav",
+      "durationMs": 4033,
+      "status": "ready",
+      "scriptHash": "5d7bf7f56408528a46f37411c03b92609b30a726bbadc35a16d4a201b0b21bc1"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p06-s01",
+      "blockIds": [],
+      "sentenceId": "p06-s01",
+      "path": "why-rain-has-a-smell/p06-s01/2026-07-29T14-42-36-620Z-e52244f9/audio.wav",
+      "durationMs": 5633,
+      "status": "ready",
+      "scriptHash": "abc02401580f534c100a1fd49b5f785ab7d883aa323de18838ab316370f26243"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p06-s02",
+      "blockIds": [],
+      "sentenceId": "p06-s02",
+      "path": "why-rain-has-a-smell/p06-s02/2026-07-29T14-42-38-061Z-72758d05/audio.wav",
+      "durationMs": 5014,
+      "status": "ready",
+      "scriptHash": "789d7ecc062e8c9daab7362cfda2264167361b742da2155da0d611c4866b99a2"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p06-s03",
+      "blockIds": [],
+      "sentenceId": "p06-s03",
+      "path": "why-rain-has-a-smell/p06-s03/2026-07-29T14-42-39-486Z-3a186bf2/audio.wav",
+      "durationMs": 4394,
+      "status": "ready",
+      "scriptHash": "50af2e6345261a51585a020bb61d22bb8b39cf183f970b8840758837e5e3c327"
+    },
+    {
+      "audioId": "why-rain-has-a-smell-reading-p06-s04",
+      "blockIds": [],
+      "sentenceId": "p06-s04",
+      "path": "why-rain-has-a-smell/p06-s04/2026-07-29T14-42-40-914Z-354813f1/audio.wav",
+      "durationMs": 4394,
+      "status": "ready",
+      "scriptHash": "0c78e633498c178e82d73efd30b4bd910d646f2fa3a0f5561e6c4f79ea443789"
+    }
+  ]
+}
