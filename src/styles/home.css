@@ -2,12 +2,12 @@
 html:has(.home-page), body:has(.home-page), body:has(.home-page) .app-shell { background: #0b291d; }
 body:has(.home-page) { padding-bottom: 0; }
 body:has(.home-page) .app-shell { position: relative; isolation: isolate; }
-body:has(.home-page) .app-shell::before { position: absolute; z-index: 0; inset: 0; content: ""; background: radial-gradient(circle at 78% 27%, rgba(203, 225, 210, .18), transparent 34%), linear-gradient(135deg, rgba(7, 30, 22, .56), rgba(20, 60, 45, .32)), url("/images/why-rain-has-a-smell-cover.png") center / cover; filter: blur(.42rem) saturate(.96); transform: scale(1.025); pointer-events: none; }
+body:has(.home-page) .app-shell::before { position: absolute; z-index: 0; inset: 0; content: ""; background: radial-gradient(circle at 78% 27%, rgba(203, 225, 210, .18), transparent 34%), linear-gradient(135deg, rgba(7, 30, 22, .56), rgba(20, 60, 45, .32)), var(--today-cover-image) center / cover; filter: blur(.42rem) saturate(.96); transform: scale(1.025); pointer-events: none; }
 body:has(.home-page) .app-shell > .site-header, body:has(.home-page) .app-shell > main { position: relative; z-index: 1; }
 .today-feature { position: relative; isolation: isolate; display: flex; align-items: end; width: min(100%, 64rem); min-height: clamp(25rem, 42vw, 33rem); overflow: hidden; border: 1px solid rgba(236, 247, 238, .22); border-radius: 1.5rem; background: #173126; box-shadow: 0 1.6rem 4rem rgba(2, 12, 8, .32); }
-.today-feature-image { z-index: -2; object-fit: cover; object-position: center; }
-.today-feature::after { position: absolute; z-index: -1; inset: 0; content: ""; background: linear-gradient(90deg, rgba(9, 27, 21, .84) 0%, rgba(9, 27, 21, .58) 37%, rgba(9, 27, 21, .12) 69%, rgba(9, 27, 21, .05) 100%), linear-gradient(0deg, rgba(7, 22, 17, .5) 0%, transparent 54%); }
-.today-feature-content { width: min(100%, 42rem); padding: clamp(2rem, 5vw, 4.5rem); color: #fff; }
+.today-feature-image { z-index: 0; object-fit: cover; object-position: center; }
+.today-feature::after { position: absolute; z-index: 1; inset: 0; content: ""; background: linear-gradient(90deg, rgba(9, 27, 21, .84) 0%, rgba(9, 27, 21, .58) 37%, rgba(9, 27, 21, .12) 69%, rgba(9, 27, 21, .05) 100%), linear-gradient(0deg, rgba(7, 22, 17, .5) 0%, transparent 54%); }
+.today-feature-content { position: relative; z-index: 2; width: min(100%, 42rem); padding: clamp(2rem, 5vw, 4.5rem); color: #fff; }
 .today-feature h1 { max-width: 12ch; margin: 0; font-family: Iowan Old Style, Palatino Linotype, Book Antiqua, Georgia, serif; font-size: clamp(2.65rem, 5.8vw, 5.8rem); font-weight: 600; line-height: .96; letter-spacing: -.065em; text-wrap: balance; }
 .today-feature-title-zh { margin: 1.15rem 0 0; color: rgba(255, 255, 255, .82); font-family: "PingFang SC", "Noto Sans SC", sans-serif; font-size: clamp(1rem, 1.8vw, 1.25rem); letter-spacing: .025em; }
 .today-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: 2.15rem; font-family: Arial, "PingFang SC", sans-serif; }

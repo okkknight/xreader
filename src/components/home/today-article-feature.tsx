@@ -3,16 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useSyncExternalStore } from "react";
+import type { CSSProperties } from "react";
 import type { PublicArticle } from "@/types/public-article";
 import { createProgressStore } from "@/features/reader/progress";
 
 export function TodayArticleFeature({ article }: { article: PublicArticle }) {
+  const coverImage = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/why-rain-has-a-smell-cover.png`;
   const status = useSyncExternalStore(() => () => undefined, () => {
     const progress = createProgressStore(window.localStorage).load(article.id);
     return progress?.completed ? "已完成" : progress?.guidedBlockId || progress?.readingSentenceId ? "继续上次进度" : "未开始";
   }, () => "未开始");
-  return <article className="today-feature">
-    <Image className="today-feature-image" src="/images/why-rain-has-a-smell-cover.png" alt="雨落在干燥土地与植物上的艺术插图" fill priority sizes="(max-width: 700px) 100vw, min(100vw - 3rem, 72rem)" />
+  return <article className="today-feature" style={{ "--today-cover-image": `url("${coverImage}")` } as CSSProperties}>
+    <Image className="today-feature-image" src={coverImage} alt="雨落在干燥土地与植物上的艺术插图" fill priority unoptimized sizes="(max-width: 700px) 100vw, min(100vw - 3rem, 72rem)" />
     <div className="today-feature-content">
       <h1>{article.titleEn}</h1>
       <p className="today-feature-title-zh">{article.titleZh}</p>

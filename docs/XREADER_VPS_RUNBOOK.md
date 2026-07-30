@@ -27,7 +27,7 @@
 - `.next/`：Linux 上生成的生产构建产物。
 - `node_modules/`：裁剪后的生产依赖。
 - `public/`：封面等静态资源。
-- `data/`：数据库和所有音频，绝不能随发布删除或覆盖。
+- `data/`：当前已发布课程的数据库和**被数据库引用的成品音频**；常规代码发布绝不能删除或覆盖。
 - `src/`、`prisma/`、`package.json`、`package-lock.json`、`next.config.ts`：下一次服务器构建所需的最小源码与配置。
 
 不要同步或保留：
@@ -35,8 +35,29 @@
 - 本地 `.next/dev`、`.next/cache`、诊断文件、类型生成文件。
 - `docs/`、`tests/`、`src/test/`、课程生成中间稿、审稿资料。
 - 本地 `data/`、`.env*`、本地 `node_modules/`。
+- 音频生成过程留下的历史版本、试音、失败文件与未被 `CourseBlockAudio` 的 `READY` 记录引用的文件。
 
 特别注意：本地 macOS 生成的 `.next` 不能作为 Linux 最终运行产物。它会导致 Prisma 外部模块名不匹配或 Next 内部清单错误。应在本地完成构建验收，但必须在 VPS 上再做一次带 `/xreader` 前缀的最终构建。
+
+### 运行时媒体的强制规则
+
+音频目录是生成工作区，不是发布包。**严禁**执行 `rsync data/audio/` 或按课程目录整体同步，因为同一段台词可能保留多个生成版本。
+
+只有在导入新课程、并且需要替换线上课程数据时，才可以同步：
+
+1. 已验收的 `data/xreader.db`；
+2. 该数据库中 `CourseBlockAudio.status = 'READY'` 的 `path` 指向的文件。
+
+用数据库清单精确传输音频：
+
+```sh
+sqlite3 -noheader data/xreader.db \
+  "select path from CourseBlockAudio where status = 'READY' order by audioId;" \
+  | rsync -a --files-from=- data/audio/ \
+      root@89.208.242.44:/opt/boringmax/xreader/data/audio/
+```
+
+在替换整个课程数据前，先停止服务，清理服务器的旧 `data/audio/<slug>/` 与旧数据库，再同步新数据库和上述引用清单；绝不上传历史版本作为“备份”。需要保留的本地版本留在本地生成工作区即可。
 
 ## 3. 发布前检查
 
