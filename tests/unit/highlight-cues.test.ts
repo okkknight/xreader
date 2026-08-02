@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import { activeHighlightCuesAtTime, ensureBlockHighlightCues, resolveHighlightCueTimings } from "@/lib/audio/highlight-cues";
+import { activeHighlightCuesAtTime, activeSentenceIdAtTime, ensureBlockHighlightCues, resolveHighlightCueTimings } from "@/lib/audio/highlight-cues";
+import type { CourseBlock } from "@/lib/course-blocks/types";
 
 describe("highlight cue timing", () => {
   it("keeps a teaching underline until the next teaching focus begins, without extending a full-sentence read", () => {
@@ -20,7 +21,7 @@ describe("highlight cue timing", () => {
   it("marks the full original while the teacher reads it", () => {
     const cues = ensureBlockHighlightCues({ id: "block-1", type: "sentence", sentenceId: "p01-s01", segments: [{ language: "en", role: "original", text: "Rain smells different." }] }, new Map([["p01-s01", "Rain smells different."]]));
 
-    expect(cues).toEqual([{ id: "block-1-original-read", sourceText: "Rain smells different.", sourceStart: 0, sourceEnd: 22, spokenText: "Rain smells different.", spokenOccurrence: 0 }]);
+    expect(cues).toEqual([{ id: "block-1-original-read", sentenceId: "p01-s01", sourceText: "Rain smells different.", sourceStart: 0, sourceEnd: 22, spokenText: "Rain smells different.", spokenOccurrence: 0 }]);
   });
 
   it("builds title cues from the course title source", () => {
@@ -34,21 +35,21 @@ describe("highlight cue timing", () => {
     const cues = ensureBlockHighlightCues({ id: "block-1", type: "sentence", sentenceId: "p01-s01", segments: [{ language: "en", role: "original", text: "Rain smells different.\n\n先抓住 smells。" }] }, new Map([["p01-s01", "Rain smells different."]]));
 
     expect(cues).toEqual([
-      { id: "block-1-original-read", sourceText: "Rain smells different.", sourceStart: 0, sourceEnd: 22, spokenText: "Rain smells different.", spokenOccurrence: 0 },
-      { id: "block-1-teaching-1", sourceText: "smells", sourceStart: 5, sourceEnd: 11, spokenText: "smells", spokenOccurrence: 1 },
+      { id: "block-1-original-read", sentenceId: "p01-s01", sourceText: "Rain smells different.", sourceStart: 0, sourceEnd: 22, spokenText: "Rain smells different.", spokenOccurrence: 0 },
+      { id: "block-1-teaching-1", sentenceId: "p01-s01", sourceText: "smells", sourceStart: 5, sourceEnd: 11, spokenText: "smells", spokenOccurrence: 1 },
     ]);
   });
 
   it("anchors an inflected teaching phrase to the original source wording", () => {
     const cues = ensureBlockHighlightCues({ id: "block-1", type: "sentence", sentenceId: "p01-s01", segments: [{ language: "en", role: "original", text: "That spray gives the scent a route into the air around you.\n\ngive the scent a route into 是这里的核心动作。" }] }, new Map([["p01-s01", "That spray gives the scent a route into the air around you."]]));
 
-    expect(cues).toContainEqual({ id: "block-1-teaching-1", sourceText: "gives the scent a route into", sourceStart: 11, sourceEnd: 39, spokenText: "give the scent a route into", spokenOccurrence: 1 });
+    expect(cues).toContainEqual({ id: "block-1-teaching-1", sentenceId: "p01-s01", sourceText: "gives the scent a route into", sourceStart: 11, sourceEnd: 39, spokenText: "give the scent a route into", spokenOccurrence: 1 });
   });
 
   it("keeps authored cues while adding missing compatible teaching cues", () => {
     const cues = ensureBlockHighlightCues({ id: "block-1", type: "sentence", sentenceId: "p01-s01", highlightCues: [{ id: "block-1-teaching-1", sourceText: "That spray", sourceStart: 0, sourceEnd: 10, spokenText: "That spray", spokenOccurrence: 1 }], segments: [{ language: "en", role: "original", text: "That spray gives the scent a route into the air around you.\n\nThat spray 之后，give the scent a route into 是这里的核心动作。" }] }, new Map([["p01-s01", "That spray gives the scent a route into the air around you."]]));
 
-    expect(cues).toContainEqual({ id: "block-1-teaching-2", sourceText: "gives the scent a route into", sourceStart: 11, sourceEnd: 39, spokenText: "give the scent a route into", spokenOccurrence: 1 });
+    expect(cues).toContainEqual({ id: "block-1-teaching-2", sentenceId: "p01-s01", sourceText: "gives the scent a route into", sourceStart: 11, sourceEnd: 39, spokenText: "give the scent a route into", spokenOccurrence: 1 });
   });
 
   it("maps the intended spoken occurrence to its source phrase timing", () => {
@@ -91,5 +92,41 @@ describe("highlight cue timing", () => {
     );
 
     expect(timings[0]).toMatchObject({ id: "cue-dry-soil", startMs: 520, endMs: 846 });
+  });
+});
+
+describe("course highlight sentence ownership", () => {
+  it("switches the active sentence inside a multi-sentence block by cue timing", () => {
+    const cues = [
+      { id: "block-original-read-1", sentenceId: "s1", sourceText: "First sentence.", sourceStart: 0, sourceEnd: 15, spokenText: "First sentence.", startMs: 0, endMs: 1200 },
+      { id: "block-original-read-2", sentenceId: "s2", sourceText: "Second sentence.", sourceStart: 0, sourceEnd: 16, spokenText: "Second sentence.", startMs: 1400, endMs: 2600 },
+      { id: "block-teaching-s1", sentenceId: "s1", sourceText: "First", sourceStart: 0, sourceEnd: 5, spokenText: "First", startMs: 3200, endMs: 3800 },
+    ];
+
+    expect(activeSentenceIdAtTime(cues, 500)).toBe("s1");
+    expect(activeSentenceIdAtTime(cues, 1800)).toBe("s2");
+    expect(activeSentenceIdAtTime(cues, 3500)).toBe("s1");
+    expect(activeHighlightCuesAtTime(cues, 1800).map((cue) => cue.id)).toEqual(["block-original-read-2"]);
+  });
+
+  it("assigns generated original and teaching cues to their source sentences", () => {
+    const block: CourseBlock = {
+      id: "block-1",
+      type: "bridge",
+      sentenceIds: ["s1", "s2"],
+      segments: [
+        { language: "en", role: "original", text: "First sentence. Second sentence.", sourceSentenceIds: ["s1", "s2"] },
+        { language: "zh", role: "teaching", text: "First 表示第一。", sourceSentenceIds: ["s1"] },
+      ],
+    };
+
+    const cues = ensureBlockHighlightCues(block, new Map([
+      ["s1", "First sentence."],
+      ["s2", "Second sentence."],
+    ]));
+
+    expect(cues.find((cue) => cue.id.endsWith("-original-read-1"))?.sentenceId).toBe("s1");
+    expect(cues.find((cue) => cue.id.endsWith("-original-read-2"))?.sentenceId).toBe("s2");
+    expect(cues.some((cue) => cue.sentenceId === "s1" && cue.spokenText === "First")).toBe(true);
   });
 });

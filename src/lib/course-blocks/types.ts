@@ -5,6 +5,7 @@ export type AudioStatus = "ready" | "missing" | "failed";
 
 export type CourseHighlightCue = {
   id: string;
+  sentenceId?: string;
   sourceText: string;
   sourceStart: number;
   sourceEnd: number;

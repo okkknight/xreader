@@ -185,6 +185,7 @@ Course Block 的核心实现位于：
 ```json
 {
   "id": "cue-dry-soil",
+  "sentenceId": "p01-s02",
   "sourceText": "dry soil",
   "sourceStart": 16,
   "sourceEnd": 24,
@@ -193,6 +194,7 @@ Course Block 的核心实现位于：
 }
 ```
 
+- 多句讲解 block 的每条 cue 必须带 `sentenceId`；`sourceStart/sourceEnd` 始终相对于该句原文计算。生成音频后，阅读器会按 cue 时间切换当前原文句子，并把高亮渲染到对应句子。
 - `sourceStart/sourceEnd` 是原文句子中的字符范围，处理重复词时不靠词面猜测。
 - `spokenText/spokenOccurrence` 指向老师实际说到的那一次；例句、占位符或同形英文不能写成 cue。
 - 课程中一旦声明 `sourceReferences`，schema 就要求同时声明 `highlightCues`。

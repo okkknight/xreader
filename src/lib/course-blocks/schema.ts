@@ -20,6 +20,7 @@ const blockSchema = z.object({
   title: z.string().min(1).optional(),
   highlightCues: z.array(z.object({
     id: z.string().min(1),
+    sentenceId: z.string().min(1).optional(),
     sourceText: z.string().min(1),
     sourceStart: z.number().int().nonnegative(),
     sourceEnd: z.number().int().positive(),

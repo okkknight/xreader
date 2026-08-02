@@ -10,7 +10,7 @@ import { ArticleCanvas } from "./article-canvas";
 import { ReaderHeader } from "./reader-header";
 import { PlayerBar } from "@/components/player/player-bar";
 import type { CourseHighlightCue, CourseSubtitleCue } from "@/lib/course-blocks/types";
-import { activeHighlightCuesAtTime } from "@/lib/audio/highlight-cues";
+import { activeHighlightCuesAtTime, activeSentenceIdAtTime, isOriginalReadCue } from "@/lib/audio/highlight-cues";
 import { activeSubtitleCueAtTime } from "@/lib/audio/subtitle-cues";
 import { isSentenceComfortablyVisible } from "@/lib/reader/auto-follow";
 import { readerShortcutForKey } from "@/lib/reader/keyboard-shortcuts";
@@ -26,7 +26,7 @@ export function ArticleReader({ article, initialMode }: { article: PublicArticle
   const activeItemRef = useRef(state.activeSentenceId);
   const pendingPlayRef = useRef<string | undefined>(undefined);
   const autoScrollingRef = useRef(false);
-  const seenHighlightSentenceRef = useRef<string | undefined>(undefined);
+  const seenHighlightBlockRef = useRef<string | undefined>(undefined);
   const seenTitleBlockRef = useRef<string | undefined>(undefined);
   const playingItemIdRef = useRef<string | undefined>(undefined);
   const [activeHighlightCues, setActiveHighlightCues] = useState<CourseHighlightCue[]>([]);
@@ -47,14 +47,13 @@ export function ArticleReader({ article, initialMode }: { article: PublicArticle
       const controller = new AudioController(audio, (item) => {
       setActiveHighlightCues([]);
       setActiveSubtitleCue(undefined);
-      if (!item) { playingItemIdRef.current = undefined; seenHighlightSentenceRef.current = undefined; seenTitleBlockRef.current = undefined; setSeenHighlights([]); setSeenTitleHighlights([]); createProgressStore(window.localStorage).save(article.id, { completed: true, lastMode: modeRef.current }); dispatch({ type: "CLEAR_ACTIVE" }); dispatch({ type: "SET_COMPLETED", completed: true }); return; }
+      if (!item) { playingItemIdRef.current = undefined; seenHighlightBlockRef.current = undefined; seenTitleBlockRef.current = undefined; setSeenHighlights([]); setSeenTitleHighlights([]); createProgressStore(window.localStorage).save(article.id, { completed: true, lastMode: modeRef.current }); dispatch({ type: "CLEAR_ACTIVE" }); dispatch({ type: "SET_COMPLETED", completed: true }); return; }
       playingItemIdRef.current = item.id;
       const currentBlock = article.courseBlocks.find((block) => block.id === item.id);
       if (currentBlock?.type === "title") {
         if (seenTitleBlockRef.current !== item.id) { seenTitleBlockRef.current = item.id; setSeenTitleHighlights([]); }
       } else { seenTitleBlockRef.current = undefined; setSeenTitleHighlights([]); }
-      const sentenceId = item.sentenceIds[0];
-      if (seenHighlightSentenceRef.current !== sentenceId) { seenHighlightSentenceRef.current = sentenceId; setSeenHighlights([]); }
+      if (seenHighlightBlockRef.current !== item.id) { seenHighlightBlockRef.current = item.id; setSeenHighlights([]); }
       const activeSentence = item.sentenceIds[0];
       dispatch({ type: "SET_ACTIVE", itemId: item.id, sentenceId: activeSentence });
       createProgressStore(window.localStorage).save(article.id, modeRef.current === "GUIDED" ? { guidedBlockId: item.id, lastMode: "GUIDED", completed: false } : { readingSentenceId: activeSentence, lastMode: "READING", completed: false });
@@ -67,21 +66,22 @@ export function ArticleReader({ article, initialMode }: { article: PublicArticle
       const subtitleCue = currentBlock ? activeSubtitleCueAtTime(currentBlock.subtitleCues ?? [], currentTimeMs) : undefined;
       if (subtitleCue) setActiveSubtitleCue((current) => current?.id === subtitleCue.id ? current : subtitleCue);
       if (currentBlock?.type === "title" && seenTitleBlockRef.current === item.id) {
-        const teachingHighlights = highlightCues.filter((cue) => !cue.id.endsWith("-original-read"));
+        const teachingHighlights = highlightCues.filter((cue) => !isOriginalReadCue(cue));
         if (teachingHighlights.length) {
           const cue = teachingHighlights.at(-1)!;
           setSeenTitleHighlights([{ id: cue.id, sourceStart: cue.sourceStart, sourceEnd: cue.sourceEnd, tone: undefined }]);
         }
       }
-      if (seenHighlightSentenceRef.current === item.sentenceIds[0] && item.sentenceIds[0]) {
-        const teachingHighlights = highlightCues.filter((cue) => !cue.id.endsWith("-original-read"));
+      if (seenHighlightBlockRef.current === item.id) {
+        const teachingHighlights = highlightCues.filter((cue) => !isOriginalReadCue(cue));
         if (teachingHighlights.length) {
           const cue = teachingHighlights.at(-1)!;
-          setSeenHighlights([{ id: cue.id, sourceStart: cue.sourceStart, sourceEnd: cue.sourceEnd, sentenceId: item.sentenceIds[0], tone: undefined }]);
+          const sentenceId = cue.sentenceId ?? activeSentenceIdAtTime(item.highlightCues ?? [], currentTimeMs, item.sentenceIds[0]);
+          if (sentenceId) setSeenHighlights((current) => current.some((highlight) => highlight.id === cue.id) ? current : [...current, { id: cue.id, sourceStart: cue.sourceStart, sourceEnd: cue.sourceEnd, sentenceId, tone: undefined }]);
         }
       }
-      const range = item.sentenceRanges?.find((candidate) => currentTimeMs >= candidate.startMs && currentTimeMs < candidate.endMs);
-      if (range && range.sentenceId !== activeItemRef.current) dispatch({ type: "SET_ACTIVE", itemId: item.id, sentenceId: range.sentenceId });
+      const activeSentenceId = activeSentenceIdAtTime(item.highlightCues ?? [], currentTimeMs, item.sentenceIds[0]);
+      if (activeSentenceId && activeSentenceId !== activeItemRef.current) dispatch({ type: "SET_ACTIVE", itemId: item.id, sentenceId: activeSentenceId });
     });
     controller.setQueue(queue); controllerRef.current = controller;
     if (pendingPlayRef.current) {
@@ -127,7 +127,7 @@ export function ArticleReader({ article, initialMode }: { article: PublicArticle
     setActiveSubtitleCue(undefined);
     setSeenHighlights([]);
     setSeenTitleHighlights([]);
-    seenHighlightSentenceRef.current = undefined;
+    seenHighlightBlockRef.current = undefined;
     seenTitleBlockRef.current = undefined;
     playingItemIdRef.current = item?.id;
     dispatch({ type: "RESTORE_AUTO_FOLLOW" });
@@ -179,7 +179,7 @@ export function ArticleReader({ article, initialMode }: { article: PublicArticle
   return <div className="reader-page">
     <article className="reader-main">
       <ReaderHeader article={article} onTitleSelect={chooseTitle} activeHighlights={activeGuidedBlock?.type === "title" ? activeHighlightCues.map((cue) => ({ ...cue, tone: undefined })) : []} seenHighlights={activeGuidedBlock?.type === "title" && state.mode === "GUIDED" ? seenTitleHighlights : []} />
-      <ArticleCanvas paragraphs={article.paragraphs} activeSentenceId={state.activeSentenceId} activeHighlights={activeGuidedBlock?.sentenceId ? activeHighlightCues.map((cue) => ({ ...cue, sentenceId: activeGuidedBlock.sentenceId!, tone: undefined })) : []} seenHighlights={state.mode === "GUIDED" ? seenHighlights.filter((highlight) => highlight.sentenceId === state.activeSentenceId) : []} translations={false} onSentenceSelect={chooseSentence} />
+      <ArticleCanvas paragraphs={article.paragraphs} activeSentenceId={state.activeSentenceId} activeHighlights={state.mode === "GUIDED" ? activeHighlightCues.flatMap((cue) => { const sentenceId = cue.sentenceId ?? activeGuidedBlock?.sentenceId; return sentenceId ? [{ ...cue, sentenceId, tone: undefined }] : []; }) : []} seenHighlights={state.mode === "GUIDED" ? seenHighlights : []} translations={false} onSentenceSelect={chooseSentence} />
     </article>
     <audio ref={audioRef} preload="metadata" />
     <PlayerBar playing={state.playing} rate={state.rate} completed={state.completed} position={activeQueueIndex >= 0 ? `${activeQueueIndex + 1} / ${queue.length}` : undefined} mode={state.mode} subtitleCue={state.mode === "GUIDED" ? activeSubtitleCue : undefined} autoFollow={state.autoFollow} canPrevious={activeQueueIndex > 0} canNext={!state.completed && activeQueueIndex < queue.length - 1} onModeChange={changeMode} onRestoreFollow={() => dispatch({ type: "RESTORE_AUTO_FOLLOW" })} onPlayPause={togglePlayback} onPrevious={() => controllerRef.current?.previous()} onNext={() => controllerRef.current?.next()} onRate={(rate) => dispatch({ type: "SET_RATE", rate })} />
