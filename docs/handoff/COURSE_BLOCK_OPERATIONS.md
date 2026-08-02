@@ -1,6 +1,6 @@
 # XReader 新课程操作手册
 
-本文是当前 XReader 新课程的实际操作入口。课程生产以文件系统课程包为中心，最终讲稿由五阶段 Prompt 生成，XReader 只消费经过确定性检查和 Course Block 转换的结果。
+本文是当前 XReader 新课程的实际操作入口。课程生产以文件系统课程包为中心，最终讲稿由五阶段 Prompt v2.2 生成，XReader 只消费经过确定性检查和 Course Block 转换的结果。
 
 ## 一、先记住三条边界
 
@@ -11,7 +11,7 @@
 五阶段 Prompt 的完整说明见：
 
 - [内容生成工作流重构 Prompt](../XReader_内容生成工作流重构Prompt.md)
-- [五阶段 Prompt 使用说明](../XReader_五阶段逐句带读Prompt包/README_使用说明.md)
+- [五阶段 Prompt v2.2 使用说明](../XReader_五阶段Prompt包_v2.2/README_使用说明.md)
 
 ## 二、课程包目录
 
@@ -22,7 +22,7 @@ courses/<slug>/
 ├── source/
 │   └── article.md              # 英文标题和完整原文
 ├── prompts/                    # 本次课程使用的 Prompt 输入/输出记录
-├── drafts/                     # 五阶段中间稿，不作为运行时真相
+├── drafts/                     # 五阶段 v2.2 中间稿，不作为运行时真相
 ├── final/
 │   └── lecture.md              # 人工确认后的唯一教学终稿
 ├── build/
@@ -65,40 +65,40 @@ courses/<slug>/drafts/01-complete-draft.md
 courses/<slug>/drafts/02-rhythm-directed.md
 ```
 
-### 第 3 阶段：真人口播终审
+### 第 3 阶段：学习者理解路径与课程编排
 
-使用 `03_真人口播终审Prompt.md`。
+使用 `03_学习者理解路径与课程编排Prompt.md`。
 
-目标：减少教材腔，改善中英文切换和连续听感。不要因为追求自然而删除原文句子或改变文章顺序。
+目标：按学习者的理解顺序组织教学单元、衔接、开场、结尾、重听和连读，不重新选择已确定的教学内容。
 
 输出保存到：
 
 ```text
-courses/<slug>/drafts/03-spoken-final.md
+courses/<slug>/drafts/03-learning-path.md
 ```
 
-### 第 4 阶段：开场与结尾微调
+### 第 4 阶段：真人口播与去 AI 化编辑
 
-使用 `04_开场与结尾微调Prompt.md`。
+使用 `04_真人口播与去AI化编辑Prompt.md`。
 
-目标：只补充短而自然的引子与收束，不重写正文，不新增知识播客式开场。
+目标：在不改变教学结构和理解路径的前提下，完成真人口播、呼吸、中英文切换和去 AI 化编辑。
 
 输出保存到：
 
 ```text
-courses/<slug>/drafts/04-opening-closing.md
+courses/<slug>/drafts/04-spoken-edited.md
 ```
 
-### 第 5 阶段：学习负担与教师温度终审
+### 第 5 阶段：Seven 教师人格与真教学终审
 
-使用 `05_学习负担与教师温度终审Prompt.md`。
+使用 `05_Seven教师人格与真教学终审Prompt.md`。
 
-目标：在真实难点、信息累积和学习状态切换处加入低密度教师支持。不泛泛鼓励，不强行增加情绪话术。
+目标：在不改变教学骨架的前提下，完成 Seven 的教师判断、语言审美、克制幽默、教师温度和最终声音一致性。
 
 输出保存到：
 
 ```text
-courses/<slug>/drafts/05-teacher-temperature.md
+courses/<slug>/drafts/05-seven-final.md
 ```
 
 ## 四、锁定终稿前的人工检查

@@ -3,7 +3,7 @@
 课程生产唯一规范是：
 
 - [内容生成工作流重构 Prompt](../XReader_内容生成工作流重构Prompt.md)
-- [五阶段逐句带读 Prompt 包](../XReader_五阶段逐句带读Prompt包/README_使用说明.md)
+- [五阶段 Prompt 包 v2.2](../XReader_五阶段Prompt包_v2.2/README_使用说明.md)
 
 工程实现入口：
 

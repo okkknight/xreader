@@ -1,6 +1,6 @@
 # XReader 项目上下文
 
-> 当前架构覆盖：本文早期资料包中的后台管理、运行时 LLM Provider、GenerationJob、LessonPlan 和程序拼接讲稿设计均已废止。当前以 [内容生成工作流重构 Prompt](docs/XReader_内容生成工作流重构Prompt.md) 和 [五阶段 Prompt 包](docs/XReader_五阶段逐句带读Prompt包/README_使用说明.md) 为准：Codex 客户端负责理解 Prompt、创作和修订，XReader 只保存课程包导入结果和公开课程。
+> 当前架构覆盖：本文早期资料包中的后台管理、运行时 LLM Provider、GenerationJob、LessonPlan 和程序拼接讲稿设计均已废止。当前以 [内容生成工作流重构 Prompt](docs/XReader_内容生成工作流重构Prompt.md) 和 [五阶段 Prompt 包 v2.2](docs/XReader_五阶段Prompt包_v2.2/README_使用说明.md) 为准：Codex 客户端负责理解 Prompt、创作和修订，XReader 只保存课程包导入结果和公开课程。
 
 ## 项目是什么
 
@@ -16,12 +16,12 @@ XReader 是一个“每天一篇”的 AI 英语精读产品：用户阅读 450�
 
 - 当前工作区是可运行的 Next.js + Prisma 应用，当前分支为 `main`；不是“尚未初始化的资料包”。
 - 产品资料包仍保留作历史规格参考，但后台管理、运行时 LLM Provider、GenerationJob 和旧讲稿拼接设计不再是当前实现。
-- 当前内容生产由 Codex 客户端完成；唯一事实源是 `courses/<slug>/final/lecture.md`，通过五阶段逐句带读 Prompt 包完成创作，再由工程适配器生成 Course Block JSON 与音频映射。
-- 当前课程生产规范见 [XReader_内容生成工作流重构Prompt.md](docs/XReader_内容生成工作流重构Prompt.md) 和 [五阶段逐句带读 Prompt 包](docs/XReader_五阶段逐句带读Prompt包/README_使用说明.md)。
+- 当前内容生产由 Codex 客户端完成；唯一事实源是 `courses/<slug>/final/lecture.md`，通过五阶段 Prompt 包 v2.2 完成创作，再由工程适配器生成 Course Block JSON 与音频映射。
+- 当前课程生产规范见 [XReader_内容生成工作流重构Prompt.md](docs/XReader_内容生成工作流重构Prompt.md) 和 [五阶段 Prompt 包 v2.2](docs/XReader_五阶段Prompt包_v2.2/README_使用说明.md)。
 
 ## 2026-07-28 实现与音频证据
 
-- 本项目已成为可运行的 Next.js + Prisma 本地应用；公共阅读器读取 Course Document 与 Course Block 音频映射。课程由 Codex 五阶段 Prompt 和文件系统课程包维护。
+- 本项目已成为可运行的 Next.js + Prisma 本地应用；公共阅读器读取 Course Document 与 Course Block 音频映射。课程由 Codex 五阶段 Prompt v2.2 和文件系统课程包维护。
 - 真实 Fish Audio 试听已完成：教师版本 `data/audio/auditions/audition/teacher/2026-07-28T04-32-54-400Z-5371e460/audio.wav`，朗读版本 `data/audio/auditions/audition/reader/2026-07-28T04-33-03-768Z-9d4b03e6/audio.wav`。
 - 两条试听均经 `ffprobe` 验证为 `pcm_s16le`、`44100 Hz`、单声道；各自 manifest 的 `script_sha256` 与 timeline 时长一致。教师时长 5155ms，朗读时长 4876ms。
 - 旧种子课程、旧课程数据库和旧音频链路已移除；当前课程必须从 `courses/<slug>/source`、`final`、`build` 和 `audio` 课程包导入。若运行命令或数据状态发生变化，必须以当前命令输出重新验证。
@@ -52,7 +52,7 @@ XReader 是一个“每天一篇”的 AI 英语精读产品：用户阅读 450�
 ## 重要文件
 
 - [XReader_内容生成工作流重构Prompt.md](docs/XReader_内容生成工作流重构Prompt.md)：当前唯一的内容生产总规范。
-- [XReader_五阶段逐句带读Prompt包/README_使用说明.md](docs/XReader_五阶段逐句带读Prompt包/README_使用说明.md)：五阶段 Prompt 执行顺序和输出约束。
+- [XReader_五阶段Prompt包_v2.2/README_使用说明.md](docs/XReader_五阶段Prompt包_v2.2/README_使用说明.md)：五阶段 Prompt v2.2 执行顺序和输出约束。
 - [COURSE_BLOCK_OPERATIONS.md](docs/handoff/COURSE_BLOCK_OPERATIONS.md)：从课程包到导入、音频和发布验收的操作手册。
 - [src/lib/course-blocks/](src/lib/course-blocks/)：Course Block schema、原文句子解析、终稿锚定和语义标签。
 - [src/lib/db/course-document-repository.ts](src/lib/db/course-document-repository.ts)：只导入已通过解析检查的课程包。
