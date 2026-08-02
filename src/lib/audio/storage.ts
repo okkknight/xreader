@@ -29,7 +29,7 @@ export class AudioStorage {
     const directory = path.join(this.root, owner.articleId, owner.ownerId, versionId);
     await mkdir(directory, { recursive: true });
 
-    const audioPath = path.join(directory, "audio.wav");
+    const audioPath = path.join(directory, "audio.mp3");
     const manifestPath = path.join(directory, "manifest.json");
     const timelinePath = path.join(directory, "timeline.json");
     const relativeAudioPath = path.relative(this.root, audioPath);
@@ -55,7 +55,7 @@ export class AudioStorage {
       script_sha256: metadata.textHash,
       duration_ms: durationMs,
       provider_request_id: metadata.providerRequestId,
-      audio_file: "audio.wav",
+      audio_file: "audio.mp3",
     }, null, 2));
     await writeFile(timelinePath, JSON.stringify({ owner_id: owner.ownerId, total_duration_ms: durationMs, lines: [] }, null, 2));
 

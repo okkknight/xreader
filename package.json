@@ -13,6 +13,7 @@
     "course:import": "DATABASE_URL=${DATABASE_URL:-file:../data/xreader.db} tsx scripts/import-course.ts --",
     "course:build": "tsx scripts/build-course.ts --",
     "course:audio": "tsx scripts/generate-course-audio.ts --",
+    "course:convert-audio": "tsx scripts/convert-course-audio.ts --",
     "course:reading-audio": "tsx scripts/generate-reading-audio.ts --",
     "course:check": "tsx scripts/check-course.ts --",
     "audio:audition": "tsx scripts/audition-voices.ts --"

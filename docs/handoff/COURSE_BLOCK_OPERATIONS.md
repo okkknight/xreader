@@ -230,7 +230,7 @@ npm run course:audio -- <slug> [courses-root]
 npm run course:audio -- <slug> --block <block-id>
 ```
 
-音频当前保存到 `data/audio/<slug>/<block-id>/<version>/audio.wav`，并在同目录写入 manifest 和 timeline；timeline 会保留 Fish 对齐片段和重点 cue 时间。`build/course.json` 保存音频映射、时长、hash 和已补时的 cue。
+音频当前保存到 `data/audio/<slug>/<block-id>/<version>/audio.mp3`（96kbps、单声道），并在同目录写入 manifest 和 timeline；Fish 返回的 WAV 仅作为生成过程中的临时源文件。timeline 会保留 Fish 对齐片段和重点 cue 时间。`build/course.json` 保存音频映射、时长、hash 和已补时的 cue。
 
 正式音频生成应沿用 Fish Audio 的版本化文件、manifest、hash 和试听流程。不要恢复旧的 `AudioAsset`、段落讲解音频或运行时生成接口。
 

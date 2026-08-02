@@ -2,6 +2,16 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import type { PrismaClient } from "@prisma/client";
 
+const audioContentType = (audioPath: string) => {
+  switch (path.extname(audioPath).toLowerCase()) {
+    case ".mp3": return "audio/mpeg";
+    case ".wav": return "audio/wav";
+    case ".m4a": return "audio/mp4";
+    case ".ogg": return "audio/ogg";
+    default: return "application/octet-stream";
+  }
+};
+
 function parseRange(range: string | null, size: number) {
   if (!range) return { start: 0, end: size - 1, partial: false };
   const match = /^bytes=(\d*)-(\d*)$/.exec(range);
@@ -23,5 +33,5 @@ export async function createMediaResponse(db: PrismaClient, assetId: string, ran
   const parsed = parseRange(range, bytes.byteLength);
   if (!parsed) return new Response(null, { status: 416, headers: { "Content-Range": `bytes */${bytes.byteLength}` } });
   const body = bytes.slice(parsed.start, parsed.end + 1);
-  return new Response(body, { status: parsed.partial ? 206 : 200, headers: { "Content-Type": "audio/wav", "Accept-Ranges": "bytes", "Content-Length": String(body.byteLength), ...(parsed.partial ? { "Content-Range": `bytes ${parsed.start}-${parsed.end}/${bytes.byteLength}` } : {}) } });
+  return new Response(body, { status: parsed.partial ? 206 : 200, headers: { "Content-Type": audioContentType(resolved), "Accept-Ranges": "bytes", "Cache-Control": "public, max-age=31536000, immutable", "Content-Length": String(body.byteLength), ...(parsed.partial ? { "Content-Range": `bytes ${parsed.start}-${parsed.end}/${bytes.byteLength}` } : {}) } });
 }

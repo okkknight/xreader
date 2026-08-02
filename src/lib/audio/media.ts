@@ -13,6 +13,7 @@ export class FfmpegAudioProcessor implements AudioProcessor {
       "-y", "-i", inputPath,
       "-af", "loudnorm=I=-16:TP=-1.5:LRA=11",
       "-ar", "44100", "-ac", "1", "-sample_fmt", "s16",
+      "-codec:a", "libmp3lame", "-b:a", "96k",
       outputPath,
     ]);
 
