@@ -1,5 +1,6 @@
 import type { Prisma, PrismaClient } from "@prisma/client";
 import { courseDocumentSchema } from "@/lib/course-blocks/schema";
+import { publicCourseSentenceId } from "@/lib/db/course-sentence-ids";
 import type { PublicArticle } from "@/types/public-article";
 
 const publicInclude = {
@@ -46,8 +47,8 @@ function toPublicArticle(article: PublicArticleQuery): PublicArticle {
     return persisted ? [[audio.sentenceId, persisted] as const] : [];
   }));
   return {
-    id: article.id, slug: article.slug, titleEn: article.titleEn, titleZh: article.titleZh, dekZh: article.dekZh, topic: article.topic, difficulty: article.difficulty,
-    paragraphs: article.paragraphs.map((paragraph) => ({ id: paragraph.id, text: paragraph.text, sentences: paragraph.sentences.map((sentence) => { const audio = sentenceAudio.get(sentence.id); return { id: sentence.id, text: sentence.text, translationZh: sentence.translationZh, annotations: sentence.annotations.map((annotation) => ({ id: annotation.id, text: annotation.text, meaningZh: annotation.meaningZh, noteZh: annotation.noteZh, exampleEn: annotation.exampleEn })), audioPath: audio ? `${publicBasePath}/api/media/${audio.id}` : null, audioStatus: audio?.status ?? "MISSING" }; }) })),
+    id: article.id, slug: article.slug, titleEn: article.titleEn, titleZh: article.titleZh, dekZh: article.dekZh, topic: article.topic, difficulty: article.difficulty, publishedAt: (article.publishedAt ?? article.scheduledAt)?.toISOString() ?? null,
+    paragraphs: article.paragraphs.map((paragraph) => ({ id: paragraph.id, text: paragraph.text, sentences: paragraph.sentences.map((sentence) => { const sourceSentenceId = publicCourseSentenceId(article.id, sentence.id); const audio = sentenceAudio.get(sourceSentenceId); return { id: sourceSentenceId, text: sentence.text, translationZh: sentence.translationZh, annotations: sentence.annotations.map((annotation) => ({ id: annotation.id, text: annotation.text, meaningZh: annotation.meaningZh, noteZh: annotation.noteZh, exampleEn: annotation.exampleEn })), audioPath: audio ? `${publicBasePath}/api/media/${audio.id}` : null, audioStatus: audio?.status ?? "MISSING" }; }) })),
     courseBlocks,
   };
 }

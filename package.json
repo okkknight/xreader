@@ -16,6 +16,7 @@
     "course:convert-audio": "tsx scripts/convert-course-audio.ts --",
     "course:reading-audio": "tsx scripts/generate-reading-audio.ts --",
     "course:check": "tsx scripts/check-course.ts --",
+    "course:publish": "tsx scripts/publish-course.ts --",
     "audio:audition": "tsx scripts/audition-voices.ts --"
   },
   "dependencies": {

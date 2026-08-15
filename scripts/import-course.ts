@@ -5,6 +5,7 @@ import { courseDocumentSchema } from "@/lib/course-blocks/schema";
 import { coursePaths } from "@/lib/course-blocks/filesystem";
 import { parseSourceArticle } from "@/lib/course-blocks/source-parser";
 import { CourseDocumentRepository } from "@/lib/db/course-document-repository";
+import { persistedCourseSentenceId } from "@/lib/db/course-sentence-ids";
 
 const args = process.argv.slice(2).filter((argument) => argument !== "--");
 const slug = args[0];
@@ -34,7 +35,7 @@ async function main() {
         bodyText,
         wordCount: bodyText.trim().split(/\s+/).filter(Boolean).length,
         publishedAt: new Date(),
-        paragraphs: { create: source.paragraphs.map((paragraph) => ({ id: `${articleId}-${paragraph.id}`, order: paragraph.order, text: paragraph.text, sentences: { create: paragraph.sentences.map((sentence) => ({ id: sentence.id, order: sentence.order, text: sentence.text })) } })) },
+        paragraphs: { create: source.paragraphs.map((paragraph) => ({ id: `${articleId}-${paragraph.id}`, order: paragraph.order, text: paragraph.text, sentences: { create: paragraph.sentences.map((sentence) => ({ id: persistedCourseSentenceId(articleId, sentence.id), order: sentence.order, text: sentence.text })) } })) },
       },
     });
   });

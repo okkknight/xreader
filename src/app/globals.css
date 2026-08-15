@@ -4,6 +4,7 @@
 @import "../styles/archive.css";
 @import "../styles/reader.css";
 @import "../styles/player.css";
+@import "../styles/privacy.css";
 :root { --ink:#15221c; --muted:#68726b; --line:#dce2dc; --green:#176044; --soft-green:#edf5ef; --canvas:#fff; --paper:#fbfcfa; font-family: Georgia, "Noto Serif SC", "Songti SC", serif; color:var(--ink); background:var(--canvas); }
 *{box-sizing:border-box} html,body{min-height:100%;margin:0} body{background:var(--canvas);padding-bottom:5rem} a{color:inherit;text-decoration:none} button,select{font:inherit} button{cursor:pointer}
 .app-shell>header,.app-shell>main{width:min(100% - 3rem,76rem);margin:auto}.app-shell>header{height:5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-family:Arial,sans-serif}.wordmark{font-weight:800;letter-spacing:-.07em;font-size:1.4rem;color:var(--green)}nav{display:flex;gap:1.5rem;font-size:.85rem}nav a{color:var(--muted)}nav a:hover{color:var(--green)}

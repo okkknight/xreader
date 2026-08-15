@@ -19,5 +19,6 @@ export type PublicCourseBlock = {
 };
 export type PublicArticle = {
   id: string; slug: string; titleEn: string; titleZh: string; dekZh: string | null; topic: string; difficulty: string;
+  publishedAt?: string | null;
   paragraphs: PublicParagraph[]; courseBlocks: PublicCourseBlock[];
 };

@@ -73,6 +73,24 @@ NEXT_PUBLIC_BASE_PATH=/xreader DATABASE_URL=file:../data/xreader.db npm run buil
 
 本地构建用于确认代码可发布；最后的生产构建仍在 VPS 上完成。
 
+### 课程内容发布（无后台）
+
+课程仍由仓库中的 `courses/<slug>/` 和人工验收维护；不要建设或暴露发布 UI。完成 `course:check`、音频试听和数据库导入后，先在本地生成精确发布清单：
+
+```sh
+npm run course:publish -- <slug> --dry-run
+```
+
+该命令只读取公开课程的 SQLite 记录，拒绝缺失、非 READY、非 MP3 或越出 `data/audio` 的资产，并输出数据库路径与所有将同步的相对 MP3 路径。它不连接服务器。
+
+只有明确需要上新时，才提供主机和绝对远端目录：
+
+```sh
+npm run course:publish -- <slug> --host root@89.208.242.44 --remote-root /opt/boringmax/xreader
+```
+
+远程模式先传输到 `.releases/` staging，再同步清单中的音频，原子移动数据库并重启 `xreader.service`。运行后仍必须执行第 5 节的公开 catalog、课程详情和 Range 音频验证；不要把一次 dry run 当作已发布。
+
 ## 4. 最小发布流程
 
 以下命令只同步运行和构建所需的源码。不要使用会覆盖 `data/` 的全仓库 rsync。
@@ -84,15 +102,20 @@ rsync -a --delete public/ root@89.208.242.44:/opt/boringmax/xreader/public/
 rsync -a next.config.ts next-env.d.ts package.json package-lock.json tsconfig.json root@89.208.242.44:/opt/boringmax/xreader/
 ```
 
-然后在 VPS 生成 Linux 构建、裁剪开发依赖并重启服务：
+然后在 VPS 生成 Linux 构建、裁剪开发依赖并重启服务。此服务器的旧 Node 进程可能在 `systemctl stop` 时以 143 退出；该停止结果不能使后续构建短路。只有在 `npm ci`、Prisma Client 生成和 `.next/BUILD_ID` 都成功后才能 prune 或重启服务。常规代码发布优先设置 `XREADER_DIST_DIR` 生成独立构建目录，确认其中有 `BUILD_ID` 后再以短窗口切换，避免把未完成的构建暴露给线上服务。
 
 ```sh
 ssh -tt root@89.208.242.44 '
   set -eu
-  systemctl stop xreader.service
+  systemctl stop xreader.service || true
   cd /opt/boringmax/xreader
   npm ci
-  NEXT_PUBLIC_BASE_PATH=/xreader DATABASE_URL=file:../data/xreader.db npm run build
+  npx prisma generate
+  # 已在本地运行 npx tsc --noEmit 后，1GB VPS 可跳过 Next 的重复类型检查。
+  XREADER_SKIP_NEXT_TYPECHECK=1 NEXT_PRIVATE_BUILD_WORKER=1 \
+    NEXT_PUBLIC_BASE_PATH=/xreader DATABASE_URL=file:../data/xreader.db \
+    npm run build -- --webpack
+  test -f .next/BUILD_ID
   npm prune --omit=dev
   rm -rf scripts src/test
   chown -R shipnow:shipnow .next
@@ -102,7 +125,7 @@ ssh -tt root@89.208.242.44 '
 
 `ssh -tt` 是有意保留的：这台服务器上服务控制命令需要分配终端，普通非交互 SSH 可能静默地没有完成重启。
 
-不要运行 `npm run db:migrate` 作为常规发布步骤。该命令使用 `prisma db push --accept-data-loss`，只有确认 schema 发生变化并完成数据库备份后才可执行。
+不要运行 `npm run db:migrate` 作为常规发布步骤。该命令使用 `prisma db push --accept-data-loss`，只有确认 schema 发生变化并完成数据库备份后才可执行。若 `npm ci` 被 OOM 杀死或构建失败，保留当前 `node_modules` 和 `.next`，先在独立 staging 目录重建依赖；绝不可对不完整依赖执行 `npm prune --omit=dev`。
 
 ## 5. 发布后验证
 
@@ -113,6 +136,8 @@ curl -fsSL -o /dev/null -w 'home=%{http_code} %{content_type}\n' https://boringm
 curl -fsSL -o /dev/null -w 'article=%{http_code} %{content_type}\n' https://boringmax.com/xreader/articles/why-rain-has-a-smell
 curl -fsSL -o /dev/null -w 'cover=%{http_code} %{content_type}\n' https://boringmax.com/xreader/images/why-rain-has-a-smell-cover.png
 curl -fsSL -H 'Range: bytes=0-1023' -o /dev/null -w 'audio=%{http_code} %{content_type} bytes=%{size_download}\n' https://boringmax.com/xreader/api/media/<asset-id>
+curl -fsSL -o /dev/null -w 'v1-catalog=%{http_code} %{content_type}\n' https://boringmax.com/xreader/api/v1/catalog
+curl -fsSL -o /dev/null -w 'v1-article=%{http_code} %{content_type}\n' https://boringmax.com/xreader/api/v1/articles/why-rain-has-a-smell
 ```
 
 其中 `<asset-id>` 可从课程接口 `GET /xreader/api/articles/why-rain-has-a-smell` 返回的 `audioPath` 取得。音频预期返回 `206`。

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "slug": "multi-sentence-fixture",
+  "title": "Two Sentences, One Guided Block",
+  "sourceHash": "multi-sentence-source-hash",
+  "finalLectureHash": "multi-sentence-lecture-hash",
+  "blocks": [
+    {
+      "id": "block-bridge-01",
+      "type": "bridge",
+      "sentenceIds": ["p01-s01", "p01-s02"],
+      "segments": [
+        {
+          "language": "en",
+          "role": "original",
+          "text": "First sentence. Second sentence.",
+          "sourceSentenceIds": ["p01-s01", "p01-s02"]
+        },
+        {
+          "language": "zh",
+          "role": "teaching",
+          "text": "这两句要连起来理解。",
+          "sourceSentenceIds": ["p01-s01", "p01-s02"]
+        }
+      ],
+      "highlightCues": [
+        {
+          "id": "block-bridge-01-original-read-1",
+          "sentenceId": "p01-s01",
+          "sourceText": "First sentence.",
+          "sourceStart": 0,
+          "sourceEnd": 15,
+          "spokenText": "First sentence.",
+          "startMs": 0,
+          "endMs": 1200
+        },
+        {
+          "id": "block-bridge-01-original-read-2",
+          "sentenceId": "p01-s02",
+          "sourceText": "Second sentence.",
+          "sourceStart": 0,
+          "sourceEnd": 16,
+          "spokenText": "Second sentence.",
+          "startMs": 1400,
+          "endMs": 2600
+        }
+      ],
+      "subtitleCues": [
+        {
+          "id": "block-bridge-01-subtitle-1",
+          "text": "First sentence. Second sentence.",
+          "language": "en",
+          "startMs": 0,
+          "endMs": 2600
+        }
+      ]
+    }
+  ],
+  "audio": [
+    {
+      "audioId": "audio-multi-sentence-01",
+      "blockIds": ["block-bridge-01"],
+      "path": "why-rain-has-a-smell/label-001/2026-08-02T15-47-01-114Z-c4c4114c/audio.mp3",
+      "durationMs": 3200,
+      "status": "ready",
+      "scriptHash": "multi-sentence-script-hash"
+    }
+  ]
+}

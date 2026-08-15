@@ -7,6 +7,8 @@
 
 工程实现入口：
 
+- [iOS 原生迁移规格](../IOS_MIGRATION_SPEC.md)：已确认的 Web 体验等价、远程内容发布和 App Store 迁移边界。
+- [iOS 内容 API v1](../api/xreader-content-v1.md)：远程发布课程的只读 App 合同。
 - [新课程操作手册](COURSE_BLOCK_OPERATIONS.md)：从五阶段 Prompt 到检查、音频、导入和发布验收。
 - `src/lib/course-blocks/`：Course Block 合同、原文解析、终稿锚定和标签转换。
 - `src/lib/db/course-document-repository.ts`：导入已构建课程包。

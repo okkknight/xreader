@@ -1,3 +1,5 @@
+import { existsSync, readFileSync } from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { courseDocumentSchema, type CourseDocument } from "@/lib/course-blocks/schema";
 
@@ -19,6 +21,15 @@ const document: CourseDocument = {
 };
 
 describe("Course Block schema", () => {
+  it("accepts the shared multi-sentence course fixture", () => {
+    const fixturePath = path.resolve(process.cwd(), "tests/fixtures/course-blocks/multi-sentence-course.json");
+
+    expect(existsSync(fixturePath)).toBe(true);
+    const course = courseDocumentSchema.parse(JSON.parse(readFileSync(fixturePath, "utf8")));
+
+    expect(course.blocks.find((block) => block.id === "block-bridge-01")?.sentenceIds).toEqual(["p01-s01", "p01-s02"]);
+  });
+
   it("accepts all supported block types and audio mappings", () => {
     expect(courseDocumentSchema.parse(document)).toEqual(document);
   });
