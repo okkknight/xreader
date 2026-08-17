@@ -5,7 +5,7 @@
 ## 1. 当前生产拓扑
 
 - 公网地址：`https://boringmax.com/xreader/`
-- VPS：`root@89.208.242.44`
+- VPS：`ubuntu@43.172.79.177`
 - 应用目录：`/opt/boringmax/xreader`
 - 反向代理：Caddy
 - 应用服务：`xreader.service`
@@ -54,7 +54,7 @@
 sqlite3 -noheader data/xreader.db \
   "select path from CourseBlockAudio where status = 'READY' order by audioId;" \
   | rsync -a --files-from=- data/audio/ \
-      root@89.208.242.44:/opt/boringmax/xreader/data/audio/
+      ubuntu@43.172.79.177:/opt/boringmax/xreader/data/audio/
 ```
 
 在替换整个课程数据前，先停止服务，清理服务器的旧 `data/audio/<slug>/` 与旧数据库，再同步新数据库和上述引用清单；绝不上传历史版本作为“备份”。需要保留的本地版本留在本地生成工作区即可。
@@ -86,7 +86,7 @@ npm run course:publish -- <slug> --dry-run
 只有明确需要上新时，才提供主机和绝对远端目录：
 
 ```sh
-npm run course:publish -- <slug> --host root@89.208.242.44 --remote-root /opt/boringmax/xreader
+npm run course:publish -- <slug> --host ubuntu@43.172.79.177 --remote-root /opt/boringmax/xreader
 ```
 
 远程模式先传输到 `.releases/` staging，再同步清单中的音频，原子移动数据库并重启 `xreader.service`。运行后仍必须执行第 5 节的公开 catalog、课程详情和 Range 音频验证；不要把一次 dry run 当作已发布。
@@ -96,16 +96,16 @@ npm run course:publish -- <slug> --host root@89.208.242.44 --remote-root /opt/bo
 以下命令只同步运行和构建所需的源码。不要使用会覆盖 `data/` 的全仓库 rsync。
 
 ```sh
-rsync -a --delete --exclude 'test/' src/ root@89.208.242.44:/opt/boringmax/xreader/src/
-rsync -a --delete prisma/ root@89.208.242.44:/opt/boringmax/xreader/prisma/
-rsync -a --delete public/ root@89.208.242.44:/opt/boringmax/xreader/public/
-rsync -a next.config.ts next-env.d.ts package.json package-lock.json tsconfig.json root@89.208.242.44:/opt/boringmax/xreader/
+rsync -a --delete --exclude 'test/' src/ ubuntu@43.172.79.177:/opt/boringmax/xreader/src/
+rsync -a --delete prisma/ ubuntu@43.172.79.177:/opt/boringmax/xreader/prisma/
+rsync -a --delete public/ ubuntu@43.172.79.177:/opt/boringmax/xreader/public/
+rsync -a next.config.ts next-env.d.ts package.json package-lock.json tsconfig.json ubuntu@43.172.79.177:/opt/boringmax/xreader/
 ```
 
 然后在 VPS 生成 Linux 构建、裁剪开发依赖并重启服务。此服务器的旧 Node 进程可能在 `systemctl stop` 时以 143 退出；该停止结果不能使后续构建短路。只有在 `npm ci`、Prisma Client 生成和 `.next/BUILD_ID` 都成功后才能 prune 或重启服务。常规代码发布优先设置 `XREADER_DIST_DIR` 生成独立构建目录，确认其中有 `BUILD_ID` 后再以短窗口切换，避免把未完成的构建暴露给线上服务。
 
 ```sh
-ssh -tt root@89.208.242.44 '
+ssh -tt ubuntu@43.172.79.177 '
   set -eu
   systemctl stop xreader.service || true
   cd /opt/boringmax/xreader
@@ -145,8 +145,8 @@ curl -fsSL -o /dev/null -w 'v1-article=%{http_code} %{content_type}\n' https://b
 服务与日志检查：
 
 ```sh
-ssh -tt root@89.208.242.44 'systemctl --no-pager --full status xreader.service'
-ssh -tt root@89.208.242.44 'journalctl -u xreader.service -n 80 --no-pager'
+ssh -tt ubuntu@43.172.79.177 'systemctl --no-pager --full status xreader.service'
+ssh -tt ubuntu@43.172.79.177 'journalctl -u xreader.service -n 80 --no-pager'
 ```
 
 ## 6. 空间管理
@@ -160,7 +160,7 @@ ssh -tt root@89.208.242.44 'journalctl -u xreader.service -n 80 --no-pager'
 发布后可以安全清理：
 
 ```sh
-ssh -tt root@89.208.242.44 '
+ssh -tt ubuntu@43.172.79.177 '
   cd /opt/boringmax/xreader
   npm prune --omit=dev
   rm -rf scripts src/test
@@ -196,7 +196,7 @@ ssh -tt root@89.208.242.44 '
 先检查本机端口与真实页面，不要只看 systemd：
 
 ```sh
-ssh -tt root@89.208.242.44 'curl -fsSL -o /dev/null -w "%{http_code}\n" http://127.0.0.1:3014/xreader/'
+ssh -tt ubuntu@43.172.79.177 'curl -fsSL -o /dev/null -w "%{http_code}\n" http://127.0.0.1:3014/xreader/'
 ```
 
 再检查 Caddy 的 `/etc/caddy/xreader.caddy` 是否仍将 `/xreader*` 转发到 `127.0.0.1:3014`。
