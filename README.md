@@ -2,6 +2,8 @@
 
 XReader 是一个每天一篇的英语精读应用。读者可以在讲解和阅读模式之间切换，跟随课程音频阅读文章；课程内容通过文件系统制作后导入本地数据库。
 
+在线体验：[XReader](https://boringmax.com/xreader/)。
+
 ## 本地运行
 
 需要 Node.js 和 npm。复制 `.env.example` 为 `.env.local`，按需配置本地数据库路径；音频制作才需要 Fish Audio 凭据。
