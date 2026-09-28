@@ -6,7 +6,8 @@ coverage/
 playwright-report/
 test-results/
 .env
-.env.local
+.env.*
+!.env.example
 data/*.db
 data/*.db-journal
 prisma/data/*.db
@@ -17,4 +18,3 @@ data/exports/
 data/backups/
 .worktrees/
 .superpowers/
-.env.test
